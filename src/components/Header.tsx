@@ -21,7 +21,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="font-cinzel text-xs tracking-[0.25em] uppercase text-foreground/70 hover:text-gold transition-colors"
+              className="font-cinzel text-xs tracking-[0.25em] uppercase text-gold-dark hover:text-gold transition-colors drop-shadow-sm"
             >
               {link.label}
             </a>
@@ -30,12 +30,12 @@ const Header = () => {
 
         {/* Cart + Mobile Toggle (absolute right) */}
         <div className="absolute right-4 lg:right-8 flex items-center gap-4">
-          <button aria-label="Carrito" className="text-gold hover:text-gold-light transition-colors">
+          <button aria-label="Carrito" className="text-gold-dark hover:text-gold transition-colors drop-shadow-sm">
             <ShoppingBag className="w-5 h-5" />
           </button>
           <button
             aria-label="Menú"
-            className="md:hidden text-foreground"
+            className="md:hidden text-gold-dark"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -45,13 +45,13 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <nav className="md:hidden bg-cream/95 backdrop-blur-sm px-4 pb-6 pt-2">
+        <nav className="md:hidden bg-dark/90 backdrop-blur-sm px-4 pb-6 pt-2">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 font-cinzel text-xs tracking-[0.25em] uppercase text-foreground/70 hover:text-gold transition-colors"
+              className="block py-3 font-cinzel text-xs tracking-[0.25em] uppercase text-gold hover:text-gold-light transition-colors"
             >
               {link.label}
             </a>
