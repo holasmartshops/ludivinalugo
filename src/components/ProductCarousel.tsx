@@ -65,7 +65,7 @@ const ProductCarousel = () => {
                   <h3 className="font-cinzel text-lg tracking-wider text-gold">
                     {product.name}
                   </h3>
-                  <p className="font-inter text-cream/60 text-sm">
+                  <p className="font-outfit text-cream/60 text-sm">
                     {product.price}
                   </p>
                 </div>

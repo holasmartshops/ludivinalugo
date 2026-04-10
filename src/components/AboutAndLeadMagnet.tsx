@@ -29,11 +29,11 @@ const AboutAndLeadMagnet = () => {
               </div>
             </div>
 
-            <p className="font-inter text-lg text-cream/70 leading-relaxed mb-4">
+            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4">
               Desde joven descubrí mi conexión con el mundo angelical. Los ángeles me eligieron como
               canal para transmitir sus mensajes de amor, protección y guía a quienes más lo necesitan.
             </p>
-            <p className="font-inter text-lg text-cream/70 leading-relaxed">
+            <p className="font-outfit text-lg text-cream/70 leading-relaxed">
               Cada lectura, cada amuleto, cada sesión es un acto de devoción y servicio divino.
               Mi misión es ayudarte a descubrir la luz que ya vive dentro de ti.
             </p>
@@ -47,7 +47,7 @@ const AboutAndLeadMagnet = () => {
                 <h3 className="font-cinzel text-xl tracking-wider text-gold mb-3">
                   Mensaje Angelical Semanal
                 </h3>
-                <p className="font-inter text-cream/60">
+                <p className="font-outfit text-cream/60">
                   Recibe cada semana un mensaje de tus ángeles directamente en tu correo. Totalmente gratis.
                 </p>
               </div>
@@ -59,7 +59,7 @@ const AboutAndLeadMagnet = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Tu correo electrónico"
-                  className="w-full bg-dark-card text-cream placeholder:text-cream/30 px-4 py-3 font-inter text-base focus:outline-none focus:ring-1 focus:ring-gold/40 transition-colors"
+                  className="w-full bg-dark-card text-cream placeholder:text-cream/30 px-4 py-3 font-outfit text-base focus:outline-none focus:ring-1 focus:ring-gold/40 transition-colors"
                 />
                 <button
                   type="submit"
@@ -70,7 +70,7 @@ const AboutAndLeadMagnet = () => {
                 </button>
               </form>
 
-              <p className="text-center mt-4 font-inter text-xs text-cream/30">
+              <p className="text-center mt-4 font-outfit text-xs text-cream/30">
                 Sin spam. Solo luz y guía angelical.
               </p>
             </div>
