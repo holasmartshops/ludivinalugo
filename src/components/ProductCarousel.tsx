@@ -33,7 +33,7 @@ const ProductCarousel = () => {
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Colección
           </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Amuletos Sagrados
           </h2>
         </div>
