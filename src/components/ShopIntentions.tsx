@@ -18,7 +18,7 @@ const ShopIntentions = () => {
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Herramientas para tu Camino
           </h2>
-          <p className="font-cormorant text-cream/60 max-w-md mx-auto mt-6">
+          <p className="font-inter text-cream/60 max-w-md mx-auto mt-6">
             Cada amuleto está diseñado y energizado con una intención específica para acompañarte.
           </p>
         </div>
@@ -35,7 +35,7 @@ const ShopIntentions = () => {
               <h3 className="font-cinzel text-sm tracking-wider text-cream mb-1">
                 {item.label}
               </h3>
-              <p className="font-cormorant text-xs text-cream/50">
+              <p className="font-inter text-xs text-cream/50">
                 {item.description}
               </p>
             </button>
