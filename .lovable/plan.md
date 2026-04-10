@@ -1,43 +1,40 @@
 
 
-## Segunda Iteración — Header Transparente + Hero Estilo Referencia 2
+## Carrusel de Productos — Debajo de Servicios
 
-### Cambios
+### Que se construye
+Un carrusel interactivo de 7 amuletos entre ServicesSection y StatsBar, inspirado en la referencia "Celestial Amulet". El producto central aparece grande y destacado, los laterales se ven mas pequenos y oscurecidos. Flechas izquierda/derecha debajo de la imagen central para navegar. El nombre del producto aparece encima de la imagen activa. Boton "Ver Catalogo" debajo del carrusel.
 
-**1. Header (`Header.tsx`)**
-- Quitar fondo negro (`bg-dark/95`) y borde inferior — hacerlo **completamente transparente**
-- Quitar el logo "Ludivina Lugo" del header (ya estará en el Hero como texto de fondo)
-- Dejar solo los 5 enlaces de navegación (Inicio, Servicios, Tienda, Sobre Mí, Contacto) + carrito, flotando sobre el hero
-- Navegación minimalista: texto cream/blanco sobre fondo transparente
+### Productos (7 amuletos placeholder)
+1. Ala de Angel — usando la imagen subida (`Diseño_sin_título_14.png`)
+2. Escudo Celestial
+3. Estrella Divina
+4. Llave del Arcangel
+5. Cruz Angelical
+6. Pluma Sagrada
+7. Ojo Protector
 
-**2. Hero Section (`HeroSection.tsx`)**
-- Rediseño completo inspirado en Referencia 2:
-  - **Fondo**: texto gigante "LUDIVINA LUGO" en Cinzel Decorative, muy grande, semi-transparente (opacity baja), centrado como fondo decorativo detrás de la foto
-  - **Centro**: placeholder para foto PNG/SVG con transparencia de Ludivina (silueta recortada superpuesta sobre el texto de fondo)
-  - **Debajo de la foto**: subtítulo y texto devocional + CTAs
-  - Layout centrado (no dos columnas), la foto es el protagonista visual
-- El fondo del hero sigue siendo crema/blanco claro, con el texto decorativo grande en tono dorado o gris muy sutil
+Todos usaran la misma imagen placeholder (el ala de angel) por ahora.
 
-### Archivos a modificar
-- `src/components/Header.tsx` — transparente, sin logo, solo nav links
-- `src/components/HeroSection.tsx` — layout centrado con texto gigante de fondo + foto PNG placeholder encima
+### Diseno visual
+- Fondo negro (`bg-dark`), consistente con las secciones alrededor
+- Titulo de seccion: "Amuletos Sagrados" en Cinzel dorado
+- Carrusel horizontal: el item central se muestra a escala 1.0, con brillo completo. Items laterales a escala ~0.75, con opacity reducida y un overlay oscuro
+- Nombre del producto en Cinzel dorado aparece sobre la imagen central
+- Precio placeholder debajo del nombre
+- Dos flechas (`←` `→`) centradas debajo del producto central
+- Boton "Ver Catalogo" dorado outline debajo de todo
+- Transiciones suaves con CSS transforms
 
-### Resultado visual
-```text
-┌─────────────────────────────────────────────┐
-│  Inicio  Servicios  Tienda  Sobre Mí  🛒   │  ← header transparente
-│                                             │
-│           L U D I V I N A                   │  ← texto gigante de fondo
-│              L U G O                        │    (semi-transparente)
-│         ┌──────────────┐                    │
-│         │              │                    │
-│         │  FOTO PNG    │                    │  ← foto recortada encima
-│         │  (placeholder)│                   │
-│         │              │                    │
-│         └──────────────┘                    │
-│     Guía Espiritual Angelical               │
-│     Lectura · Amuletos · Guía               │
-│     [ Descubre tus Mensajes ]               │
-└─────────────────────────────────────────────┘
-```
+### Implementacion tecnica
+- Nuevo componente `src/components/ProductCarousel.tsx`
+- Copiar la imagen del ala a `src/assets/amuleto-placeholder.png`
+- Logica de carrusel custom con useState (indice activo), sin dependencia de Embla — mas control sobre el efecto de escala/opacidad
+- Calcular posicion de cada item relativa al indice activo para aplicar transforms
+- Agregar el componente en `Index.tsx` entre `ServicesSection` y `StatsBar`
+
+### Archivos
+- **Crear**: `src/components/ProductCarousel.tsx`
+- **Copiar**: `user-uploads://Diseño_sin_título_14.png` → `src/assets/amuleto-placeholder.png`
+- **Modificar**: `src/pages/Index.tsx` — insertar `<ProductCarousel />` despues de `<ServicesSection />`
 
