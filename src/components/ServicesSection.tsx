@@ -28,7 +28,6 @@ const ServicesSection = () => {
   return (
     <section id="servicios" className="bg-dark py-24">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Title */}
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Lo que ofrezco
@@ -36,17 +35,15 @@ const ServicesSection = () => {
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4">
             Mis Servicios
           </h2>
-          <div className="w-16 h-px bg-gold mx-auto" />
         </div>
 
-        {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {services.map((service) => (
             <div
               key={service.title}
-              className="group border border-dark-border hover:border-gold/40 bg-dark-card p-8 text-center transition-all duration-300"
+              className="group bg-dark-card p-8 text-center transition-all duration-300 hover:bg-dark-card/80"
             >
-              <div className="w-14 h-14 mx-auto mb-6 border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors">
+              <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center">
                 <service.icon className="w-6 h-6 text-gold" />
               </div>
               <h3 className="font-cinzel text-lg tracking-wider text-gold mb-4">
@@ -57,7 +54,7 @@ const ServicesSection = () => {
               </p>
               <a
                 href="#contacto"
-                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase text-gold border-b border-gold/40 pb-1 hover:border-gold transition-colors"
+                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase text-gold hover:text-gold-light transition-colors"
               >
                 {service.cta}
               </a>
