@@ -1,32 +1,39 @@
 
 
-## Corrección de Fuente — Estilo de Referencia
+## Tienda y Página de Producto — UI Estática
 
-### Análisis
-La imagen de referencia muestra una fuente sans-serif con estas características:
-- Peso ligero (~300-400)
-- Tracking ligeramente abierto
-- Formas geométricas suaves, más anchas que Inter
-- Color gris claro sobre fondo oscuro
+### Que se construye
+1. **Página de Catálogo (`/tienda`)** — Grid de los 7 productos con imagen, nombre, precio e intención. Estilo oscuro minimalista consistente con el landing. Filtros por intención (Paz, Claridad, Protección, Abundancia).
+2. **Página de Producto (`/tienda/:slug`)** — Vista detallada con imagen grande, nombre, precio, descripción, intención, y botón "Agregar al Carrito" (sin funcionalidad por ahora).
+3. **Datos compartidos** — Archivo de datos estáticos con los 7 productos (nombre, precio, slug, descripción, intención) reutilizado en el carrusel del landing, catálogo y página de producto.
+4. **Navegación** — El enlace "Ver Catálogo" del carrusel y el link "Tienda" del header apuntarán a `/tienda`. Header y Footer compartidos en ambas páginas.
 
-La fuente que mejor coincide es **Outfit** — una sans-serif geométrica moderna, limpia y ligera. Inter es más compacta y humanista, lo cual no coincide con la referencia.
+### Estructura de archivos
 
-### Cambios
+```text
+src/
+├── data/products.ts          ← datos estáticos de los 7 productos
+├── pages/
+│   ├── Tienda.tsx             ← catálogo con grid y filtros
+│   └── ProductDetail.tsx      ← página individual de producto
+├── components/
+│   └── ProductCard.tsx        ← card reutilizable (catálogo)
+```
 
-**1. `index.html`** — Reemplazar la carga de Inter por Outfit (weights 300, 400, 500)
+### Cambios en archivos existentes
+- **`src/App.tsx`** — Agregar rutas `/tienda` y `/tienda/:slug`
+- **`src/components/ProductCarousel.tsx`** — Importar productos desde `data/products.ts` en lugar de tenerlos hardcoded. Enlace "Ver Catálogo" apunta a `/tienda`
+- **`src/components/Header.tsx`** — Link "Tienda" navega a `/tienda` con React Router
+- **`src/components/ShopIntentions.tsx`** — Los botones de intención enlazan a `/tienda?intencion=paz` etc.
 
-**2. `tailwind.config.ts`** — Cambiar `inter: ["Inter", "sans-serif"]` por `outfit: ["Outfit", "sans-serif"]`
+### Diseño visual
+- Fondo oscuro (`bg-dark`), tipografía Cinzel para títulos con `gold-glow`, Outfit para body
+- Cards de producto minimalistas sin bordes, hover sutil con escala
+- Página de producto: layout de 2 columnas (imagen | info) en desktop, apilado en mobile
+- Filtros de intención como pills/chips dorados en la parte superior del catálogo
 
-**3. `src/index.css`** — Cambiar `font-inter` por `font-outfit` en body
-
-**4. Todos los componentes** — Buscar y reemplazar `font-inter` por `font-outfit` en:
-- HeroSection, ServicesSection, ProductCarousel, ShopIntentions, AboutAndLeadMagnet, Footer, StatsBar
-
-**5. Ajustar peso y tracking** — Aplicar `font-light` (300) y `tracking-wide` en textos descriptivos para replicar el estilo airy de la referencia
-
-### Archivos a modificar
-- `index.html`
-- `tailwind.config.ts`
-- `src/index.css`
-- Todos los componentes con `font-inter`
+### Detalle técnico
+- Navegación con `react-router-dom` (`Link`, `useParams`, `useSearchParams`)
+- Todos los productos usan la misma imagen placeholder (`amuleto-placeholder.png`) por ahora
+- Sin backend, sin carrito funcional — solo UI
 
