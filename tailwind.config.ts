@@ -17,6 +17,7 @@ export default {
         cinzel: ["Cinzel", "serif"],
         cinzelDecorative: ["Cinzel Decorative", "serif"],
         cormorant: ["Cormorant Garamond", "serif"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
