@@ -4,7 +4,7 @@ import ServicesSection from "@/components/ServicesSection";
 import ProductCarousel from "@/components/ProductCarousel";
 import StatsBar from "@/components/StatsBar";
 import ShopIntentions from "@/components/ShopIntentions";
-import AboutAndLeadMagnet from "@/components/AboutAndLeadMagnet";
+import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,7 +16,7 @@ const Index = () => {
       <ProductCarousel />
       <StatsBar />
       <ShopIntentions />
-      <AboutAndLeadMagnet />
+      <AboutSection />
       <Footer />
     </div>
   );
