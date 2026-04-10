@@ -1,16 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { products } from "@/data/products";
 import amuletoImg from "@/assets/amuleto-placeholder.png";
-
-const products = [
-  { name: "Ala de Ángel", price: "$45.00" },
-  { name: "Escudo Celestial", price: "$52.00" },
-  { name: "Estrella Divina", price: "$38.00" },
-  { name: "Llave del Arcángel", price: "$60.00" },
-  { name: "Cruz Angelical", price: "$42.00" },
-  { name: "Pluma Sagrada", price: "$35.00" },
-  { name: "Ojo Protector", price: "$48.00" },
-];
 
 const ProductCarousel = () => {
   const [active, setActive] = useState(0);
@@ -48,7 +40,7 @@ const ProductCarousel = () => {
 
             return (
               <div
-                key={product.name}
+                key={product.slug}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
                   transform: `translateX(${offset * 220}px) scale(${isActive ? 1 : 0.75})`,
@@ -95,12 +87,12 @@ const ProductCarousel = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a
-            href="#tienda"
+          <Link
+            to="/tienda"
             className="inline-block font-cinzel text-sm tracking-[0.2em] uppercase text-gold px-10 py-3 hover:text-gold-light transition-colors"
           >
             Ver Catálogo
-          </a>
+          </Link>
         </div>
       </div>
     </section>

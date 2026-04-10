@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { Shield, Sun, Eye, Gem } from "lucide-react";
 
 const intentions = [
-  { icon: Sun, label: "Paz", description: "Serenidad interior y armonía" },
-  { icon: Eye, label: "Claridad", description: "Visión y entendimiento profundo" },
-  { icon: Shield, label: "Protección", description: "Escudo angelical divino" },
-  { icon: Gem, label: "Abundancia", description: "Prosperidad y bendiciones" },
+  { icon: Sun, label: "Paz", slug: "paz", description: "Serenidad interior y armonía" },
+  { icon: Eye, label: "Claridad", slug: "claridad", description: "Visión y entendimiento profundo" },
+  { icon: Shield, label: "Protección", slug: "proteccion", description: "Escudo angelical divino" },
+  { icon: Gem, label: "Abundancia", slug: "abundancia", description: "Prosperidad y bendiciones" },
 ];
 
 const ShopIntentions = () => {
@@ -25,8 +26,9 @@ const ShopIntentions = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           {intentions.map((item) => (
-            <button
+            <Link
               key={item.label}
+              to={`/tienda?intencion=${item.slug}`}
               className="group flex flex-col items-center text-center"
             >
               <div className="w-20 h-20 rounded-full bg-dark-card flex items-center justify-center mb-4 group-hover:bg-gold/5 transition-all duration-300">
@@ -38,13 +40,9 @@ const ShopIntentions = () => {
               <p className="font-outfit text-xs text-cream/50">
                 {item.description}
               </p>
-            </button>
+            </Link>
           ))}
         </div>
-
-        <p className="text-center mt-12 font-cinzel text-xs tracking-[0.2em] uppercase text-cream/40">
-          Tienda próximamente disponible
-        </p>
       </div>
     </section>
   );
