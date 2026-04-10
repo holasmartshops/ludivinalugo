@@ -1,39 +1,25 @@
 
 
-## Tienda y Página de Producto — UI Estática
+## Rediseño Sección "Sobre Mí"
 
-### Que se construye
-1. **Página de Catálogo (`/tienda`)** — Grid de los 7 productos con imagen, nombre, precio e intención. Estilo oscuro minimalista consistente con el landing. Filtros por intención (Paz, Claridad, Protección, Abundancia).
-2. **Página de Producto (`/tienda/:slug`)** — Vista detallada con imagen grande, nombre, precio, descripción, intención, y botón "Agregar al Carrito" (sin funcionalidad por ahora).
-3. **Datos compartidos** — Archivo de datos estáticos con los 7 productos (nombre, precio, slug, descripción, intención) reutilizado en el carrusel del landing, catálogo y página de producto.
-4. **Navegación** — El enlace "Ver Catálogo" del carrusel y el link "Tienda" del header apuntarán a `/tienda`. Header y Footer compartidos en ambas páginas.
+### Cambios
 
-### Estructura de archivos
+**1. Fondo oscuro consistente**
+- Cambiar `bg-dark-card` por `bg-dark` para que coincida con el resto de la página
 
-```text
-src/
-├── data/products.ts          ← datos estáticos de los 7 productos
-├── pages/
-│   ├── Tienda.tsx             ← catálogo con grid y filtros
-│   └── ProductDetail.tsx      ← página individual de producto
-├── components/
-│   └── ProductCard.tsx        ← card reutilizable (catálogo)
-```
+**2. Nueva estructura de 2 columnas**
+- **Columna izquierda**: Logo de Ludivina Lugo (placeholder SVG con texto estilizado por ahora) + descripción debajo
+- **Columna derecha**: Silueta grande de persona (icono `User` de Lucide) con efecto de difuminado (gradient fade) en la parte inferior
 
-### Cambios en archivos existentes
-- **`src/App.tsx`** — Agregar rutas `/tienda` y `/tienda/:slug`
-- **`src/components/ProductCarousel.tsx`** — Importar productos desde `data/products.ts` en lugar de tenerlos hardcoded. Enlace "Ver Catálogo" apunta a `/tienda`
-- **`src/components/Header.tsx`** — Link "Tienda" navega a `/tienda` con React Router
-- **`src/components/ShopIntentions.tsx`** — Los botones de intención enlazan a `/tienda?intencion=paz` etc.
+**3. Eliminar formulario**
+- Quitar todo el bloque del lead magnet (email, botón, texto)
+- Eliminar imports de `useState`, `Send`
+- Renombrar componente a `AboutSection` para mayor claridad
 
-### Diseño visual
-- Fondo oscuro (`bg-dark`), tipografía Cinzel para títulos con `gold-glow`, Outfit para body
-- Cards de producto minimalistas sin bordes, hover sutil con escala
-- Página de producto: layout de 2 columnas (imagen | info) en desktop, apilado en mobile
-- Filtros de intención como pills/chips dorados en la parte superior del catálogo
+**4. Efecto de silueta**
+- Icono `User` grande (~300px) en color `cream/20`
+- Gradient overlay de `bg-dark` → transparente en la parte inferior para crear el efecto difuminado
 
-### Detalle técnico
-- Navegación con `react-router-dom` (`Link`, `useParams`, `useSearchParams`)
-- Todos los productos usan la misma imagen placeholder (`amuleto-placeholder.png`) por ahora
-- Sin backend, sin carrito funcional — solo UI
+### Archivo a modificar
+- `src/components/AboutAndLeadMagnet.tsx` — reescritura completa del componente
 
