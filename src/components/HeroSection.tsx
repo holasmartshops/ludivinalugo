@@ -54,7 +54,7 @@ const HeroSection = () => {
           Lectura de Ángeles · Amuletos · Guía Espiritual
         </p>
 
-        <p className="font-cormorant text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg mx-auto mb-10">
+        <p className="font-inter text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg mx-auto mb-10">
           Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino
           hacia la paz interior, la claridad y la protección divina.
         </p>
