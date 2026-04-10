@@ -18,13 +18,11 @@ const AboutAndLeadMagnet = () => {
             <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
               Mi Historia
             </p>
-            <h2 className="font-cinzel text-3xl tracking-wider text-cream mb-6">
+            <h2 className="font-cinzel text-3xl tracking-wider text-cream mb-8">
               Sobre Mí
             </h2>
-            <div className="w-16 h-px bg-gold mb-8" />
 
-            {/* Photo Placeholder */}
-            <div className="w-full h-64 bg-dark border border-dark-border mb-8 flex items-center justify-center">
+            <div className="w-full h-64 bg-dark mb-8 flex items-center justify-center">
               <div className="text-center">
                 <Sparkles className="w-6 h-6 text-gold/40 mx-auto mb-2" />
                 <p className="font-cinzel text-xs tracking-widest text-cream/40 uppercase">Foto</p>
@@ -43,7 +41,7 @@ const AboutAndLeadMagnet = () => {
 
           {/* Lead Magnet Column */}
           <div className="lg:mt-16">
-            <div className="border border-gold/20 bg-dark p-8 md:p-10">
+            <div className="bg-dark p-8 md:p-10">
               <div className="text-center mb-8">
                 <Sparkles className="w-6 h-6 text-gold mx-auto mb-4" />
                 <h3 className="font-cinzel text-xl tracking-wider text-gold mb-3">
@@ -61,7 +59,7 @@ const AboutAndLeadMagnet = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Tu correo electrónico"
-                  className="w-full bg-dark-card border border-dark-border text-cream placeholder:text-cream/30 px-4 py-3 font-cormorant text-base focus:outline-none focus:border-gold/60 transition-colors"
+                  className="w-full bg-dark-card text-cream placeholder:text-cream/30 px-4 py-3 font-cormorant text-base focus:outline-none focus:ring-1 focus:ring-gold/40 transition-colors"
                 />
                 <button
                   type="submit"

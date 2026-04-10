@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 
 const navLinks = [
@@ -11,11 +11,25 @@ const navLinks = [
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastY, setLastY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setHidden(y > lastY && y > 80);
+      setLastY(y);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastY]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
+      style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
+    >
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        {/* Desktop Nav — centered */}
         <nav className="hidden md:flex items-center gap-10 mx-auto">
           {navLinks.map((link) => (
             <a
@@ -28,7 +42,6 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Cart + Mobile Toggle (absolute right) */}
         <div className="absolute right-4 lg:right-8 flex items-center gap-4">
           <button aria-label="Carrito" className="text-gold-dark hover:text-gold transition-colors drop-shadow-sm">
             <ShoppingBag className="w-5 h-5" />
@@ -43,7 +56,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       {menuOpen && (
         <nav className="md:hidden bg-dark/90 backdrop-blur-sm px-4 pb-6 pt-2">
           {navLinks.map((link) => (

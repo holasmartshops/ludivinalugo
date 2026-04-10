@@ -29,7 +29,6 @@ const ProductCarousel = () => {
   return (
     <section className="bg-dark py-24 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Title */}
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Colección
@@ -37,10 +36,8 @@ const ProductCarousel = () => {
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4">
             Amuletos Sagrados
           </h2>
-          <div className="w-16 h-px bg-gold mx-auto" />
         </div>
 
-        {/* Carousel */}
         <div className="relative flex items-center justify-center h-[420px] md:h-[480px]">
           {products.map((product, i) => {
             const offset = getOffset(i);
@@ -60,7 +57,6 @@ const ProductCarousel = () => {
                 }}
                 onClick={() => setActive(i)}
               >
-                {/* Product name - only on active */}
                 <div
                   className={`text-center mb-3 transition-opacity duration-500 ${
                     isActive ? "opacity-100" : "opacity-0"
@@ -74,8 +70,7 @@ const ProductCarousel = () => {
                   </p>
                 </div>
 
-                {/* Image */}
-                <div className="relative w-48 h-64 md:w-56 md:h-72 overflow-hidden rounded-sm border border-dark-border">
+                <div className="relative w-48 h-64 md:w-56 md:h-72 overflow-hidden">
                   <img
                     src={amuletoImg}
                     alt={product.name}
@@ -90,27 +85,19 @@ const ProductCarousel = () => {
           })}
         </div>
 
-        {/* Arrows */}
-        <div className="flex items-center justify-center gap-8 mt-6">
-          <button
-            onClick={prev}
-            className="w-10 h-10 border border-gold/40 flex items-center justify-center text-gold hover:border-gold transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
+        <div className="flex items-center justify-center gap-12 mt-6">
+          <button onClick={prev} className="text-gold/60 hover:text-gold transition-colors">
+            <ChevronLeft className="w-6 h-6" strokeWidth={1.5} />
           </button>
-          <button
-            onClick={next}
-            className="w-10 h-10 border border-gold/40 flex items-center justify-center text-gold hover:border-gold transition-colors"
-          >
-            <ChevronRight className="w-5 h-5" />
+          <button onClick={next} className="text-gold/60 hover:text-gold transition-colors">
+            <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
           </button>
         </div>
 
-        {/* CTA */}
         <div className="text-center mt-12">
           <a
             href="#tienda"
-            className="inline-block font-cinzel text-sm tracking-[0.2em] uppercase text-gold border border-gold/40 px-10 py-3 hover:bg-gold/10 transition-colors"
+            className="inline-block font-cinzel text-sm tracking-[0.2em] uppercase text-gold px-10 py-3 hover:text-gold-light transition-colors"
           >
             Ver Catálogo
           </a>
