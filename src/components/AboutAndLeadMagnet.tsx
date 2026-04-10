@@ -18,7 +18,7 @@ const AboutAndLeadMagnet = () => {
             <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
               Mi Historia
             </p>
-            <h2 className="font-cinzel text-3xl tracking-wider text-cream mb-8">
+            <h2 className="font-cinzel text-3xl tracking-wider text-cream mb-8 gold-glow">
               Sobre Mí
             </h2>
 

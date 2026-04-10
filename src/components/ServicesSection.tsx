@@ -32,7 +32,7 @@ const ServicesSection = () => {
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Lo que ofrezco
           </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Mis Servicios
           </h2>
         </div>
@@ -41,20 +41,22 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group bg-dark-card p-8 text-center transition-all duration-300 hover:bg-dark-card/80"
+              className="group bg-dark-card rounded-2xl p-8 text-center transition-all duration-300 hover:bg-dark-card/80"
             >
-              <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center">
-                <service.icon className="w-6 h-6 text-gold" />
-              </div>
-              <h3 className="font-cinzel text-lg tracking-wider text-gold mb-4">
+              <h3 className="font-cinzel text-lg tracking-wider text-gold mb-4 gold-glow">
                 {service.title}
               </h3>
               <p className="font-cormorant text-cream/70 leading-relaxed mb-6">
                 {service.description}
               </p>
+
+              <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-dark flex items-center justify-center">
+                <service.icon className="w-7 h-7 text-gold" />
+              </div>
+
               <a
                 href="#contacto"
-                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase text-gold hover:text-gold-light transition-colors"
+                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase text-cream/80 border border-cream/20 rounded-full px-6 py-3 hover:border-gold hover:text-gold transition-all duration-300"
               >
                 {service.cta}
               </a>

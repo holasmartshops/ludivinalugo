@@ -15,7 +15,7 @@ const ShopIntentions = () => {
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Amuletos por Intención
           </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Herramientas para tu Camino
           </h2>
           <p className="font-cormorant text-cream/60 max-w-md mx-auto mt-6">
