@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
+import heroBgVideo from "@/assets/hero-bg-video.webm";
 import ludivinaImg from "@/assets/ludivina.png";
 import ludivinaLogo from "@/assets/ludivina-logo.png";
 
