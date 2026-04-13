@@ -1,39 +1,37 @@
 
 
-## Video de Fondo en Hero Section (Solo Desktop)
+## Diagnóstico y corrección de la Hero Section
 
-### Objetivo
-Usar el video `.webm` subido como fondo de la hero section, reemplazando la imagen estática `hero-bg.png` **únicamente en pantallas desktop** (lg: 1024px+). En móvil y tablet se mantiene la imagen estática actual.
+### Problemas detectados
 
-### Cambios en `src/components/HeroSection.tsx`
+1. **Video de fondo no se muestra**: El `<video>` está presente pero el fondo aparece blanco/vacío. Probablemente el video no se está reproduciendo correctamente en el preview.
+2. **Imagen de Ludivina no aparece**: La columna izquierda con `hidden lg:flex` debería mostrarse a 1382px, pero no se ve en el screenshot.
+3. **Logo no visible**: El `<img>` del logo está ahí pero podría ser transparente sobre fondo claro, haciéndolo invisible.
 
-**1. Copiar el video al proyecto**
-- `user-uploads://freepik_unicamente-las-luces-brillando-y-parpadeando-divin_kling_720p_3-4_24fps_29746.webm` → `src/assets/hero-bg-video.webm`
+### Plan de corrección
 
-**2. Agregar elemento `<video>` para desktop**
-- Añadir un `<video>` con clases `hidden lg:block absolute inset-0 w-full h-full object-cover`
-- Atributos: `autoPlay`, `loop`, `muted`, `playsInline` (necesarios para autoplay en navegadores)
-- El video se posiciona detrás del contenido (z-index bajo), igual que la imagen de fondo actual
+**1. Asegurar que el video se reproduce (`HeroSection.tsx`)**
+- Agregar `useRef` y `useEffect` para forzar el play del video programáticamente (algunos navegadores bloquean autoplay incluso con `muted`)
+- Agregar un fallback de fondo oscuro en el `<section>` para que si el video falla, el contenido siga siendo legible: `bg-dark`
 
-**3. Mantener la imagen estática para móvil/tablet**
-- El div con `background-image: hero-bg.png` se muestra con `lg:hidden` para que solo aparezca en pantallas pequeñas
-- En desktop el video lo reemplaza visualmente
+**2. Agregar el fade de transición del loop del video** (del plan anterior aprobado)
+- Escuchar `timeupdate`: cuando `currentTime >= duration - 1`, hacer opacity → 0
+- Escuchar `playing`: restaurar opacity → 1  
+- Clases CSS: `transition-opacity duration-1000`
 
-**4. El fade inferior y el contenido no cambian**
-- El gradient `to-dark` en el fondo sigue funcionando sobre el video
-- La imagen de Ludivina y el texto se mantienen igual
+**3. Verificar visibilidad de la imagen de Ludivina**
+- Confirmar que la imagen se muestra correctamente y no está oculta por z-index
 
-### Estructura resultante
-```text
-<section>
-  <div class="lg:hidden ...">       ← imagen estática (móvil/tablet)
-  <video class="hidden lg:block ..."> ← video fondo (desktop)
-  <div class="fade z-20">            ← gradient inferior (sin cambios)
-  <div class="contenido z-10">       ← grid con foto + texto (sin cambios)
-</section>
-```
+**4. Corregir el warning de ref en consola**
+- El error "Function components cannot be given refs" sugiere que `Index.tsx` o algún componente padre está pasando un ref a `HeroSection`. Verificar y agregar `forwardRef` si es necesario.
 
-### Consideración de rendimiento
-- El video es 720p y `.webm` (formato eficiente), no debería impactar rendimiento
-- `muted` es obligatorio para que el autoplay funcione en todos los navegadores
+### Cambios en archivo
+
+Solo se modifica `src/components/HeroSection.tsx`:
+- Importar `useRef`, `useEffect`, `forwardRef` de React
+- Envolver el componente en `forwardRef`
+- Crear `videoRef` para el `<video>`
+- `useEffect` que llame `videoRef.current.play()` al montar y maneje el fade del loop
+- Agregar `bg-dark` al `<section>` como color de fondo base
+- Agregar `transition-opacity duration-1000` al video
 
