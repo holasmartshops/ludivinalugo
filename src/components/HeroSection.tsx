@@ -10,10 +10,20 @@ const HeroSection = () => {
       id="inicio"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background image */}
+      {/* Background image (mobile/tablet) */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
+      />
+
+      {/* Background video (desktop only) */}
+      <video
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+        src={heroBgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
       />
 
       {/* Bottom fade to dark */}
