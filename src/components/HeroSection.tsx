@@ -20,7 +20,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       if (!videoElement.duration) return;
 
       // Si estamos en el último segundo del video, fade-out
-      if (videoElement.currentTime >= videoElement.duration - 1) {
+      if (videoElement.currentTime >= videoElement.duration + 1) {
         videoElement.style.opacity = "0";
       }
       // Si estamos en cualquier otro momento (incluyendo cuando vuelve a 0), fade-in
