@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 import ludivinaImg from "@/assets/ludivina.png";
+import ludivinaLogo from "@/assets/ludivina-logo.png";
 
 const HeroSection = () => {
   return (
