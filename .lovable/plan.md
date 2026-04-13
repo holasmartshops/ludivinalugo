@@ -1,25 +1,27 @@
 
 
-## Rediseño Sección "Sobre Mí"
+## Rediseño Hero Section — Con Fondo y Texto Gigante
+
+### Objetivo
+Integrar la foto de Ludivina y el layout de referencia (foto izquierda, info derecha, botón redondeado blanco) **manteniendo** el fondo actual (`hero-bg.png`) y el texto gigante decorativo "Ludivina Lugo".
 
 ### Cambios
 
-**1. Fondo oscuro consistente**
-- Cambiar `bg-dark-card` por `bg-dark` para que coincida con el resto de la página
+**1. Copiar imagen de Ludivina**
+- `user-uploads://Diseño_sin_título_15.png` → `src/assets/ludivina.png`
 
-**2. Nueva estructura de 2 columnas**
-- **Columna izquierda**: Logo de Ludivina Lugo (placeholder SVG con texto estilizado por ahora) + descripción debajo
-- **Columna derecha**: Silueta grande de persona (icono `User` de Lucide) con efecto de difuminado (gradient fade) en la parte inferior
+**2. Mantener del hero actual**
+- Fondo con `hero-bg.png` (background image)
+- Fade inferior hacia `bg-dark`
+- Texto gigante decorativo "Ludivina / Lugo" semitransparente (`text-gold-dark/20`)
 
-**3. Eliminar formulario**
-- Quitar todo el bloque del lead magnet (email, botón, texto)
-- Eliminar imports de `useState`, `Send`
-- Renombrar componente a `AboutSection` para mayor claridad
-
-**4. Efecto de silueta**
-- Icono `User` grande (~300px) en color `cream/20`
-- Gradient overlay de `bg-dark` → transparente en la parte inferior para crear el efecto difuminado
+**3. Nuevo layout sobre el fondo**
+- 2 columnas centradas verticalmente sobre el fondo existente
+- **Izquierda**: Imagen de Ludivina con fade inferior
+- **Derecha**: Subtítulo "Guía Espiritual Angelical", servicios, descripción
+- Botón "Descubre tus Mensajes": `rounded-full`, fondo blanco, texto oscuro
+- Botón "Ver Amuletos": outline redondeado
 
 ### Archivo a modificar
-- `src/components/AboutAndLeadMagnet.tsx` — reescritura completa del componente
+- `src/components/HeroSection.tsx` — reestructurar contenido interior manteniendo fondo y texto gigante
 
