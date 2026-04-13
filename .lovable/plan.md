@@ -1,22 +1,39 @@
 
 
-## Ajustes a la imagen de Ludivina en Hero Section
+## Video de Fondo en Hero Section (Solo Desktop)
+
+### Objetivo
+Usar el video `.webm` subido como fondo de la hero section, reemplazando la imagen estática `hero-bg.png` **únicamente en pantallas desktop** (lg: 1024px+). En móvil y tablet se mantiene la imagen estática actual.
 
 ### Cambios en `src/components/HeroSection.tsx`
 
-**1. Eliminar el fade negro individual de la imagen**
-- Quitar el div overlay con `bg-gradient-to-t from-dark to-transparent` que está sobre la imagen (línea 41)
+**1. Copiar el video al proyecto**
+- `user-uploads://freepik_unicamente-las-luces-brillando-y-parpadeando-divin_kling_720p_3-4_24fps_29746.webm` → `src/assets/hero-bg-video.webm`
 
-**2. Hacer la imagen más grande y que llegue al fondo de la hero section**
-- Cambiar el contenedor de la imagen de `w-72 md:w-80 lg:w-96` a algo más grande como `w-80 md:w-96 lg:w-[28rem]`
-- Alinear la imagen al fondo de la sección usando `items-end` y quitar el padding bottom para que la imagen toque el borde inferior
-- La imagen debe extenderse hasta el final de la hero section
+**2. Agregar elemento `<video>` para desktop**
+- Añadir un `<video>` con clases `hidden lg:block absolute inset-0 w-full h-full object-cover`
+- Atributos: `autoPlay`, `loop`, `muted`, `playsInline` (necesarios para autoplay en navegadores)
+- El video se posiciona detrás del contenido (z-index bajo), igual que la imagen de fondo actual
 
-**3. El fade general de la hero section (línea 18) cubre tanto el fondo como la imagen**
-- Ya existe el fade general en la parte inferior (`h-48 bg-gradient-to-b from-transparent to-dark`), este se encargará de difuminar tanto el fondo como la imagen de Ludivina
-- Aumentar el z-index del fade general para que esté por encima de la imagen, o posicionar la imagen detrás del fade
+**3. Mantener la imagen estática para móvil/tablet**
+- El div con `background-image: hero-bg.png` se muestra con `lg:hidden` para que solo aparezca en pantallas pequeñas
+- En desktop el video lo reemplaza visualmente
+
+**4. El fade inferior y el contenido no cambian**
+- El gradient `to-dark` en el fondo sigue funcionando sobre el video
+- La imagen de Ludivina y el texto se mantienen igual
 
 ### Estructura resultante
-- Foto de Ludivina sin fade propio, más grande, tocando el borde inferior
-- El fade de la hero section (compartido) oculta la parte inferior de todo: fondo + imagen
+```text
+<section>
+  <div class="lg:hidden ...">       ← imagen estática (móvil/tablet)
+  <video class="hidden lg:block ..."> ← video fondo (desktop)
+  <div class="fade z-20">            ← gradient inferior (sin cambios)
+  <div class="contenido z-10">       ← grid con foto + texto (sin cambios)
+</section>
+```
+
+### Consideración de rendimiento
+- El video es 720p y `.webm` (formato eficiente), no debería impactar rendimiento
+- `muted` es obligatorio para que el autoplay funcione en todos los navegadores
 
