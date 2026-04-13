@@ -18,8 +18,6 @@ const HeroSection = () => {
       {/* Bottom fade to dark */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
 
-     </div>
-
       {/* Two-column layout */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
         {/* Left — Ludivina photo (hidden on mobile/tablet) */}
