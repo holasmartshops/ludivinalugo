@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
+import ludivinaImg from "@/assets/ludivina.png";
 
 const HeroSection = () => {
   return (
@@ -26,52 +27,58 @@ const HeroSection = () => {
         </span>
       </div>
 
-      {/* Photo placeholder (PNG with transparency) */}
-      <div className="relative z-10 mt-20 mb-8">
-        <div className="w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] flex items-end justify-center">
-          <div className="w-full h-full bg-foreground/5 backdrop-blur-sm border border-gold/15 flex items-center justify-center">
-            <div className="text-center">
-              <Sparkles className="w-8 h-8 text-gold/40 mx-auto mb-3" />
-              <p className="font-cinzel text-xs tracking-widest text-foreground/60 uppercase">
-                Foto PNG<br />Ludivina Lugo
-              </p>
-            </div>
+      {/* Two-column layout */}
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-end lg:items-center min-h-screen pt-24 pb-20">
+        {/* Left — Ludivina photo */}
+        <div className="flex justify-center lg:justify-start">
+          <div className="relative w-72 md:w-80 lg:w-96">
+            <img
+              src={ludivinaImg}
+              alt="Ludivina Lugo — Guía Espiritual Angelical"
+              className="w-full h-auto object-contain"
+            />
+            {/* Bottom fade */}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent" />
           </div>
         </div>
-      </div>
 
-      {/* Text below photo */}
-      <div className="relative z-10 text-center px-4 pb-20 animate-fade-in-up">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Sparkles className="w-4 h-4 text-gold" />
-          <span className="font-cinzel text-xs tracking-[0.3em] uppercase text-foreground/70">
-            Guía Espiritual Angelical
-          </span>
-          <Sparkles className="w-4 h-4 text-gold" />
-        </div>
+        {/* Right — Info */}
+        <div className="text-center lg:text-left animate-fade-in-up">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
+            <Sparkles className="w-4 h-4 text-gold" />
+            <span className="font-cinzel text-xs tracking-[0.3em] uppercase text-foreground/70">
+              Guía Espiritual Angelical
+            </span>
+            <Sparkles className="w-4 h-4 text-gold" />
+          </div>
 
-        <p className="font-cinzel text-sm md:text-base tracking-[0.2em] uppercase text-gold-dark mb-6">
-          Lectura de Ángeles · Amuletos · Guía Espiritual
-        </p>
+          <h1 className="font-cinzelDecorative text-4xl md:text-5xl lg:text-6xl tracking-[0.1em] text-gold gold-glow mb-4">
+            Ludivina Lugo
+          </h1>
 
-        <p className="font-outfit text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg mx-auto mb-10">
-          Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino
-          hacia la paz interior, la claridad y la protección divina.
-        </p>
+          <p className="font-cinzel text-sm md:text-base tracking-[0.2em] uppercase text-gold-dark mb-6">
+            Lectura de Ángeles · Amuletos · Guía Espiritual
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#servicios"
-            className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 border-2 border-gold text-gold-dark hover:bg-gold hover:text-foreground transition-all duration-300"
-          >
-            Descubre tus Mensajes
-          </a>
-          <a
-            href="#tienda"
-            className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 border border-foreground/20 text-foreground hover:border-gold hover:text-gold transition-all duration-300"
-          >
-            Ver Amuletos
-          </a>
+          <p className="font-outfit text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10">
+            Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino
+            hacia la paz interior, la claridad y la protección divina.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              href="#servicios"
+              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
+            >
+              Descubre tus Mensajes
+            </a>
+            <a
+              href="#tienda"
+              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border border-foreground/20 text-foreground hover:border-gold hover:text-gold transition-all duration-300"
+            >
+              Ver Amuletos
+            </a>
+          </div>
         </div>
       </div>
     </section>
