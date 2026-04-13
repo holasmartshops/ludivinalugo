@@ -54,7 +54,7 @@ const HeroSection = () => {
           <img
             src={ludivinaLogo}
             alt="Ludivina Lugo"
-            className="w-64 md:w-80 lg:w-96 h-auto mb-6"
+            className="w-full h-auto mb-6"
           />
 
           <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
