@@ -15,7 +15,7 @@ const HeroSection = () => {
       />
 
       {/* Bottom fade to dark */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
 
       {/* Giant background text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
