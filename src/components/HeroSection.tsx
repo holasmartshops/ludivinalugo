@@ -28,10 +28,10 @@ const HeroSection = () => {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-end min-h-screen pt-24 pb-0">
-        {/* Left — Ludivina photo */}
-        <div className="flex justify-center lg:justify-start items-end self-end">
-          <div className="relative w-80 md:w-96 lg:w-[28rem]">
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
+        {/* Left — Ludivina photo (hidden on mobile/tablet) */}
+        <div className="hidden lg:flex justify-start items-end self-end">
+          <div className="relative w-[32rem]">
             <img
               src={ludivinaImg}
               alt="Ludivina Lugo — Guía Espiritual Angelical"
@@ -40,25 +40,25 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right — Info */}
-        <div className="text-center lg:text-left animate-fade-in-up">
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-            <Sparkles className="w-4 h-4 text-gold" />
-            <span className="font-cinzel text-xs tracking-[0.3em] uppercase text-foreground/70">
+        {/* Right — Info (centered vertically) */}
+        <div className="text-center lg:text-left animate-fade-in-up self-center">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+            <Sparkles className="w-5 h-5 text-gold" />
+            <span className="font-cinzel text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
               Guía Espiritual Angelical
             </span>
-            <Sparkles className="w-4 h-4 text-gold" />
+            <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <h1 className="font-cinzelDecorative text-4xl md:text-5xl lg:text-6xl tracking-[0.1em] text-gold gold-glow mb-4">
+          <h1 className="font-cinzelDecorative text-5xl md:text-6xl lg:text-7xl tracking-[0.1em] text-gold gold-glow mb-6">
             Ludivina Lugo
           </h1>
 
-          <p className="font-cinzel text-sm md:text-base tracking-[0.2em] uppercase text-gold-dark mb-6">
+          <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
 
-          <p className="font-outfit text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10">
+          <p className="font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
             Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino
             hacia la paz interior, la claridad y la protección divina.
           </p>
