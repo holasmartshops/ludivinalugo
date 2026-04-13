@@ -1,14 +1,50 @@
+import React, { useRef, useEffect, forwardRef } from "react";
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 import heroBgVideo from "@/assets/hero-bg-video.webm";
 import ludivinaImg from "@/assets/ludivina.png";
 import ludivinaLogo from "@/assets/ludivina-logo.png";
 
-const HeroSection = () => {
+const HeroSection = forwardRef<HTMLElement>((props, ref) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    // Force play programmatically
+    videoElement.play().catch((err) =>
+      console.error("Video autoplay failed:", err)
+    );
+
+    // Fade-out near end of loop, fade-in on restart
+    const handleTimeUpdate = () => {
+      if (
+        videoElement.duration &&
+        videoElement.currentTime >= videoElement.duration - 1
+      ) {
+        videoElement.style.opacity = "0";
+      }
+    };
+
+    const handlePlaying = () => {
+      videoElement.style.opacity = "1";
+    };
+
+    videoElement.addEventListener("timeupdate", handleTimeUpdate);
+    videoElement.addEventListener("playing", handlePlaying);
+
+    return () => {
+      videoElement.removeEventListener("timeupdate", handleTimeUpdate);
+      videoElement.removeEventListener("playing", handlePlaying);
+    };
+  }, []);
+
   return (
     <section
+      ref={ref}
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark"
     >
       {/* Background image (mobile/tablet) */}
       <div
@@ -18,13 +54,15 @@ const HeroSection = () => {
 
       {/* Background video (desktop only) */}
       <video
-        className="hidden lg:block absolute inset-0 w-full h-full object-cover"
-        src={heroBgVideo}
+        ref={videoRef}
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
         autoPlay
         loop
         muted
         playsInline
-      />
+      >
+        <source src={heroBgVideo} type="video/webm" />
+      </video>
 
       {/* Bottom fade to dark */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
@@ -85,6 +123,8 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = "HeroSection";
 
 export default HeroSection;
