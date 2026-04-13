@@ -43,7 +43,8 @@ const HeroSection = () => {
 
       {/* Background video (desktop only) */}
       <video
-        className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+        ref={videoRef}
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
         src={heroBgVideo}
         autoPlay
         loop
