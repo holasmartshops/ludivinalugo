@@ -18,15 +18,7 @@ const HeroSection = () => {
       {/* Bottom fade to dark */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
 
-      {/* Giant background text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
-        <span className="font-cinzelDecorative text-[8rem] md:text-[12rem] lg:text-[16rem] leading-none tracking-[0.15em] text-gold-dark/20 uppercase">
-          Ludivina
-        </span>
-        <span className="font-cinzelDecorative text-[6rem] md:text-[9rem] lg:text-[12rem] leading-none tracking-[0.3em] text-gold-dark/20 uppercase -mt-4 md:-mt-8">
-          Lugo
-        </span>
-      </div>
+     </div>
 
       {/* Two-column layout */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
