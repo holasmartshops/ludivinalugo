@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 import heroBgVideo from "@/assets/hero-bg-video.webm";
@@ -5,6 +6,30 @@ import ludivinaImg from "@/assets/ludivina.png";
 import ludivinaLogo from "@/assets/ludivina-logo.png";
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 1) {
+        video.style.opacity = '0';
+      }
+    };
+
+    const handlePlaying = () => {
+      video.style.opacity = '1';
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('playing', handlePlaying);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('playing', handlePlaying);
+    };
+  }, []);
   return (
     <section
       id="inicio"
@@ -18,7 +43,8 @@ const HeroSection = () => {
 
       {/* Background video (desktop only) */}
       <video
-        className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+        ref={videoRef}
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
         src={heroBgVideo}
         autoPlay
         loop
