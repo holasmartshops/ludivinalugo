@@ -15,7 +15,7 @@ const HeroSection = () => {
       />
 
       {/* Bottom fade to dark */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
 
       {/* Giant background text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
@@ -28,17 +28,15 @@ const HeroSection = () => {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-end lg:items-center min-h-screen pt-24 pb-20">
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-end min-h-screen pt-24 pb-0">
         {/* Left — Ludivina photo */}
-        <div className="flex justify-center lg:justify-start">
-          <div className="relative w-72 md:w-80 lg:w-96">
+        <div className="flex justify-center lg:justify-start items-end self-end">
+          <div className="relative w-80 md:w-96 lg:w-[28rem]">
             <img
               src={ludivinaImg}
               alt="Ludivina Lugo — Guía Espiritual Angelical"
               className="w-full h-auto object-contain"
             />
-            {/* Bottom fade */}
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent" />
           </div>
         </div>
 
