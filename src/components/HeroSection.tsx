@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 import ludivinaImg from "@/assets/ludivina.png";
+import ludivinaLogo from "@/assets/ludivina-logo.png";
 
 const HeroSection = () => {
   return (
@@ -50,9 +51,11 @@ const HeroSection = () => {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <h1 className="font-cinzelDecorative text-5xl md:text-6xl lg:text-7xl tracking-[0.1em] text-gold gold-glow mb-6">
-            Ludivina Lugo
-          </h1>
+          <img
+            src={ludivinaLogo}
+            alt="Ludivina Lugo"
+            className="w-64 md:w-80 lg:w-96 h-auto mb-6"
+          />
 
           <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
