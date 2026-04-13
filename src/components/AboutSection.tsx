@@ -1,4 +1,5 @@
-import { User, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import ludivinaAbout from "@/assets/ludivina-about.png";
 
 const AboutSection = () => {
   return (
@@ -30,8 +31,12 @@ const AboutSection = () => {
 
           {/* Right Column — Silhouette with fade */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-72 h-96">
-              <User className="w-full h-full text-cream/20" strokeWidth={0.8} />
+            <div className="relative w-80 lg:w-96">
+              <img
+                src={ludivinaAbout}
+                alt="Ludivina Lugo — Guía Espiritual Angelical"
+                className="w-full h-auto object-contain"
+              />
               {/* Bottom fade overlay */}
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent" />
             </div>
