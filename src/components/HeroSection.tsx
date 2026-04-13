@@ -13,17 +13,19 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
     if (!videoElement) return;
 
     // Force play programmatically
-    videoElement.play().catch((err) =>
-      console.error("Video autoplay failed:", err)
-    );
+    videoElement.play().catch((err) => console.error("Video autoplay failed:", err));
 
     // Fade-out near end of loop, fade-in on restart
     const handleTimeUpdate = () => {
-      if (
-        videoElement.duration &&
-        videoElement.currentTime >= videoElement.duration - 1
-      ) {
+      if (!videoElement.duration) return;
+
+      // Si estamos en el último segundo del video, fade-out
+      if (videoElement.currentTime >= videoElement.duration - 1) {
         videoElement.style.opacity = "0";
+      }
+      // Si estamos en cualquier otro momento (incluyendo cuando vuelve a 0), fade-in
+      else {
+        videoElement.style.opacity = "1";
       }
     };
 
@@ -90,19 +92,15 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <img
-            src={ludivinaLogo}
-            alt="Ludivina Lugo"
-            className="w-full h-auto mb-6"
-          />
+          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto mb-6" />
 
           <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
 
           <p className="font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
-            Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino
-            hacia la paz interior, la claridad y la protección divina.
+            Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
+            claridad y la protección divina.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
