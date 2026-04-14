@@ -1,19 +1,16 @@
 
 
-## Plan: Scroll to top on navigation
+## Plan: Alinear iconos y botones al fondo de las cards de servicios
 
-**Problem**: Clicking "Tienda" or "Inicio" in the navbar doesn't scroll to the top of the page.
+**Problema**: Las descripciones tienen longitudes diferentes, lo que hace que los iconos y botones se posicionen a alturas distintas en cada card.
 
-**Solution**: Two changes in `src/components/Header.tsx`:
+**Solución**: Usar flexbox vertical en cada card con `flex-1` en la descripción para que el espacio variable se absorba ahí, empujando los iconos y botones a una posición consistente respecto al fondo.
 
-1. **`handleNav` function**: Add `window.scrollTo(0, 0)` for non-anchor links (`/tienda` and `/`), so clicking them scrolls to top.
+### Cambios en `src/components/ServicesSection.tsx`
 
-2. Specifically, after `setMenuOpen(false)`, if the href does NOT start with `/#`, call `window.scrollTo({ top: 0, behavior: 'smooth' })`. For `/#` links on the home page, keep the existing `scrollIntoView` behavior. For `/#` links when navigating TO home from another page, also scroll after navigation.
+1. **Card container (línea 44)**: Agregar `flex flex-col h-full` para que cada card ocupe toda la altura y use layout vertical.
+2. **Descripción (línea 49)**: Agregar `flex-1` para que absorba el espacio sobrante, manteniendo iconos y botones alineados al fondo.
+3. **Wrapper de icono + botón**: Envolver el icono y el botón en un `div` con `mt-auto` para anclarlos al fondo de la card.
 
-Additionally, add a `useEffect` in `src/pages/Tienda.tsx` and `src/pages/Index.tsx` (or handle it globally) to scroll to top on mount — this covers cases where React Router changes the route but doesn't reset scroll position.
-
-### Files to change
-
-- **`src/components/Header.tsx`**: Update `handleNav` to add `window.scrollTo({ top: 0, behavior: 'smooth' })` for `/tienda` and `/` links.
-- **`src/App.tsx`**: Add a `ScrollToTop` component inside `BrowserRouter` that listens to `location.pathname` changes and scrolls to top — this is the cleanest global solution.
+Esto garantiza que sin importar la longitud del texto, los iconos y botones siempre estén a la misma distancia del borde inferior.
 
