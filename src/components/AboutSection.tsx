@@ -18,15 +18,8 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left Column — Logo + Description */}
           <div>
-            {/* Logo placeholder */}
             <div className="mb-10">
-              <Sparkles className="w-5 h-5 text-gold mb-3" />
-              <h2 className="font-cinzel text-3xl tracking-[0.15em] text-gold gold-glow leading-tight">
-                Ludivina<br />Lugo
-              </h2>
-              <p className="font-cinzel text-[10px] tracking-[0.4em] uppercase text-cream/40 mt-1">
-                Ángeles & Guía Espiritual
-              </p>
+              <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-64 h-auto" />
             </div>
 
             <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-light tracking-wide">
