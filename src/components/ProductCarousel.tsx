@@ -45,7 +45,7 @@ const ProductCarousel = () => {
                 style={{
                   transform: `translateX(${offset * 220}px) scale(${isActive ? 1 : 0.75})`,
                   zIndex: isActive ? 10 : 5 - Math.abs(offset),
-                  opacity: isActive ? 1 : 0.4,
+                  opacity: isActive ? 1 : Math.abs(offset) === 1 ? 0.4 : 0.15,
                 }}
                 onClick={() => setActive(i)}
               >
