@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
@@ -8,8 +8,21 @@ const ProductCarousel = () => {
   const [active, setActive] = useState(0);
   const total = products.length;
 
+  const touchStartX = useRef<number>(0);
+
   const prev = () => setActive((i) => (i - 1 + total) % total);
   const next = () => setActive((i) => (i + 1) % total);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? next() : prev();
+    }
+  };
 
   const getOffset = (index: number) => {
     let diff = index - active;
@@ -30,7 +43,12 @@ const ProductCarousel = () => {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center h-[480px] md:h-[540px]">
+        <div
+          className="relative flex items-center justify-center h-[480px] md:h-[540px]"
+          style={{ touchAction: "pan-y" }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
