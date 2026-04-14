@@ -34,7 +34,7 @@ const ProductCarousel = () => {
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
-            const visible = Math.abs(offset) <= 3;
+            const visible = Math.abs(offset) <= 2;
 
             if (!visible) return null;
 
@@ -45,7 +45,7 @@ const ProductCarousel = () => {
                 style={{
                   transform: `translateX(${offset * 220}px) scale(${isActive ? 1 : 0.75})`,
                   zIndex: isActive ? 10 : 5 - Math.abs(offset),
-                  opacity: isActive ? 1 : 0.4,
+                  opacity: isActive ? 1 : Math.abs(offset) === 1 ? 0.4 : 0.15,
                 }}
                 onClick={() => setActive(i)}
               >
