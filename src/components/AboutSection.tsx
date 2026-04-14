@@ -14,7 +14,7 @@ const AboutSection = () => {
       <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-dark to-transparent z-[1]" />
       {/* Bottom fade to dark */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-dark to-transparent z-[1]" />
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="relative z-[2] container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left Column — Logo + Description */}
           <div>
