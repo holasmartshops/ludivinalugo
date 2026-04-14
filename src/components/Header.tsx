@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
+        className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-transform duration-300"
         style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
