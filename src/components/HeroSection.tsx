@@ -67,7 +67,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       </video>
 
       {/* Bottom fade to dark */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 z-20" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 30%, rgba(10,10,10,0.85) 60%, #0a0a0a 100%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-dark z-20" />
 
       {/* Two-column layout */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
