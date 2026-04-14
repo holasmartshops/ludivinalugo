@@ -18,7 +18,7 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left Column — Logo + Description */}
           <div>
-            <div className="mb-10">
+            <div className="mb-10 flex justify-center lg:justify-start">
               <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-64 h-auto" />
             </div>
 
