@@ -43,7 +43,12 @@ const ProductCarousel = () => {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center h-[480px] md:h-[540px]">
+        <div
+          className="relative flex items-center justify-center h-[480px] md:h-[540px]"
+          style={{ touchAction: "pan-y" }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
