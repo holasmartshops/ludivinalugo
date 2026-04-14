@@ -45,27 +45,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-cinzel text-xs tracking-[0.2em] uppercase text-gold mb-4">
-              Newsletter
-            </h4>
-            <p className="font-outfit text-cream/50 mb-3">
-              Recibe mensajes angelicales semanales.
-            </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex">
-              <input
-                type="email"
-                placeholder="Email"
-                className="flex-1 bg-dark-card text-cream placeholder:text-cream/30 px-3 py-2 text-sm font-outfit focus:outline-none focus:ring-1 focus:ring-gold/40 transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-gold hover:bg-gold-dark text-dark px-4 py-2 font-cinzel text-xs tracking-wider transition-colors"
-              >
-                OK
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className="mt-12 pt-8 text-center">
