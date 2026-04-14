@@ -112,7 +112,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             </a>
             <a
               href="#tienda"
-              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border transition-all duration-300 border-cream text-gold"
+              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border transition-all duration-300 text-gold border-gold-dark"
             >
               Ver Amuletos
             </a>
