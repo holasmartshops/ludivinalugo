@@ -1,9 +1,15 @@
 
 
-## Plan: Añadir meta tag `theme-color` al HTML
+## Plan: Soporte completo de safe area en iOS
 
-**Cambio**: Agregar `<meta name="theme-color" content="#0A0A0A" />` en el `<head>` de `index.html`. El color `#0A0A0A` corresponde a `hsl(0 0% 4%)` que es el `--dark` / `--foreground` del diseño.
+Dos cambios puntuales:
 
-### Archivo: `index.html`
-- Insertar la línea `<meta name="theme-color" content="#0A0A0A" />` después del meta tag de viewport.
+### 1. `index.html`
+Agregar `viewport-fit=cover` al meta tag de viewport existente:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+```
+
+### 2. `src/components/Header.tsx`
+Agregar `pt-[env(safe-area-inset-top)]` al `<header>` para que el contenido no quede oculto detrás del notch mientras el fondo llega hasta arriba.
 
