@@ -1,9 +1,19 @@
 import { Sparkles } from "lucide-react";
 import ludivinaAbout from "@/assets/ludivina-about.png";
+import starsBg from "@/assets/stars-bg.png";
 
 const AboutSection = () => {
   return (
-    <section id="sobre-mi" className="bg-dark py-24">
+    <section id="sobre-mi" className="relative py-24">
+      {/* Stars background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${starsBg})` }}
+      />
+      {/* Top fade to dark */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-dark to-transparent z-[1]" />
+      {/* Bottom fade to dark */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-dark to-transparent z-[1]" />
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left Column — Logo + Description */}
