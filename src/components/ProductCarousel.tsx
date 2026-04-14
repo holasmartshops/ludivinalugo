@@ -34,7 +34,7 @@ const ProductCarousel = () => {
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
-            const visible = Math.abs(offset) <= 3;
+            const visible = Math.abs(offset) <= 2;
 
             if (!visible) return null;
 
