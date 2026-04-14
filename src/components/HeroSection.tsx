@@ -70,7 +70,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-dark/0 via-dark/70 to-dark z-[5]" />
 
       {/* Two-column layout */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
+      <div className=" container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
         {/* Left — Ludivina photo (hidden on mobile/tablet) */}
         <div className="hidden lg:flex justify-start items-end self-end">
           <div className="relative w-[32rem]">
@@ -83,7 +83,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
         </div>
 
         {/* Right — Info (centered vertically) */}
-        <div className="text-center lg:text-left animate-fade-in-up self-center">
+        <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="font-cinzel text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
