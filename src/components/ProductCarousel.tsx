@@ -43,7 +43,7 @@ const ProductCarousel = () => {
                 key={product.slug}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  transform: `translateX(${offset * 280}px) scale(${isActive ? 1 : 0.8})`,
+                  transform: `translateX(${-offset * 280}px) scale(${isActive ? 1 : 0.8})`,
                   zIndex: isActive ? 10 : 5,
                   opacity: isActive ? 1 : 0.4,
                 }}
