@@ -8,8 +8,21 @@ const ProductCarousel = () => {
   const [active, setActive] = useState(0);
   const total = products.length;
 
+  const touchStartX = useRef<number>(0);
+
   const prev = () => setActive((i) => (i - 1 + total) % total);
   const next = () => setActive((i) => (i + 1) % total);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? next() : prev();
+    }
+  };
 
   const getOffset = (index: number) => {
     let diff = index - active;
