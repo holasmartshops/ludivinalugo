@@ -3,10 +3,13 @@ import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products, intentions } from "@/data/products";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 import amuletoImg from "@/assets/amuleto-placeholder.png";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { addToCart } = useCart();
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
@@ -20,13 +23,17 @@ const ProductDetail = () => {
   const intentionLabel =
     intentions.find((i) => i.value === product.intention)?.label ?? "";
 
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} añadido al carrito`);
+  };
+
   return (
     <div className="min-h-screen bg-dark">
       <Header />
 
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 lg:px-8">
-          {/* Back */}
           <Link
             to="/tienda"
             className="inline-flex items-center gap-2 font-outfit text-sm text-cream/50 hover:text-gold transition-colors mb-10"
@@ -36,7 +43,6 @@ const ProductDetail = () => {
           </Link>
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-5xl mx-auto">
-            {/* Image */}
             <div className="overflow-hidden">
               <img
                 src={amuletoImg}
@@ -45,7 +51,6 @@ const ProductDetail = () => {
               />
             </div>
 
-            {/* Info */}
             <div className="flex flex-col justify-center">
               <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
                 {intentionLabel}
@@ -60,7 +65,10 @@ const ProductDetail = () => {
                 {product.description}
               </p>
 
-              <button className="w-full md:w-auto font-cinzel text-sm tracking-[0.2em] uppercase text-dark bg-gold hover:bg-gold-light transition-colors px-10 py-4">
+              <button
+                onClick={handleAddToCart}
+                className="w-full md:w-auto font-cinzel text-sm tracking-[0.2em] uppercase text-dark bg-gold hover:bg-gold-light transition-colors px-10 py-4"
+              >
                 Agregar al Carrito
               </button>
 
