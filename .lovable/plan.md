@@ -1,37 +1,56 @@
 
 
-## Diagnóstico y corrección de la Hero Section
+## Carrito Temporal con Panel Lateral
 
-### Problemas detectados
+### Objetivo
+Crear un carrito de compras temporal (estado local con React Context) que se despliega como panel lateral (Sheet) al hacer clic en el icono del carrito en el Header. Diseño minimalista oscuro acorde con la estética de la página.
 
-1. **Video de fondo no se muestra**: El `<video>` está presente pero el fondo aparece blanco/vacío. Probablemente el video no se está reproduciendo correctamente en el preview.
-2. **Imagen de Ludivina no aparece**: La columna izquierda con `hidden lg:flex` debería mostrarse a 1382px, pero no se ve en el screenshot.
-3. **Logo no visible**: El `<img>` del logo está ahí pero podría ser transparente sobre fondo claro, haciéndolo invisible.
+### Archivos a crear
 
-### Plan de corrección
+**1. `src/contexts/CartContext.tsx`** — Context + Provider
+- Estado: array de `{ product: Product, quantity: number }`
+- Funciones: `addToCart`, `removeFromCart`, `updateQuantity`, `clearCart`, `cartCount`
+- Persistencia en `localStorage` para que sobreviva recargas
 
-**1. Asegurar que el video se reproduce (`HeroSection.tsx`)**
-- Agregar `useRef` y `useEffect` para forzar el play del video programáticamente (algunos navegadores bloquean autoplay incluso con `muted`)
-- Agregar un fallback de fondo oscuro en el `<section>` para que si el video falla, el contenido siga siendo legible: `bg-dark`
+**2. `src/components/CartDrawer.tsx`** — Panel lateral del carrito
+- Usa el componente `Sheet` existente (side="right")
+- Fondo `bg-dark`, texto `cream`, acentos `gold`
+- Lista de productos con imagen, nombre, precio, cantidad y botón eliminar
+- Subtotal al fondo
+- Botón "Proceder a la Compra" (`bg-gold text-dark`, sin funcionalidad por ahora, muestra un toast de "Próximamente")
+- Mensaje de carrito vacío cuando no hay productos
 
-**2. Agregar el fade de transición del loop del video** (del plan anterior aprobado)
-- Escuchar `timeupdate`: cuando `currentTime >= duration - 1`, hacer opacity → 0
-- Escuchar `playing`: restaurar opacity → 1  
-- Clases CSS: `transition-opacity duration-1000`
+### Archivos a modificar
 
-**3. Verificar visibilidad de la imagen de Ludivina**
-- Confirmar que la imagen se muestra correctamente y no está oculta por z-index
+**3. `src/App.tsx`** — Envolver con `CartProvider`
 
-**4. Corregir el warning de ref en consola**
-- El error "Function components cannot be given refs" sugiere que `Index.tsx` o algún componente padre está pasando un ref a `HeroSection`. Verificar y agregar `forwardRef` si es necesario.
+**4. `src/components/Header.tsx`** — Reemplazar el botón del carrito
+- Importar `CartDrawer` y `useCart`
+- Mostrar badge con cantidad de productos sobre el icono `ShoppingBag`
+- Al hacer clic, abrir el `CartDrawer`
 
-### Cambios en archivo
+**5. `src/pages/ProductDetail.tsx`** — Conectar botón "Agregar al Carrito"
+- Importar `useCart`
+- Al hacer clic en "Agregar al Carrito", llamar `addToCart(product)` y mostrar toast de confirmación
 
-Solo se modifica `src/components/HeroSection.tsx`:
-- Importar `useRef`, `useEffect`, `forwardRef` de React
-- Envolver el componente en `forwardRef`
-- Crear `videoRef` para el `<video>`
-- `useEffect` que llame `videoRef.current.play()` al montar y maneje el fade del loop
-- Agregar `bg-dark` al `<section>` como color de fondo base
-- Agregar `transition-opacity duration-1000` al video
+### Diseño visual del drawer
+```text
+┌──────────────────────┐
+│  ✕           CARRITO  │
+├──────────────────────┤
+│  [img] Ala de Ángel   │
+│        $45.00   ─ 1 + │
+│                    🗑  │
+│───────────────────────│
+│  [img] Escudo Celest. │
+│        $52.00   ─ 1 + │
+│                    🗑  │
+├──────────────────────┤
+│  Subtotal      $97.00 │
+│                        │
+│ [Proceder a la Compra] │
+└──────────────────────┘
+```
+
+Colores: fondo `bg-dark`, bordes `border-dark-border`, texto `text-cream`, precios y botón `text-gold` / `bg-gold`
 
