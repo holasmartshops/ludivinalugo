@@ -1,16 +1,15 @@
 
 
-## Plan: Fix Hero Section Fade
+## Fix: Carousel item visible during wrap-around
 
-**Problem**: The bottom fade gradient (line 70) has `z-20`, which sits above the content (`z-10`), darkening the text and buttons too.
+**Problem**: With 7 products and `visible = Math.abs(offset) <= 3`, items at offset ±3 are still rendered. When switching slides, an item wrapping from one side to the other (e.g., offset jumping from -3 to +3) animates across the entire carousel because `transition-all duration-500` smoothly interpolates the position change.
 
-**Solution**: Move the fade layer between the background and the content by changing its z-index, and bump the text content above it.
+**Solution**: Reduce visible range to `Math.abs(offset) <= 2` so only 5 items render at a time (2 on each side + active). Items entering/leaving will mount/unmount instead of sliding across the back. Additionally, items at offset ±2 should have very low opacity to create a cleaner edge fade.
 
-### Changes to `src/components/HeroSection.tsx`
+### Changes to `src/components/ProductCarousel.tsx`
 
-1. **Bottom fade div (line 70)**: Change `z-20` to `z-[5]` so it only covers the video/image background layers (which have no z-index set, defaulting to 0).
+1. **Line 37**: Change `Math.abs(offset) <= 3` to `Math.abs(offset) <= 2`
+2. **Line 48**: Adjust opacity — keep active at 1, offset ±1 at 0.4, offset ±2 at 0.15 for a smoother fade at edges
 
-2. **Content grid (line 73)**: Keep `z-10` — this already sits above `z-[5]`, so the text, logo, and buttons will be unaffected by the fade.
-
-This ensures the fade darkens only the background video/image and the Ludivina photo, while all text and CTAs remain fully visible.
+This eliminates the wrap-around animation artifact since items beyond offset ±2 are simply not rendered.
 
