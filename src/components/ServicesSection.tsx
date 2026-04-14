@@ -3,24 +3,24 @@ import { BookOpen, Users, Star } from "lucide-react";
 const services = [
   {
     icon: BookOpen,
-    title: "Lectura de Ángeles",
+    title: "Lecturas de Ángeles",
     description:
-      "Conecta con tus ángeles guardianes y recibe mensajes de luz, amor y guía divina para cada aspecto de tu vida.",
-    cta: "Agendar Lectura",
+      "Conecta con tus ángeles guardianes y recibe mensajes semanales de luz, amor y guía divina para cada aspecto de tu vida.",
+    cta: "​recibir mensajes",
   },
   {
     icon: Users,
     title: "Guías Espirituales",
     description:
-      "Sesiones personalizadas donde te acompaño en tu despertar espiritual, conectando con la sabiduría angelical.",
-    cta: "Saber Más",
+      "Eventos donde te acompaño en tu despertar espiritual, conectando con la sabiduría angelical. Boletos en AREMA Ticket.",
+    cta: "​Comprar boletos",
   },
   {
     icon: Star,
-    title: "Amuletos Sagrados",
+    title: "dijes Sagrados",
     description:
       "Amuletos energizados y bendecidos con intenciones específicas de protección, abundancia, paz y claridad.",
-    cta: "Ver Amuletos",
+    cta: "Ver dijes",
   },
 ];
 
