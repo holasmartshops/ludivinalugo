@@ -46,9 +46,8 @@ const AboutSection = () => {
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
                 className="w-full h-auto object-contain"
+                style={{ maskImage: "linear-gradient(to bottom, white 50%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, white 50%, transparent 100%)" }}
               />
-              {/* Bottom fade overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark to-transparent" />
             </div>
           </div>
         </div>
