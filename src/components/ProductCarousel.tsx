@@ -30,7 +30,7 @@ const ProductCarousel = () => {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center h-[420px] md:h-[480px]">
+        <div className="relative flex items-center justify-center h-[480px] md:h-[540px]">
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
@@ -43,7 +43,7 @@ const ProductCarousel = () => {
                 key={product.slug}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  transform: `translateX(${offset * 220}px) scale(${isActive ? 1 : 0.75})`,
+                  transform: `translateX(${offset * 220}px) scale(${isActive ? 1.15 : 0.7})`,
                   zIndex: isActive ? 10 : 5 - Math.abs(offset),
                   opacity: isActive ? 1 : Math.abs(offset) === 1 ? 0.4 : 0.15,
                 }}
@@ -57,9 +57,6 @@ const ProductCarousel = () => {
                   <h3 className="font-cinzel text-lg tracking-wider text-gold">
                     {product.name}
                   </h3>
-                  <p className="font-outfit text-cream/60 text-sm">
-                    {product.price}
-                  </p>
                 </div>
 
                 <div className="relative w-48 h-64 md:w-56 md:h-72 overflow-hidden">
@@ -71,6 +68,16 @@ const ProductCarousel = () => {
                   {!isActive && (
                     <div className="absolute inset-0 bg-dark/50 transition-opacity duration-500" />
                   )}
+                </div>
+
+                <div
+                  className={`text-center mt-3 transition-opacity duration-500 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <p className="font-outfit text-cream/60 text-sm">
+                    {product.price}
+                  </p>
                 </div>
               </div>
             );
