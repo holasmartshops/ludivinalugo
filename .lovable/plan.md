@@ -1,20 +1,9 @@
 
 
-## Plan: Agregar swipe táctil al carrusel de amuletos
+## Plan: Añadir meta tag `theme-color` al HTML
 
-**Problema**: En móvil y tablet no se puede deslizar con el dedo para cambiar de producto en el carrusel.
+**Cambio**: Agregar `<meta name="theme-color" content="#0A0A0A" />` en el `<head>` de `index.html`. El color `#0A0A0A` corresponde a `hsl(0 0% 4%)` que es el `--dark` / `--foreground` del diseño.
 
-**Solución**: Agregar event handlers de touch (`onTouchStart`, `onTouchEnd`) al contenedor del carrusel para detectar swipes horizontales y llamar `prev()`/`next()` según la dirección.
-
-### Cambios en `src/components/ProductCarousel.tsx`
-
-1. **Agregar estado para tracking de touch**: Usar `useRef` para guardar la posición X inicial del touch.
-
-2. **Agregar handlers `onTouchStart` y `onTouchEnd`** al `div` contenedor del carrusel (línea 33):
-   - `onTouchStart`: Guardar `e.touches[0].clientX` en el ref.
-   - `onTouchEnd`: Calcular la diferencia con `e.changedTouches[0].clientX`. Si el swipe es mayor a 50px, llamar `next()` (swipe izquierda) o `prev()` (swipe derecha).
-
-3. **Agregar `touch-action: pan-y`** al contenedor para permitir scroll vertical pero capturar swipes horizontales sin conflicto.
-
-No se necesitan dependencias externas — solo eventos nativos del navegador.
+### Archivo: `index.html`
+- Insertar la línea `<meta name="theme-color" content="#0A0A0A" />` después del meta tag de viewport.
 
