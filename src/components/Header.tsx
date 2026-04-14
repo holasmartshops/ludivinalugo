@@ -37,6 +37,8 @@ const Header = () => {
       if (location.pathname === "/") {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
