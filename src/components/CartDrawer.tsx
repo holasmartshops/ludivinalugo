@@ -21,7 +21,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="bg-dark border-l border-dark-border p-0 flex flex-col w-full sm:max-w-sm"
+        className="bg-dark border-l border-dark-border p-0 flex flex-col w-[85vw] sm:max-w-sm"
       >
         <SheetHeader className="px-6 pt-6 pb-4 border-b border-dark-border">
           <SheetTitle className="font-cinzel text-sm tracking-[0.25em] uppercase text-cream">
