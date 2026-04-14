@@ -30,11 +30,11 @@ const ProductCarousel = () => {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center h-[520px] md:h-[600px]">
+        <div className="relative flex items-center justify-center h-[420px] md:h-[480px]">
           {products.map((product, i) => {
             const offset = getOffset(i);
             const isActive = offset === 0;
-            const visible = Math.abs(offset) <= 1;
+            const visible = Math.abs(offset) <= 3;
 
             if (!visible) return null;
 
@@ -43,8 +43,8 @@ const ProductCarousel = () => {
                 key={product.slug}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  transform: `translateX(${-offset * 280}px) scale(${isActive ? 1 : 0.8})`,
-                  zIndex: isActive ? 10 : 5,
+                  transform: `translateX(${offset * 220}px) scale(${isActive ? 1 : 0.75})`,
+                  zIndex: isActive ? 10 : 5 - Math.abs(offset),
                   opacity: isActive ? 1 : 0.4,
                 }}
                 onClick={() => setActive(i)}
@@ -57,9 +57,12 @@ const ProductCarousel = () => {
                   <h3 className="font-cinzel text-lg tracking-wider text-gold">
                     {product.name}
                   </h3>
+                  <p className="font-outfit text-cream/60 text-sm">
+                    {product.price}
+                  </p>
                 </div>
 
-                <div className="relative w-56 h-80 md:w-64 md:h-96 overflow-hidden">
+                <div className="relative w-48 h-64 md:w-56 md:h-72 overflow-hidden">
                   <img
                     src={amuletoImg}
                     alt={product.name}
@@ -68,16 +71,6 @@ const ProductCarousel = () => {
                   {!isActive && (
                     <div className="absolute inset-0 bg-dark/50 transition-opacity duration-500" />
                   )}
-                </div>
-
-                <div
-                  className={`text-center mt-3 transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <p className="font-outfit text-cream/60 text-sm">
-                    {product.price}
-                  </p>
                 </div>
               </div>
             );
