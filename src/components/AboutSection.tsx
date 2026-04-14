@@ -1,5 +1,5 @@
-import { Sparkles } from "lucide-react";
 import ludivinaAbout from "@/assets/ludivina-about.png";
+import ludivinaLogo from "@/assets/ludivina-logo.png";
 import starsBg from "@/assets/stars-bg.png";
 
 const AboutSection = () => {
