@@ -46,7 +46,7 @@
     --cream: 40 40% 98%;
     --cream-dark: 40 25% 82%;
 
-    /* Superficies "dark" — lavanda PROFUNDO (bloques secundarios contrastantes) */
+    /* Superficies "dark" — lavanda PROFUNDO (uso puntual: footer, cards/botones destacados) */
     --dark: 270 30% 22%;             /* #2E2340 */
     --dark-card: 270 28% 28%;
     --dark-border: 270 25% 38%;
