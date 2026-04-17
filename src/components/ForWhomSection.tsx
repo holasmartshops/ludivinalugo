@@ -1,13 +1,17 @@
-import { Sparkles, Heart, Compass, Shield, Sun } from "lucide-react";
 import starsBg from "@/assets/hero-bg-mobile.png";
 import angelFrame from "@/assets/angel-frame.png";
+import iconClaridad from "@/assets/for-whom/claridad.png";
+import iconProteccion from "@/assets/for-whom/proteccion.png";
+import iconAngeles from "@/assets/for-whom/angeles.png";
+import iconTransicion from "@/assets/for-whom/transicion.png";
+import iconAbundancia from "@/assets/for-whom/abundancia.png";
 
 const items = [
-  { icon: Compass, text: "Sientes que necesitas claridad en tu camino" },
-  { icon: Shield, text: "Buscas protección y paz interior" },
-  { icon: Sparkles, text: "Quieres conectar con tus ángeles guardianes" },
-  { icon: Heart, text: "Atraviesas un momento de transición o duelo" },
-  { icon: Sun, text: "Deseas atraer abundancia con propósito divino" },
+  { image: iconClaridad, text: "Sientes que necesitas claridad en tu camino" },
+  { image: iconProteccion, text: "Buscas protección y paz interior" },
+  { image: iconAngeles, text: "Quieres conectar con tus ángeles guardianes" },
+  { image: iconTransicion, text: "Atraviesas un momento de transición o duelo" },
+  { image: iconAbundancia, text: "Deseas atraer abundancia con propósito divino" },
 ];
 
 const ForWhomSection = () => {
@@ -29,7 +33,7 @@ const ForWhomSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {items.map(({ icon: Icon, text }, index) => {
+          {items.map(({ image, text }, index) => {
             const isLast = index === items.length - 1;
             return (
               <div
@@ -45,7 +49,12 @@ const ForWhomSection = () => {
                   className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
                 />
                 <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
-                  <Icon className="shrink-0 w-7 h-7 text-gold" strokeWidth={1.5} />
+                  <img
+                    src={image}
+                    alt=""
+                    aria-hidden="true"
+                    className="shrink-0 w-12 h-12 object-contain"
+                  />
                   <p className="font-cinzel font-medium text-foreground tracking-wide leading-relaxed text-base md:text-lg">
                     {text}
                   </p>
