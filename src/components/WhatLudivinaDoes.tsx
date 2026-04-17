@@ -26,7 +26,7 @@ const WhatLudivinaDoes = () => {
           {stats.map((stat) => (
             <div key={stat.label}>
               <p className="font-cinzel text-4xl md:text-5xl text-gold tracking-wider mb-2 gold-glow">{stat.number}</p>
-              <p className="font-cinzel text-xs tracking-[0.2em] uppercase text-cream/60">{stat.label}</p>
+              <p className="font-cinzel font-semibold text-xs tracking-[0.2em] uppercase text-cream/60">{stat.label}</p>
             </div>
           ))}
         </div>
