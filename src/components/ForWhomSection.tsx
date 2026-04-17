@@ -21,9 +21,7 @@ const ForWhomSection = () => {
 
       <div className="relative z-[2] container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
-            ¿Es para ti?
-          </p>
+          <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">¿Es para ti?</p>
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Esto es para ti si…
           </h2>
