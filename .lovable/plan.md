@@ -1,27 +1,12 @@
 
-## Plan: Cards angelicales en "Esto es para ti"
+## Plan: Ajustes a cards de "Esto es para ti"
 
-**Asset:**
-- Copiar `user-uploads://freepik_background_13601.png` a `src/assets/angel-frame.png`.
+Actualizar `src/components/ForWhomSection.tsx`:
 
-**Actualizar `src/components/ForWhomSection.tsx`:**
+1. **Cards más grandes**: Cambiar `max-w-4xl` → `max-w-5xl` y el aspect ratio `aspect-[4/1.2]` → `aspect-[4/1.4]` para darles más altura. Aumentar tamaño de texto a `text-base md:text-lg` e icono a `w-7 h-7`.
 
-1. Importar `angelFrame from "@/assets/angel-frame.png"`.
-2. Reemplazar cada card por un contenedor con el recuadro angelical como fondo (`<img>` posicionado absolute detrás, o `background-image`) y el contenido (icono + texto) superpuesto encima centrado.
-3. Estructura por card:
-   - `relative` wrapper con `aspect-ratio` apropiado al recuadro (≈ 4:1 horizontal).
-   - `<img src={angelFrame}>` absolute, `inset-0 w-full h-full object-contain`, sin pointer events.
-   - Contenido encima (`relative z-10`): icono dorado + texto centrado horizontal y verticalmente, con padding interior generoso (≈ `px-12 py-6`) para no salirse del marco decorado.
-4. Cambiar la fuente del texto:
-   - De `font-outfit text-cream/80` → `font-cinzel font-semibold text-dark` (sobre el recuadro claro el texto debe ser oscuro para legibilidad). Mantener `tracking-wide leading-relaxed`.
-5. Quitar los estilos antiguos (`bg-dark-card/50 border border-gold/20 rounded-2xl backdrop-blur`) ya que el recuadro hace de fondo.
-6. El icono se mantiene en `text-gold` pero sin la caja de fondo (irá flotando dentro del marco, a la izquierda del texto o arriba).
+2. **Último card centrado**: Como son 5 items en grid de 2 columnas, el 5º queda solo en la última fila a la izquierda. Aplicar al último item: `sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto` para que ocupe el ancho de una columna pero centrado en el grid completo.
 
-**Layout final por card:**
-```text
-┌─ angel-frame.png ─────────────┐
-│   [icon]  Texto del item       │
-└────────────────────────────────┘
-```
+3. **Color de texto**: Cambiar `text-dark` → `text-foreground` (token oscuro preestablecido del design system, definido en `index.css`/`tailwind.config.ts`). Mantener `font-cinzel font-semibold`.
 
-Mantener el grid `sm:grid-cols-2 gap-5` y los 5 items.
+El icono dorado y el marco angelical permanecen igual.
