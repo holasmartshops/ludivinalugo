@@ -1,12 +1,43 @@
 
-## Plan: Ajustes a cards de "Esto es para ti"
+## Plan: Paleta crema casi blanco (60/30/10)
 
-Actualizar `src/components/ForWhomSection.tsx`:
+Actualizar tokens en `src/index.css` para lograr un fondo crema casi blanco como dominante, lavanda profundo como secundario y dorado como acento.
 
-1. **Cards más grandes**: Cambiar `max-w-4xl` → `max-w-5xl` y el aspect ratio `aspect-[4/1.2]` → `aspect-[4/1.4]` para darles más altura. Aumentar tamaño de texto a `text-base md:text-lg` e icono a `w-7 h-7`.
+### Cambios en `:root` (src/index.css)
 
-2. **Último card centrado**: Como son 5 items en grid de 2 columnas, el 5º queda solo en la última fila a la izquierda. Aplicar al último item: `sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto` para que ocupe el ancho de una columna pero centrado en el grid completo.
+**Primario / fondo (60%) — crema casi blanco cálido:**
+- `--background: 40 40% 98%;` (≈ #FCFAF5, crema muy luminoso casi blanco)
+- `--foreground: 270 25% 20%;` (tinta morada profunda para texto)
+- `--card: 0 0% 100%;` (blanco puro para tarjetas, contraste sutil sobre el crema)
+- `--popover`, `--sidebar-background`: igual al background
 
-3. **Color de texto**: Cambiar `text-dark` → `text-foreground` (token oscuro preestablecido del design system, definido en `index.css`/`tailwind.config.ts`). Mantener `font-cinzel font-semibold`.
+**Secundario (30%) — lavanda profundo:**
+- `--secondary: 270 30% 32%;` (≈ #4A3868)
+- `--secondary-foreground: 40 40% 98%;`
+- `--muted: 270 18% 92%;` (lavanda muy suave)
+- `--muted-foreground: 270 15% 38%;`
 
-El icono dorado y el marco angelical permanecen igual.
+**Acento (10%) — dorado (sin cambios):**
+- `--primary`, `--accent`, `--gold`: `43 50% 54%`
+
+**Superficies "dark" — lavanda PROFUNDO** (bloques secundarios contrastantes):
+- `--dark: 270 30% 22%;` (≈ #2E2340)
+- `--dark-card: 270 28% 28%;`
+- `--dark-border: 270 25% 38%;`
+
+**Bordes / inputs sutiles:**
+- `--border: 270 18% 88%;`
+- `--input: 270 18% 88%;`
+
+**Cream tokens** (texto claro sobre superficies oscuras lavanda):
+- `--cream: 40 40% 98%;`
+- `--cream-dark: 40 25% 82%;`
+
+### Distribución 60/30/10 automática
+
+- **60% crema casi blanco** (`bg-background`): Hero, ForWhom, ProductCarousel, Services, About.
+- **30% lavanda oscuro** (`bg-dark`): StatsBar, WhatLudivinaDoes, Footer (ya usan `bg-dark`, ahora se ven oscuros con texto crema).
+- **10% dorado**: títulos, iconos, bordes de CTA (ya aplicado).
+
+### Archivos a modificar
+- `src/index.css` (único cambio — solo valores HSL de tokens)
