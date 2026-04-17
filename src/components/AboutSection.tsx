@@ -31,17 +31,17 @@ const AboutSection = () => {
               <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-64 h-auto" />
             </div>
 
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-light tracking-wide">
+            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-medium tracking-wide">
               Desde niña, Ludivina escuchó susurros que otros no podían oír. A los doce
               años tuvo su primer encuentro consciente con un ángel guardián, un instante
               que marcó para siempre su camino y le reveló su don como canal angelical.
             </p>
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-light tracking-wide">
+            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-medium tracking-wide">
               Con más de quince años de trayectoria, se ha formado en angelología,
               numerología sagrada y terapias energéticas. Ha guiado a miles de personas
               a través de lecturas, eventos y rituales de bendición de amuletos.
             </p>
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-10 font-light tracking-wide">
+            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-10 font-medium tracking-wide">
               Hoy su misión es clara: tender un puente entre el cielo y la tierra,
               recordándote que nunca caminas sola. Cada sesión es un acto de devoción
               y un reflejo de la luz que habita en cada alma.

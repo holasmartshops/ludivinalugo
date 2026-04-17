@@ -58,10 +58,10 @@ const ProductDetail = () => {
               <h1 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream gold-glow mb-4">
                 {product.name}
               </h1>
-              <p className="font-outfit text-2xl text-gold font-light mb-8">
+              <p className="font-outfit text-2xl text-gold font-medium mb-8">
                 {product.price}
               </p>
-              <p className="font-outfit text-cream/60 font-light leading-relaxed mb-10">
+              <p className="font-outfit text-cream/60 font-medium leading-relaxed mb-10">
                 {product.description}
               </p>
 

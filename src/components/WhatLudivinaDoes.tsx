@@ -15,7 +15,7 @@ const WhatLudivinaDoes = () => {
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-6 gold-glow">
             Canal entre el cielo y tu alma
           </h2>
-          <p className="font-outfit text-lg text-cream/70 leading-relaxed font-light tracking-wide">
+          <p className="font-outfit text-lg text-cream/70 leading-relaxed font-medium tracking-wide">
             Como angeóloga, Ludivina interpreta los mensajes que tus ángeles guardianes
             tienen para ti, guía almas en momentos de transición y energiza amuletos
             sagrados con intenciones específicas de protección, abundancia y paz.

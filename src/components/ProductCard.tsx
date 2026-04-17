@@ -19,7 +19,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <h3 className="font-cinzel text-sm tracking-wider text-gold mb-1">
         {product.name}
       </h3>
-      <p className="font-outfit text-cream/60 text-sm font-light">
+      <p className="font-outfit text-cream/60 text-sm font-medium">
         {product.price}
       </p>
     </Link>
