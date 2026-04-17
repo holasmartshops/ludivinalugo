@@ -104,33 +104,35 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             claridad y la protección divina.
           </p>
 
-          <div className="flex justify-center lg:hidden">
-            <div className="relative w-80 -mb-16 z-0">
-              <img
-                src={ludivinaAbout}
-                alt="Ludivina Lugo — Guía Espiritual Angelical"
-                className="w-full h-auto object-contain"
-                style={{
-                  maskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
-                }}
-              />
+          <div className="mb-6">
+            <div className="flex justify-center lg:hidden">
+              <div className="relative w-80 -mb-16 z-0">
+                <img
+                  src={ludivinaAbout}
+                  alt="Ludivina Lugo — Guía Espiritual Angelical"
+                  className="w-full h-auto object-contain"
+                  style={{
+                    maskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
+                  }}
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              href="#servicios"
-              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
-            >
-              Descubre tus Mensajes
-            </a>
-            <a
-              href="#tienda"
-              className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border transition-all duration-300 text-gold border-gold-dark"
-            >
-              Ver Amuletos
-            </a>
+            <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#servicios"
+                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
+              >
+                Descubre tus Mensajes
+              </a>
+              <a
+                href="#tienda"
+                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border transition-all duration-300 text-gold border-gold-dark"
+              >
+                Ver Amuletos
+              </a>
+            </div>
           </div>
         </div>
       </div>
