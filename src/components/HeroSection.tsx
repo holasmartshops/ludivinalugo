@@ -47,7 +47,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
     <section
       ref={ref}
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background"
     >
       {/* Background image (mobile/tablet) */}
       <div
@@ -68,7 +68,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       </video>
 
       {/* Bottom fade to dark */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-dark/0 via-dark/70 to-dark z-[5]" />
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-background/0 via-background/70 to-background z-[5]" />
 
       {/* Two-column layout */}
       <div className=" container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">

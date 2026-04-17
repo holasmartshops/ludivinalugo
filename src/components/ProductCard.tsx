@@ -14,12 +14,12 @@ const ProductCard = ({ product }: { product: Product }) => {
           alt={product.name}
           className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/20 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
       </div>
       <h3 className="font-cinzel text-sm tracking-wider text-gold mb-1">
         {product.name}
       </h3>
-      <p className="font-outfit text-cream/60 text-sm font-medium">
+      <p className="font-outfit text-muted-foreground text-sm font-medium">
         {product.price}
       </p>
     </Link>
