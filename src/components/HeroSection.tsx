@@ -92,7 +92,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt:-16 mb-1 md:mb-0" />
+          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt:-16 mb-1 md:mt-0" />
 
           <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
