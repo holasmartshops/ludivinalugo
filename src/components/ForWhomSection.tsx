@@ -17,13 +17,13 @@ const ForWhomSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${starsBg})` }}
       />
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-dark to-transparent z-[1]" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-dark to-transparent z-[1]" />
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-background to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-[1]" />
 
       <div className="relative z-[2] container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">¿Es para ti?</p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
             Esto es para ti si…
           </h2>
         </div>

@@ -32,13 +32,13 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="bg-dark py-24 overflow-hidden">
+    <section className="bg-background border-t border-border py-24 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Colección
           </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
             Amuletos Sagrados
           </h2>
         </div>
@@ -84,7 +84,7 @@ const ProductCarousel = () => {
                     className="w-full h-full object-cover"
                   />
                   {!isActive && (
-                    <div className="absolute inset-0 bg-dark/50 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-background/60 transition-opacity duration-500" />
                   )}
                 </div>
 
@@ -93,7 +93,7 @@ const ProductCarousel = () => {
                     isActive ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <p className="font-outfit text-cream/60 text-sm">
+                  <p className="font-outfit text-muted-foreground text-sm">
                     {product.price}
                   </p>
                 </div>

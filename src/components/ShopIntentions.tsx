@@ -10,16 +10,16 @@ const intentions = [
 
 const ShopIntentions = () => {
   return (
-    <section id="tienda" className="bg-dark py-24">
+    <section id="tienda" className="bg-background border-t border-border py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Amuletos por Intención
           </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
+          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
             Herramientas para tu Camino
           </h2>
-          <p className="font-outfit text-cream/60 max-w-md mx-auto mt-6">
+          <p className="font-outfit text-muted-foreground max-w-md mx-auto mt-6">
             Cada amuleto está diseñado y energizado con una intención específica para acompañarte.
           </p>
         </div>
@@ -31,13 +31,13 @@ const ShopIntentions = () => {
               to={`/tienda?intencion=${item.slug}`}
               className="group flex flex-col items-center text-center"
             >
-              <div className="w-20 h-20 rounded-full bg-dark-card flex items-center justify-center mb-4 group-hover:bg-gold/5 transition-all duration-300">
+              <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-gold/10 transition-all duration-300">
                 <item.icon className="w-8 h-8 text-gold" />
               </div>
-              <h3 className="font-cinzel text-sm tracking-wider text-cream mb-1">
+              <h3 className="font-cinzel text-sm tracking-wider text-foreground mb-1">
                 {item.label}
               </h3>
-              <p className="font-outfit text-xs text-cream/50">
+              <p className="font-outfit text-xs text-muted-foreground">
                 {item.description}
               </p>
             </Link>

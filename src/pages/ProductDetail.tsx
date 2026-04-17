@@ -14,8 +14,8 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-dark flex items-center justify-center">
-        <p className="font-outfit text-cream/60">Producto no encontrado.</p>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <p className="font-outfit text-muted-foreground">Producto no encontrado.</p>
       </div>
     );
   }
@@ -29,14 +29,14 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-background">
       <Header />
 
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 lg:px-8">
           <Link
             to="/tienda"
-            className="inline-flex items-center gap-2 font-outfit text-sm text-cream/50 hover:text-gold transition-colors mb-10"
+            className="inline-flex items-center gap-2 font-outfit text-sm text-muted-foreground hover:text-gold transition-colors mb-10"
           >
             <ArrowLeft className="w-4 h-4" />
             Volver al catálogo
@@ -55,24 +55,24 @@ const ProductDetail = () => {
               <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
                 {intentionLabel}
               </p>
-              <h1 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream gold-glow mb-4">
+              <h1 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
                 {product.name}
               </h1>
               <p className="font-outfit text-2xl text-gold font-medium mb-8">
                 {product.price}
               </p>
-              <p className="font-outfit text-cream/60 font-medium leading-relaxed mb-10">
+              <p className="font-outfit text-muted-foreground font-medium leading-relaxed mb-10">
                 {product.description}
               </p>
 
               <button
                 onClick={handleAddToCart}
-                className="w-full md:w-auto font-cinzel text-sm tracking-[0.2em] uppercase text-dark bg-gold hover:bg-gold-light transition-colors px-10 py-4"
+                className="w-full md:w-auto font-cinzel text-sm tracking-[0.2em] uppercase text-background bg-gold hover:bg-gold-light transition-colors px-10 py-4"
               >
                 Agregar al Carrito
               </button>
 
-              <p className="font-outfit text-xs text-cream/30 mt-4">
+              <p className="font-outfit text-xs text-muted-foreground/70 mt-4">
                 Tienda próximamente disponible
               </p>
             </div>

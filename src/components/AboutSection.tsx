@@ -17,8 +17,8 @@ const AboutSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${starsBg})` }}
       />
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-dark to-transparent z-[1]" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-dark to-transparent z-[1]" />
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-background to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-[1]" />
 
       <div className="relative z-[2] container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
@@ -31,17 +31,17 @@ const AboutSection = () => {
               <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-64 h-auto" />
             </div>
 
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-medium tracking-wide">
+            <p className="font-outfit text-lg text-muted-foreground leading-relaxed mb-4 font-medium tracking-wide">
               Desde niña, Ludivina escuchó susurros que otros no podían oír. A los doce
               años tuvo su primer encuentro consciente con un ángel guardián, un instante
               que marcó para siempre su camino y le reveló su don como canal angelical.
             </p>
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-4 font-medium tracking-wide">
+            <p className="font-outfit text-lg text-muted-foreground leading-relaxed mb-4 font-medium tracking-wide">
               Con más de quince años de trayectoria, se ha formado en angelología,
               numerología sagrada y terapias energéticas. Ha guiado a miles de personas
               a través de lecturas, eventos y rituales de bendición de amuletos.
             </p>
-            <p className="font-outfit text-lg text-cream/70 leading-relaxed mb-10 font-medium tracking-wide">
+            <p className="font-outfit text-lg text-muted-foreground leading-relaxed mb-10 font-medium tracking-wide">
               Hoy su misión es clara: tender un puente entre el cielo y la tierra,
               recordándote que nunca caminas sola. Cada sesión es un acto de devoción
               y un reflejo de la luz que habita en cada alma.
@@ -50,10 +50,10 @@ const AboutSection = () => {
             <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
               {pillars.map(({ icon: Icon, label }) => (
                 <div key={label} className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-dark-card flex items-center justify-center border border-gold/20">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-muted flex items-center justify-center border border-gold/20">
                     <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
                   </div>
-                  <p className="font-cinzel text-xs tracking-[0.2em] uppercase text-cream/70">
+                  <p className="font-cinzel text-xs tracking-[0.2em] uppercase text-muted-foreground">
                     {label}
                   </p>
                 </div>

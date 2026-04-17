@@ -22,7 +22,7 @@ const Tienda = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-background">
       <Header />
 
       <main className="pt-24 pb-20">
@@ -32,7 +32,7 @@ const Tienda = () => {
             <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
               Colección
             </p>
-            <h1 className="font-cinzel text-3xl md:text-5xl tracking-wider text-cream gold-glow">
+            <h1 className="font-cinzel text-3xl md:text-5xl tracking-wider text-foreground">
               Amuletos Sagrados
             </h1>
           </div>
@@ -46,7 +46,7 @@ const Tienda = () => {
                 className={`font-cinzel text-xs tracking-[0.2em] uppercase px-5 py-2 rounded-full border transition-colors duration-300 ${
                   activeFilter === item.value
                     ? "border-gold bg-gold/10 text-gold"
-                    : "border-dark-border text-cream/50 hover:border-gold/40 hover:text-gold"
+                    : "border-border text-muted-foreground hover:border-gold/40 hover:text-gold"
                 }`}
               >
                 {item.label}

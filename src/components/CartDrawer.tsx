@@ -21,17 +21,17 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="bg-dark border-l border-dark-border p-0 flex flex-col w-[85vw] sm:max-w-sm"
+        className="bg-background border-l border-border p-0 flex flex-col w-[85vw] sm:max-w-sm"
       >
-        <SheetHeader className="px-6 pt-6 pb-4 border-b border-dark-border">
-          <SheetTitle className="font-cinzel text-sm tracking-[0.25em] uppercase text-cream">
+        <SheetHeader className="px-6 pt-6 pb-4 border-b border-border">
+          <SheetTitle className="font-cinzel text-sm tracking-[0.25em] uppercase text-foreground">
             Carrito {cartCount > 0 && `(${cartCount})`}
           </SheetTitle>
         </SheetHeader>
 
         {items.length === 0 ? (
           <div className="flex-1 flex items-center justify-center px-6">
-            <p className="font-outfit text-cream/40 text-sm text-center">
+            <p className="font-outfit text-muted-foreground text-sm text-center">
               Tu carrito está vacío
             </p>
           </div>
@@ -41,7 +41,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
               {items.map(({ product, quantity }) => (
                 <div
                   key={product.slug}
-                  className="flex gap-4 border-b border-dark-border pb-4 last:border-0"
+                  className="flex gap-4 border-b border-border pb-4 last:border-0"
                 >
                   <img
                     src={amuletoImg}
@@ -49,7 +49,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                     className="w-16 h-20 object-cover flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-cinzel text-xs tracking-wider text-cream truncate">
+                    <h3 className="font-cinzel text-xs tracking-wider text-foreground truncate">
                       {product.name}
                     </h3>
                     <p className="font-outfit text-sm text-gold mt-1">
@@ -59,23 +59,23 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => updateQuantity(product.slug, quantity - 1)}
-                          className="text-cream/40 hover:text-gold transition-colors"
+                          className="text-muted-foreground hover:text-gold transition-colors"
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
-                        <span className="font-outfit text-sm text-cream w-4 text-center">
+                        <span className="font-outfit text-sm text-foreground w-4 text-center">
                           {quantity}
                         </span>
                         <button
                           onClick={() => updateQuantity(product.slug, quantity + 1)}
-                          className="text-cream/40 hover:text-gold transition-colors"
+                          className="text-muted-foreground hover:text-gold transition-colors"
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
                       </div>
                       <button
                         onClick={() => removeFromCart(product.slug)}
-                        className="text-cream/30 hover:text-red-400 transition-colors"
+                        className="text-muted-foreground hover:text-destructive transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -85,14 +85,14 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
               ))}
             </div>
 
-            <div className="px-6 py-5 border-t border-dark-border space-y-4">
+            <div className="px-6 py-5 border-t border-border space-y-4">
               <div className="flex items-center justify-between">
-                <span className="font-outfit text-sm text-cream/60">Subtotal</span>
+                <span className="font-outfit text-sm text-muted-foreground">Subtotal</span>
                 <span className="font-outfit text-lg text-gold">{subtotal}</span>
               </div>
               <button
                 onClick={() => toast("Tienda próximamente disponible")}
-                className="w-full font-cinzel text-xs tracking-[0.2em] uppercase bg-gold text-dark hover:bg-gold-light transition-colors py-3.5"
+                className="w-full font-cinzel text-xs tracking-[0.2em] uppercase bg-gold text-background hover:bg-gold-light transition-colors py-3.5"
               >
                 Proceder a la Compra
               </button>
