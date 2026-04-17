@@ -4,58 +4,61 @@
 
 @layer base {
   :root {
-    /* Base luminosa */
-    --background: 40 33% 97%;        /* #FBF8F2 crema casi blanco */
-    --foreground: 270 22% 24%;       /* #3A2F4A tinta violeta */
+    /* 60% — Primario: crema casi blanco cálido */
+    --background: 40 40% 98%;        /* #FCFAF5 */
+    --foreground: 270 25% 20%;       /* tinta morada profunda */
 
     --card: 0 0% 100%;
-    --card-foreground: 270 22% 24%;
+    --card-foreground: 270 25% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 270 22% 24%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 270 25% 20%;
 
-    --primary: 43 50% 54%;           /* dorado sin cambios */
-    --primary-foreground: 270 22% 24%;
+    /* 10% — Acento dorado */
+    --primary: 43 50% 54%;
+    --primary-foreground: 270 25% 20%;
 
-    --secondary: 270 28% 42%;        /* #6B4E8A amatista profundo */
-    --secondary-foreground: 40 33% 97%;
+    /* 30% — Secundario: lavanda profundo */
+    --secondary: 270 30% 32%;        /* #4A3868 */
+    --secondary-foreground: 40 40% 98%;
 
-    --muted: 273 28% 79%;            /* #C9B8DD lavanda */
-    --muted-foreground: 270 12% 43%; /* #6B5F7A */
+    --muted: 270 18% 92%;            /* lavanda muy suave */
+    --muted-foreground: 270 15% 38%;
 
     --accent: 43 50% 54%;
-    --accent-foreground: 270 22% 24%;
+    --accent-foreground: 270 25% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 273 30% 85%;           /* #D8CCE5 */
-    --input: 273 30% 85%;
+    --border: 270 18% 88%;
+    --input: 270 18% 88%;
     --ring: 43 50% 54%;
 
     --radius: 0.5rem;
 
-    /* Acentos de marca */
+    /* Acentos de marca dorados */
     --gold: 43 50% 54%;
     --gold-light: 43 50% 72%;
-    --gold-dark: 43 50% 38%;         /* más profundo para contraste sobre crema */
+    --gold-dark: 43 50% 38%;
 
-    --cream: 270 22% 24%;            /* INVERTIDO: ahora "cream" se usa como texto sobre fondos claros */
-    --cream-dark: 270 12% 43%;
+    /* Cream: texto claro sobre superficies oscuras lavanda */
+    --cream: 40 40% 98%;
+    --cream-dark: 40 25% 82%;
 
-    /* "dark" ahora son superficies LAVANDA luminosas */
-    --dark: 280 33% 94%;             /* #F0EAF5 lavanda nube */
-    --dark-card: 280 28% 89%;        /* #E4DCEC lavanda neblina */
-    --dark-border: 273 28% 79%;      /* #C9B8DD lavanda media */
+    /* Superficies "dark" — lavanda PROFUNDO (bloques secundarios contrastantes) */
+    --dark: 270 30% 22%;             /* #2E2340 */
+    --dark-card: 270 28% 28%;
+    --dark-border: 270 25% 38%;
 
-    /* Sidebar invertido a tema claro */
-    --sidebar-background: 40 33% 97%;
-    --sidebar-foreground: 270 22% 24%;
+    /* Sidebar — tema crema */
+    --sidebar-background: 40 40% 98%;
+    --sidebar-foreground: 270 25% 20%;
     --sidebar-primary: 43 50% 54%;
-    --sidebar-primary-foreground: 270 22% 24%;
-    --sidebar-accent: 280 33% 94%;
-    --sidebar-accent-foreground: 270 22% 24%;
-    --sidebar-border: 273 28% 79%;
+    --sidebar-primary-foreground: 270 25% 20%;
+    --sidebar-accent: 270 18% 92%;
+    --sidebar-accent-foreground: 270 25% 20%;
+    --sidebar-border: 270 18% 88%;
     --sidebar-ring: 43 50% 54%;
   }
 }
