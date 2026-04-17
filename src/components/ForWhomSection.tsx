@@ -48,14 +48,14 @@ const ForWhomSection = () => {
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
                 />
-                <div className="relative z-10 flex items-center justify-start gap-5 h-full pl-20 pr-10 py-6 text-left">
+                <div className="relative z-10 flex items-center justify-start gap-3 md:gap-5 h-full pl-14 pr-6 py-4 md:pl-20 md:pr-10 md:py-6 text-left">
                   <img
                     src={image}
                     alt=""
                     aria-hidden="true"
-                    className="shrink-0 w-16 h-16 object-contain"
+                    className="shrink-0 w-11 h-11 md:w-16 md:h-16 object-contain"
                   />
-                  <p className="font-cinzel font-medium text-foreground tracking-wide leading-relaxed text-base md:text-lg">
+                  <p className="font-cinzel font-medium text-foreground tracking-wide leading-snug md:leading-relaxed text-xs md:text-lg">
                     {text}
                   </p>
                 </div>
