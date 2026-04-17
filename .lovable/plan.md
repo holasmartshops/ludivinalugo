@@ -1,20 +1,27 @@
 
-## Plan: Navbar sólido blanco con logo
+## Plan: Cards angelicales en "Esto es para ti"
 
-Actualizar `src/components/Header.tsx`:
+**Asset:**
+- Copiar `user-uploads://freepik_background_13601.png` a `src/assets/angel-frame.png`.
 
-**Cambios:**
-1. **Fondo sólido blanco**: Cambiar el header a `bg-white` con un sutil `border-b border-border` y `shadow-sm` para separarlo del contenido.
-2. **Logo a la izquierda**: Importar `ludivina-logo.png` desde `src/assets/` y mostrarlo como `<Link to="/">` en el lado izquierdo (altura ~40px, `h-10 w-auto`).
-3. **Links centrados (desktop)**: Mantener los mismos 5 links (Inicio, Servicios, Tienda, Sobre Mí, Contacto) centrados. Ajustar el color del texto a `text-foreground hover:text-gold` (ya no es sobre fondo oscuro, así que el dorado claro se perdería sobre blanco — usar tinta violeta del foreground con hover dorado).
-4. **Iconos a la derecha (mobile + desktop)**: Mantener carrito y menú hamburguesa (mobile) tal cual, ajustando colores a `text-foreground hover:text-gold` para contraste sobre blanco.
-5. **Layout**: Reestructurar el contenedor con `flex justify-between`: logo (izquierda) | nav links centrados (desktop, `absolute` o `flex-1 justify-center`) | iconos (derecha).
-6. **Menú móvil desplegable**: Cambiar fondo de `bg-dark/90` a `bg-white` con texto `text-foreground`.
+**Actualizar `src/components/ForWhomSection.tsx`:**
 
-**Estructura final:**
+1. Importar `angelFrame from "@/assets/angel-frame.png"`.
+2. Reemplazar cada card por un contenedor con el recuadro angelical como fondo (`<img>` posicionado absolute detrás, o `background-image`) y el contenido (icono + texto) superpuesto encima centrado.
+3. Estructura por card:
+   - `relative` wrapper con `aspect-ratio` apropiado al recuadro (≈ 4:1 horizontal).
+   - `<img src={angelFrame}>` absolute, `inset-0 w-full h-full object-contain`, sin pointer events.
+   - Contenido encima (`relative z-10`): icono dorado + texto centrado horizontal y verticalmente, con padding interior generoso (≈ `px-12 py-6`) para no salirse del marco decorado.
+4. Cambiar la fuente del texto:
+   - De `font-outfit text-cream/80` → `font-cinzel font-semibold text-dark` (sobre el recuadro claro el texto debe ser oscuro para legibilidad). Mantener `tracking-wide leading-relaxed`.
+5. Quitar los estilos antiguos (`bg-dark-card/50 border border-gold/20 rounded-2xl backdrop-blur`) ya que el recuadro hace de fondo.
+6. El icono se mantiene en `text-gold` pero sin la caja de fondo (irá flotando dentro del marco, a la izquierda del texto o arriba).
+
+**Layout final por card:**
 ```text
-[Logo]        [Inicio Servicios Tienda Sobre Contacto]        [🛒] [☰]
+┌─ angel-frame.png ─────────────┐
+│   [icon]  Texto del item       │
+└────────────────────────────────┘
 ```
 
-El comportamiento de auto-ocultar al hacer scroll hacia abajo se mantiene.
-
+Mantener el grid `sm:grid-cols-2 gap-5` y los 5 items.
