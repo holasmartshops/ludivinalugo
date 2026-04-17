@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, forwardRef } from "react";
 import { Sparkles } from "lucide-react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@/assets/hero-bg-mobile.png";
 import heroBgVideo from "@/assets/hero-bg-video.webm";
 import ludivinaImg from "@/assets/ludivina.png";
 import ludivinaLogo from "@/assets/ludivina-logo.png";
@@ -85,8 +85,6 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
         {/* Right — Info (centered vertically) */}
         <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
-          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt-20 mb-1 md:mt-0" />
-
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="font-cinzel font-semibold text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
@@ -94,6 +92,12 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             </span>
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
+
+          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt-20 mb-1 md:mt-0" />
+
+          <p className="font-cinzel font-semibold text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
+            Lectura de Ángeles · Amuletos · Guía Espiritual
+          </p>
 
           <p className="hidden lg:block font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
             Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
