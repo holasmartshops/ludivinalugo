@@ -104,7 +104,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             claridad y la protección divina.
           </p>
 
-          <div className="mb-6">
+          <div className="-mt-16 mb-1 md:mt-0">
             <div className="flex justify-center lg:hidden">
               <div className="relative w-80 -mb-16 z-0">
                 <img
