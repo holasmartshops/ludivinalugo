@@ -105,7 +105,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
           </p>
 
           <div className="flex justify-center lg:hidden">
-            <div className="relative w-80 -mb-16">
+            <div className="relative w-80 -mb-16 z-0">
               <img
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
