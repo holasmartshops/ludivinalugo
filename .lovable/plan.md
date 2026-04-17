@@ -1,19 +1,16 @@
 
-## Plan: Ajustes a "Esto es para ti"
+## Plan: Ajustar tamaños mobile en "Esto es para ti"
 
 ### Cambios en `src/components/ForWhomSection.tsx`
 
-1. **Intercambiar iconos** entre "ángeles guardianes" y "transición/duelo":
-   - "Quieres conectar con tus ángeles guardianes" → usar `iconTransicion` (la pluma actual va mejor con ángeles).
-   - "Atraviesas un momento de transición o duelo" → usar `iconAngeles` (las alas actuales van mejor con duelo/tránsito).
+En el `<div>` interno del card (actualmente `pl-20 pr-10 py-6 gap-5`):
+- Padding/gap responsivos: `pl-14 pr-6 py-4 gap-3 md:pl-20 md:pr-10 md:py-6 md:gap-5` → en mobile el icono queda más cerca del borde izquierdo proporcionalmente al frame más pequeño, manteniendo el mismo balance visual que desktop.
 
-2. **Iconos más grandes**: `w-12 h-12` → `w-16 h-16`.
+En el `<img>` del icono (actualmente `w-16 h-16`):
+- `w-11 h-11 md:w-16 md:h-16` → iconos más pequeños en mobile.
 
-3. **Iconos más a la derecha + balance icono/texto**: actualmente el contenedor usa `flex items-center justify-center gap-4 ... px-12` lo que centra el conjunto. Cambiar a un layout de dos columnas donde el icono se alinea hacia el lado izquierdo del texto pero desplazado a la derecha del marco:
-   - Cambiar `justify-center` → `justify-start`.
-   - Aumentar padding izquierdo: `px-12` → `pl-20 pr-10` (empuja el icono hacia la derecha respecto al borde del marco angelical).
-   - Ajustar `gap-4` → `gap-5` para dar respiro entre icono y texto.
-   - Cambiar `text-center` del contenedor → `text-left` para que el texto fluya naturalmente desde el icono.
+En el `<p>` del texto (actualmente `text-base md:text-lg`):
+- `text-xs md:text-lg leading-snug md:leading-relaxed` → texto notablemente más pequeño en mobile para que quepa cómodo dentro del marco angelical sin desbordar.
 
-### Archivo a modificar
+### Archivo
 - `src/components/ForWhomSection.tsx`
