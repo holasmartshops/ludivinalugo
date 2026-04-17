@@ -94,9 +94,19 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
           <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto mb-6" />
 
-          <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
+          <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-6 lg:mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
+
+          {/* Mobile/tablet — Ludivina photo with fade */}
+          <div className="lg:hidden relative w-full max-w-sm mx-auto mb-2">
+            <img
+              src={ludivinaImg}
+              alt="Ludivina Lugo — Guía Espiritual Angelical"
+              className="w-full h-auto object-contain"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-b from-transparent to-dark" />
+          </div>
 
           <p className="font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
             Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
