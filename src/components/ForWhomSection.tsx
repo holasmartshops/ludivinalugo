@@ -1,5 +1,6 @@
 import { Sparkles, Heart, Compass, Shield, Sun } from "lucide-react";
 import starsBg from "@/assets/for-whom-bg.png";
+import angelFrame from "@/assets/angel-frame.png";
 
 const items = [
   { icon: Compass, text: "Sientes que necesitas claridad en tu camino" },
@@ -21,24 +22,37 @@ const ForWhomSection = () => {
 
       <div className="relative z-[2] container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <p className="font-cinzel font-medium text-xs tracking-[0.3em] uppercase text-gold mb-4">¿Es para ti?</p>
+          <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">¿Es para ti?</p>
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
             Esto es para ti si…
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          {items.map(({ icon: Icon, text }) => (
-            <div
-              key={text}
-              className="flex items-center gap-5 bg-dark-card/50 border border-gold/20 rounded-2xl p-5 backdrop-blur-sm transition-all duration-300 hover:border-gold/50"
-            >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-dark flex items-center justify-center">
-                <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
+        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {items.map(({ icon: Icon, text }, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <div
+                key={text}
+                className={`relative aspect-[4/1.4] ${
+                  isLast ? "sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto sm:w-full" : ""
+                }`}
+              >
+                <img
+                  src={angelFrame}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+                />
+                <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
+                  <Icon className="shrink-0 w-7 h-7 text-gold" strokeWidth={1.5} />
+                  <p className="font-cinzel font-semibold text-foreground tracking-wide leading-relaxed text-base md:text-lg">
+                    {text}
+                  </p>
+                </div>
               </div>
-              <p className="font-outfit text-cream/80 leading-relaxed">{text}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
