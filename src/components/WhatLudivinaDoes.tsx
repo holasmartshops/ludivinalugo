@@ -9,7 +9,7 @@ const WhatLudivinaDoes = () => {
     <section className="bg-dark py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="font-cinzel font-medium text-xs tracking-[0.3em] uppercase text-gold mb-4">
+          <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">
             ¿Qué hace Ludivina?
           </p>
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-6 gold-glow">
