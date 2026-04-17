@@ -103,8 +103,18 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             claridad y la protección divina.
           </p>
 
-          <div className="mb-10 flex justify-center lg:justify-start">
-            <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-64 h-auto" />
+          <div className="flex justify-center">
+            <div className="relative w-80">
+              <img
+                src={ludivinaAbout}
+                alt="Ludivina Lugo — Guía Espiritual Angelical"
+                className="w-full h-auto object-contain"
+                style={{
+                  maskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
+                }}
+              />
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
