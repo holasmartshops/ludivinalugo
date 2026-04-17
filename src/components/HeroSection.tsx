@@ -4,6 +4,7 @@ import heroBg from "@/assets/hero-bg.png";
 import heroBgVideo from "@/assets/hero-bg-video.webm";
 import ludivinaImg from "@/assets/ludivina.png";
 import ludivinaLogo from "@/assets/ludivina-logo.png";
+import ludivinaAbout from "@/assets/ludivina-about.png";
 
 const HeroSection = forwardRef<HTMLElement>((props, ref) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -103,10 +104,10 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             claridad y la protección divina.
           </p>
 
-          <div className="flex justify-center lg:hidden">
+          <div className="flex justify-center">
             <div className="relative w-80">
               <img
-                src={ludivinaImg}
+                src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
                 className="w-full h-auto object-contain"
                 style={{
