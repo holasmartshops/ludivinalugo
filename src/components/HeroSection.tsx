@@ -84,7 +84,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
         {/* Right — Info (centered vertically) */}
         <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="font-cinzel text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
               Guía Espiritual Angelical · Te acompaño en tu camino
@@ -94,22 +94,9 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
           <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto mb-2" />
 
-          <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-4 lg:mb-8">
+          <p className="font-cinzel text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
-
-          {/* Mobile/tablet — Ludivina photo with fade to transparent */}
-          <div className="lg:hidden relative w-full max-w-sm mx-auto mb-2">
-            <img
-              src={ludivinaImg}
-              alt="Ludivina Lugo — Guía Espiritual Angelical"
-              className="w-full h-auto object-contain"
-              style={{
-                WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-                maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-              }}
-            />
-          </div>
 
           <p className="font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
             Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
