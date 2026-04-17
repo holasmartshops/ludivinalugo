@@ -1,30 +1,20 @@
 
+## Plan: Navbar sólido blanco con logo
 
-## Plan: Ajustes finos del hero (mobile)
+Actualizar `src/components/Header.tsx`:
 
-### 1. Pegar eyebrow y subtítulo al logo
-En `HeroSection.tsx`, reducir márgenes alrededor del logo:
-- Eyebrow ("Guía Espiritual Angelical…"): cambiar `mb-6` → `mb-2` (gap eyebrow→logo).
-- Logo `<img ludivinaLogo>`: cambiar `mb-6` → `mb-2` (gap logo→subtítulo).
-- Subtítulo ("Lectura de Ángeles…"): mantener pero reducir `mb-6 lg:mb-8` → `mb-4 lg:mb-8` para que en mobile quede compacto y en desktop no se altere.
+**Cambios:**
+1. **Fondo sólido blanco**: Cambiar el header a `bg-white` con un sutil `border-b border-border` y `shadow-sm` para separarlo del contenido.
+2. **Logo a la izquierda**: Importar `ludivina-logo.png` desde `src/assets/` y mostrarlo como `<Link to="/">` en el lado izquierdo (altura ~40px, `h-10 w-auto`).
+3. **Links centrados (desktop)**: Mantener los mismos 5 links (Inicio, Servicios, Tienda, Sobre Mí, Contacto) centrados. Ajustar el color del texto a `text-foreground hover:text-gold` (ya no es sobre fondo oscuro, así que el dorado claro se perdería sobre blanco — usar tinta violeta del foreground con hover dorado).
+4. **Iconos a la derecha (mobile + desktop)**: Mantener carrito y menú hamburguesa (mobile) tal cual, ajustando colores a `text-foreground hover:text-gold` para contraste sobre blanco.
+5. **Layout**: Reestructurar el contenedor con `flex justify-between`: logo (izquierda) | nav links centrados (desktop, `absolute` o `flex-1 justify-center`) | iconos (derecha).
+6. **Menú móvil desplegable**: Cambiar fondo de `bg-dark/90` a `bg-white` con texto `text-foreground`.
 
-### 2. Fade a transparente (no a color de fondo)
-Actualmente el overlay del bloque mobile usa `bg-gradient-to-b from-transparent to-dark`, que funde la imagen contra el color `--dark` (lavanda sólido). En desktop NO hay overlay sobre la imagen — la transición se logra porque la imagen PNG ya tiene fondo transparente y se apoya en el fondo del hero.
+**Estructura final:**
+```text
+[Logo]        [Inicio Servicios Tienda Sobre Contacto]        [🛒] [☰]
+```
 
-Para replicar ese comportamiento en mobile:
-- **Eliminar el `<div>` overlay** con `bg-gradient-to-b from-transparent to-dark` que está sobre la imagen.
-- En su lugar, aplicar un `mask-image` (CSS mask) sobre la `<img>` de Ludivina mobile para que el píxel se vuelva transparente en el tercio inferior:
-  ```
-  style={{
-    WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-    maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-  }}
-  ```
-- Resultado: la foto se desvanece a opacidad 0 real (deja ver el fondo del hero, sea imagen celestial o video), igual que la versión desktop que confía en la transparencia del PNG.
-
-### Archivo a modificar
-- `src/components/HeroSection.tsx` (único)
-
-### Lo que NO cambia
-- Layout desktop, fondo, copys, botones, paleta.
+El comportamiento de auto-ocultar al hacer scroll hacia abajo se mantiene.
 
