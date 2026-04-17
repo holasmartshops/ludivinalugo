@@ -1,5 +1,6 @@
 import { Sparkles, Heart, Compass, Shield, Sun } from "lucide-react";
 import starsBg from "@/assets/for-whom-bg.png";
+import angelFrame from "@/assets/angel-frame.png";
 
 const items = [
   { icon: Compass, text: "Sientes que necesitas claridad en tu camino" },
@@ -27,16 +28,21 @@ const ForWhomSection = () => {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {items.map(({ icon: Icon, text }) => (
-            <div
-              key={text}
-              className="flex items-center gap-5 bg-dark-card/50 border border-gold/20 rounded-2xl p-5 backdrop-blur-sm transition-all duration-300 hover:border-gold/50"
-            >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-dark flex items-center justify-center">
-                <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
+            <div key={text} className="relative aspect-[4/1.2]">
+              <img
+                src={angelFrame}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+              />
+              <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
+                <Icon className="shrink-0 w-6 h-6 text-gold" strokeWidth={1.5} />
+                <p className="font-cinzel font-semibold text-dark tracking-wide leading-relaxed text-sm md:text-base">
+                  {text}
+                </p>
               </div>
-              <p className="font-outfit text-cream/80 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
