@@ -9,8 +9,8 @@ import iconAbundancia from "@/assets/for-whom/abundancia.png";
 const items = [
   { image: iconClaridad, text: "Sientes que necesitas claridad en tu camino" },
   { image: iconProteccion, text: "Buscas protección y paz interior" },
-  { image: iconAngeles, text: "Quieres conectar con tus ángeles guardianes" },
-  { image: iconTransicion, text: "Atraviesas un momento de transición o duelo" },
+  { image: iconTransicion, text: "Quieres conectar con tus ángeles guardianes" },
+  { image: iconAngeles, text: "Atraviesas un momento de transición o duelo" },
   { image: iconAbundancia, text: "Deseas atraer abundancia con propósito divino" },
 ];
 
@@ -48,12 +48,12 @@ const ForWhomSection = () => {
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
                 />
-                <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
+                <div className="relative z-10 flex items-center justify-start gap-5 h-full pl-20 pr-10 py-6 text-left">
                   <img
                     src={image}
                     alt=""
                     aria-hidden="true"
-                    className="shrink-0 w-12 h-12 object-contain"
+                    className="shrink-0 w-16 h-16 object-contain"
                   />
                   <p className="font-cinzel font-medium text-foreground tracking-wide leading-relaxed text-base md:text-lg">
                     {text}
