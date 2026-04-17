@@ -4,52 +4,58 @@
 
 @layer base {
   :root {
-    --background: 40 33% 96%;
-    --foreground: 0 0% 4%;
+    /* Base luminosa */
+    --background: 40 33% 97%;        /* #FBF8F2 crema casi blanco */
+    --foreground: 270 22% 24%;       /* #3A2F4A tinta violeta */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 4%;
+    --card-foreground: 270 22% 24%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
+    --popover-foreground: 270 22% 24%;
 
-    --primary: 43 50% 54%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 43 50% 54%;           /* dorado sin cambios */
+    --primary-foreground: 270 22% 24%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 40 33% 96%;
+    --secondary: 270 28% 42%;        /* #6B4E8A amatista profundo */
+    --secondary-foreground: 40 33% 97%;
 
-    --muted: 37 18% 75%;
-    --muted-foreground: 0 0% 54%;
+    --muted: 273 28% 79%;            /* #C9B8DD lavanda */
+    --muted-foreground: 270 12% 43%; /* #6B5F7A */
 
     --accent: 43 50% 54%;
-    --accent-foreground: 0 0% 4%;
+    --accent-foreground: 270 22% 24%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 43 30% 80%;
-    --input: 43 30% 80%;
+    --border: 273 30% 85%;           /* #D8CCE5 */
+    --input: 273 30% 85%;
     --ring: 43 50% 54%;
 
     --radius: 0.5rem;
 
+    /* Acentos de marca */
     --gold: 43 50% 54%;
     --gold-light: 43 50% 72%;
-    --gold-dark: 43 50% 44%;
-    --cream: 40 33% 96%;
-    --cream-dark: 37 30% 93%;
-    --dark: 0 0% 4%;
-    --dark-card: 0 0% 10%;
-    --dark-border: 0 0% 18%;
+    --gold-dark: 43 50% 38%;         /* más profundo para contraste sobre crema */
 
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 40 33% 96%;
+    --cream: 270 22% 24%;            /* INVERTIDO: ahora "cream" se usa como texto sobre fondos claros */
+    --cream-dark: 270 12% 43%;
+
+    /* "dark" ahora son superficies LAVANDA luminosas */
+    --dark: 280 33% 94%;             /* #F0EAF5 lavanda nube */
+    --dark-card: 280 28% 89%;        /* #E4DCEC lavanda neblina */
+    --dark-border: 273 28% 79%;      /* #C9B8DD lavanda media */
+
+    /* Sidebar invertido a tema claro */
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 270 22% 24%;
     --sidebar-primary: 43 50% 54%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 40 33% 96%;
-    --sidebar-border: 0 0% 18%;
+    --sidebar-primary-foreground: 270 22% 24%;
+    --sidebar-accent: 280 33% 94%;
+    --sidebar-accent-foreground: 270 22% 24%;
+    --sidebar-border: 273 28% 79%;
     --sidebar-ring: 43 50% 54%;
   }
 }
@@ -68,6 +74,10 @@
   }
 }
 
+/* Glow doble: aura dorada + halo de luz celestial */
 .gold-glow {
-  text-shadow: 0 0 20px hsl(43 50% 54% / 0.4), 0 0 40px hsl(43 50% 54% / 0.15);
+  text-shadow:
+    0 0 20px hsl(43 50% 54% / 0.45),
+    0 0 40px hsl(0 0% 100% / 0.6),
+    0 0 70px hsl(0 0% 100% / 0.35);
 }
