@@ -85,7 +85,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
         {/* Right — Info (centered vertically) */}
         <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-0">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="font-cinzel font-semibold text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
               Guía Espiritual Angelical · Te acompaño en tu camino
