@@ -118,7 +118,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start z-1">
             <a
               href="#servicios"
               className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
