@@ -30,10 +30,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
-            Lo que ofrezco
+            Lo que Ludivina ofrece para ti
           </p>
           <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-cream mb-4 gold-glow">
-            Mis Servicios
+            Servicios y Productos
           </h2>
         </div>
 

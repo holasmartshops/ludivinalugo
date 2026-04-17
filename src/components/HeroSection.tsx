@@ -87,7 +87,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
             <Sparkles className="w-5 h-5 text-gold" />
             <span className="font-cinzel text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
-              Guía Espiritual Angelical
+              Guía Espiritual Angelical · Te acompaño en tu camino
             </span>
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
