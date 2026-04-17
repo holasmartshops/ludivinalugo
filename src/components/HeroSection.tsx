@@ -103,10 +103,10 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             claridad y la protección divina.
           </p>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center lg:hidden">
             <div className="relative w-80">
               <img
-                src={ludivinaAbout}
+                src={ludivinaImg}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
                 className="w-full h-auto object-contain"
                 style={{
