@@ -28,23 +28,31 @@ const ForWhomSection = () => {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {items.map(({ icon: Icon, text }) => (
-            <div key={text} className="relative aspect-[4/1.2]">
-              <img
-                src={angelFrame}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
-              />
-              <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
-                <Icon className="shrink-0 w-6 h-6 text-gold" strokeWidth={1.5} />
-                <p className="font-cinzel font-semibold text-dark tracking-wide leading-relaxed text-sm md:text-base">
-                  {text}
-                </p>
+        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {items.map(({ icon: Icon, text }, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <div
+                key={text}
+                className={`relative aspect-[4/1.4] ${
+                  isLast ? "sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto sm:w-full" : ""
+                }`}
+              >
+                <img
+                  src={angelFrame}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+                />
+                <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
+                  <Icon className="shrink-0 w-7 h-7 text-gold" strokeWidth={1.5} />
+                  <p className="font-cinzel font-semibold text-foreground tracking-wide leading-relaxed text-base md:text-lg">
+                    {text}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
