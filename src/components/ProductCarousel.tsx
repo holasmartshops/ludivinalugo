@@ -32,7 +32,7 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="bg-background border-t border-border py-24 overflow-hidden">
+    <section className="bg-background py-24 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">

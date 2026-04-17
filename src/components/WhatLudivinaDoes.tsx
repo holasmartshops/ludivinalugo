@@ -6,7 +6,7 @@ const stats = [
 
 const WhatLudivinaDoes = () => {
   return (
-    <section className="bg-background border-t border-border py-24">
+    <section className="bg-background py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">
