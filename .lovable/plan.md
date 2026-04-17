@@ -1,30 +1,41 @@
 
 
-## Plan: Ajustes finos del hero (mobile)
+## Plan: Hero móvil estilo "poster" con textos sobre el logo y CTAs al fondo
 
-### 1. Pegar eyebrow y subtítulo al logo
-En `HeroSection.tsx`, reducir márgenes alrededor del logo:
-- Eyebrow ("Guía Espiritual Angelical…"): cambiar `mb-6` → `mb-2` (gap eyebrow→logo).
-- Logo `<img ludivinaLogo>`: cambiar `mb-6` → `mb-2` (gap logo→subtítulo).
-- Subtítulo ("Lectura de Ángeles…"): mantener pero reducir `mb-6 lg:mb-8` → `mb-4 lg:mb-8` para que en mobile quede compacto y en desktop no se altere.
+La referencia muestra los textos (eyebrow, "Ludivina Lugo", subtítulo) como un bloque tipográfico **muy compacto y superpuesto sobre la zona del logo/foto**, sin respetar márgenes — funcionan como una composición tipo poster. Además, los botones CTA deben caer al **fondo de la pantalla** (no flotar a media altura), aprovechando que es la parte superior de la página.
 
-### 2. Fade a transparente (no a color de fondo)
-Actualmente el overlay del bloque mobile usa `bg-gradient-to-b from-transparent to-dark`, que funde la imagen contra el color `--dark` (lavanda sólido). En desktop NO hay overlay sobre la imagen — la transición se logra porque la imagen PNG ya tiene fondo transparente y se apoya en el fondo del hero.
+### Cambios en `src/components/HeroSection.tsx` (solo rama móvil `<lg`)
 
-Para replicar ese comportamiento en mobile:
-- **Eliminar el `<div>` overlay** con `bg-gradient-to-b from-transparent to-dark` que está sobre la imagen.
-- En su lugar, aplicar un `mask-image` (CSS mask) sobre la `<img>` de Ludivina mobile para que el píxel se vuelva transparente en el tercio inferior:
-  ```
-  style={{
-    WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-    maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-  }}
-  ```
-- Resultado: la foto se desvanece a opacidad 0 real (deja ver el fondo del hero, sea imagen celestial o video), igual que la versión desktop que confía en la transparencia del PNG.
+Reestructurar el contenido móvil sin tocar la rama desktop (`lg:`).
+
+**Estructura móvil propuesta:**
+
+1. **Sección hero** pasa a `flex flex-col` con `min-h-screen`. La columna derecha móvil deja de estar `self-center`; en su lugar se distribuye en 3 zonas:
+   - **Top (foto + textos sobrepuestos)** — crece (`flex-1`)
+   - **Botones** — anclados abajo con `mt-auto` + `pb-8` (respetando safe area)
+
+2. **Foto + textos como capas superpuestas** (móvil):
+   - Wrapper `relative` que contiene:
+     - La `<img>` de Ludivina con el `maskImage` actual (fade a transparente en la parte inferior).
+     - Un `<div absolute inset-0 flex flex-col justify-center>` con los 3 textos (eyebrow, logo, subtítulo) **encima** de la foto, todos pegados entre sí (`mb-1` o `mb-2` máximo).
+   - Esto reproduce el efecto de la referencia: el nombre "Ludivina Lugo" cae **sobre** la imagen.
+
+3. **Párrafo descriptivo "Descubre los mensajes…"** queda debajo de la foto, con margen reducido.
+
+4. **Botones CTA**:
+   - En móvil: `mt-auto pb-8` para empujarlos al pie de la pantalla.
+   - En desktop: mantener comportamiento actual (justo después del párrafo).
+
+**Desktop intacto:** la columna izquierda con la foto y la columna derecha con textos siguen igual. Los nuevos textos sobrepuestos solo viven dentro del bloque `lg:hidden`.
+
+### Ajustes de tamaño/tipografía móvil
+- Eyebrow móvil: mantener `text-sm`, sombras suaves (`drop-shadow`) para legibilidad sobre la foto.
+- Logo móvil: reducir `max-w` para que entre bien sobre la imagen (~`max-w-xs`).
+- Subtítulo móvil: igual con `drop-shadow`.
 
 ### Archivo a modificar
 - `src/components/HeroSection.tsx` (único)
 
 ### Lo que NO cambia
-- Layout desktop, fondo, copys, botones, paleta.
+- Rama desktop (`lg:` y mayores), fondos, video, paleta, copys, otros componentes.
 
