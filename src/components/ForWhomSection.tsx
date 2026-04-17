@@ -46,7 +46,7 @@ const ForWhomSection = () => {
                 />
                 <div className="relative z-10 flex items-center justify-center gap-4 h-full px-12 py-6 text-center">
                   <Icon className="shrink-0 w-7 h-7 text-gold" strokeWidth={1.5} />
-                  <p className="font-cinzel font-semibold text-foreground tracking-wide leading-relaxed text-base md:text-lg">
+                  <p className="font-cinzel font-medium text-foreground tracking-wide leading-relaxed text-base md:text-lg">
                     {text}
                   </p>
                 </div>
