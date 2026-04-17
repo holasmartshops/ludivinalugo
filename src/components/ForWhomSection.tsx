@@ -1,5 +1,5 @@
 import { Sparkles, Heart, Compass, Shield, Sun } from "lucide-react";
-import starsBg from "@/assets/stars-bg.png";
+import starsBg from "@/assets/for-whom-bg.png";
 
 const items = [
   { icon: Compass, text: "Sientes que necesitas claridad en tu camino" },
