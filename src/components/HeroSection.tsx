@@ -93,7 +93,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             <Sparkles className="w-5 h-5 text-gold" />
           </div>
 
-          <div class="relative flex items-center justify-center p-10 bg-slate-200 ">
+          <div class="relative flex items-center justify-center p-10 bg-slate-900 ">
             <div class="absolute w-32 h-32 bg-white/40 rounded-full blur-3xl z-0"></div>
             <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt-16 mb-1 md:mt-0" />
           </div>
