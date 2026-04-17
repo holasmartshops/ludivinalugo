@@ -1,5 +1,5 @@
 import { Sparkles, Heart, Compass, Shield, Sun } from "lucide-react";
-import starsBg from "@/assets/for-whom-bg.png";
+import starsBg from "@/assets/hero-bg-mobile.png";
 import angelFrame from "@/assets/angel-frame.png";
 
 const items = [
