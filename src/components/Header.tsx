@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import CartDrawer from "@/components/CartDrawer";
+import ludivinaLogo from "@/assets/ludivina-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "/" },
@@ -45,27 +46,31 @@ const Header = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-transform duration-300"
+        className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-transform duration-300 bg-white border-b border-border shadow-sm"
         style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-          <nav className="hidden md:flex items-center gap-10 mx-auto">
+        <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8 relative">
+          <Link to="/" onClick={() => handleNav("/")} className="flex items-center shrink-0">
+            <img src={ludivinaLogo} alt="Ludivina Lugo" className="h-10 w-auto" />
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNav(link.href)}
-                className="font-cinzel text-xs tracking-[0.25em] uppercase text-gold-dark hover:text-gold transition-colors drop-shadow-sm"
+                className="font-cinzel text-xs tracking-[0.25em] uppercase text-foreground hover:text-gold transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="absolute right-4 lg:right-8 flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <button
               aria-label="Carrito"
-              className="relative text-gold-dark hover:text-gold transition-colors drop-shadow-sm"
+              className="relative text-foreground hover:text-gold transition-colors"
               onClick={() => setCartOpen(true)}
             >
               <ShoppingBag className="w-5 h-5" />
@@ -77,7 +82,7 @@ const Header = () => {
             </button>
             <button
               aria-label="Menú"
-              className="md:hidden text-gold-dark"
+              className="md:hidden text-foreground hover:text-gold transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -86,13 +91,13 @@ const Header = () => {
         </div>
 
         {menuOpen && (
-          <nav className="md:hidden bg-dark/90 backdrop-blur-sm px-4 pb-6 pt-2">
+          <nav className="md:hidden bg-white border-t border-border px-4 pb-6 pt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNav(link.href)}
-                className="block py-3 font-cinzel text-xs tracking-[0.25em] uppercase text-gold hover:text-gold-light transition-colors"
+                className="block py-3 font-cinzel text-xs tracking-[0.25em] uppercase text-foreground hover:text-gold transition-colors"
               >
                 {link.label}
               </Link>
