@@ -87,7 +87,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
         <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
             <Sparkles className="w-5 h-5 text-gold" />
-            <span className="font-cinzel font-550 text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
+            <span className="font-cinzel font-medium text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
               Guía Espiritual Angelical · Te acompaño en tu camino
             </span>
             <Sparkles className="w-5 h-5 text-gold" />
@@ -95,7 +95,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
 
           <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt-16 mb-1 md:mt-0" />
 
-          <p className="font-cinzel font-550 text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
+          <p className="font-cinzel font-medium text-base md:text-lg tracking-[0.2em] uppercase text-gold-dark mb-8">
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
 
