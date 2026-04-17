@@ -99,10 +99,10 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             Lectura de Ángeles · Amuletos · Guía Espiritual
           </p>
 
-          {/* <p className="font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12"> 
+          <p className="font-outfit lg:hidden text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
             Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
             claridad y la protección divina.
-          </p> */}
+          </p>
 
           <div className="flex justify-center lg:hidden">
             <div className="relative w-80">
