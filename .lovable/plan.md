@@ -1,91 +1,35 @@
 
 
-## Plan: Nueva paleta cromática "Cielo angelical luminoso"
+## Plan: Mostrar imagen de Ludivina en hero móvil
 
-Las referencias muestran dos mundos: nubes celestiales claras (imagen 7, la que inspira el hero) y violetas/azul-noche místicos (imágenes 6 y 8). El cliente pidió **no tonos oscuros**, así que la paleta debe vivir en el **lado luminoso**, tomando del violeta/azul solo la temperatura, no la oscuridad.
+Actualmente en mobile/tablet (`<lg`), la imagen de Ludivina está oculta (`hidden lg:flex`) y solo se ve el fondo + el bloque de texto. La referencia muestra que en móvil debe verse: eyebrow + logo + subtítulo + foto de Ludivina + (fundido) + descripción + botones.
 
-### Círculo cromático propuesto
+### Cambios en `src/components/HeroSection.tsx`
 
-Trabajamos con una paleta análoga **lavanda → crema → dorado**, todos en alta luminosidad:
+Reestructurar el layout móvil para que sea un flujo vertical único, manteniendo el layout desktop de 2 columnas intacto.
 
-```
-Base luminosa (fondos)
-  cream-white   #FBF8F2   crema casi blanco — fondo principal
-  cloud         #F0EAF5   lavanda nube — secciones alternas
-  mist          #E4DCEC   lavanda neblina — cards/superficies elevadas
+**Nuevo orden en móvil (dentro del bloque derecho, ya centrado):**
+1. Eyebrow "Guía Espiritual Angelical · Te acompaño en tu camino" (ya existe)
+2. Logo Ludivina (ya existe)
+3. Subtítulo "Lectura de Ángeles · Amuletos · Guía Espiritual" (ya existe)
+4. **NUEVO:** Imagen de Ludivina (`ludivinaImg`) visible solo en móvil/tablet (`lg:hidden`), centrada, con un gradiente de fade en la parte inferior hacia el color de fondo para fundirse con el texto siguiente
+5. Párrafo descriptivo (ya existe) — aparece "saliendo" del fade
+6. Botones CTA (ya existen)
 
-Acentos místicos (temperatura violeta sin oscuridad)
-  lavender      #C9B8DD   lavanda media — bordes, divisores
-  amethyst-soft #9C82B8   amatista suave — texto secundario, iconos
-  amethyst-deep #6B4E8A   amatista profundo — solo para texto principal y CTAs (NO fondos)
+**Implementación del fade:**
+- Wrapper con la imagen + un `div` absoluto encima con `bg-gradient-to-b from-transparent to-dark` (o `to-background` según se vea mejor con la nueva paleta lavanda) cubriendo el ~30-40% inferior de la foto.
+- La columna izquierda actual (`hidden lg:flex` con `ludivinaImg`) se mantiene intacta para desktop.
 
-Acentos cálidos (mantener identidad)
-  gold          #C9A961   dorado actual — sin cambios
-  gold-light    #E2C97A
-  gold-dark     #A88A3F   para contraste sobre crema
-
-Texto
-  ink           #3A2F4A   tinta violeta-tinta (reemplaza el casi-negro) — texto principal
-  ink-soft      #6B5F7A   texto secundario
-```
-
-### Mapeo a tokens de `src/index.css`
-
-Reemplazos directos (no hay que tocar componentes, todo se propaga):
-
-```
---background    → #FBF8F2  (ya estaba claro, se refina)
---foreground    → #3A2F4A  (de casi negro a tinta violeta)
---dark          → #F0EAF5  (¡el gran cambio! deja de ser oscuro)
---dark-card     → #E4DCEC  (cards sobre lavanda)
---dark-border   → #C9B8DD  (bordes lavanda)
---cream         → #3A2F4A  (invertir: "cream" se usa como texto sobre fondos "dark", ahora dark es claro → cream debe ser oscuro para contrastar)
---cream-dark    → #6B5F7A
---muted         → #C9B8DD
---muted-foreground → #6B5F7A
---border / --input → #D8CCE5
---gold          → sin cambios (sigue 43 50% 54%)
---primary       → gold (sin cambios)
---secondary     → amatista profundo #6B4E8A (para CTAs oscuros sobre crema)
-```
-
-Sidebar: invertir también (era oscuro, ahora claro).
-
-### Tema iOS
-- `<meta name="theme-color">` de `#0A0A0A` → `#FBF8F2`.
-
-### Sobre el `gold-glow` (tu pregunta clave)
-
-El glow actual es `text-shadow` dorado **sobre fondo oscuro** — funciona porque la luz brilla contra negro. Sobre crema **se va a perder casi por completo** (no hay contraste para que el halo se vea).
-
-Tres opciones, elige una:
-
-1. **Conservar glow dorado tal cual**: se verá sutilísimo, casi imperceptible. Honesto pero pierde el efecto "wow".
-2. **Glow violeta-amatista** (recomendado): cambiar el `text-shadow` a `hsl(270 30% 45% / 0.35)`. Se ve elegante, místico, y SÍ contrasta sobre crema. Mantiene la sensación de "aura divina".
-3. **Doble glow (dorado + halo blanco)**: `text-shadow: 0 0 20px gold/0.4, 0 0 40px white/0.6`. Efecto "luz celestial". Más dramático, muy alineado con la imagen 7.
-
-**Mi recomendación: opción 3** — encaja perfecto con la estética de nubes/luz divina del hero.
-
-### Imagen del hero
-- Fondo de estrellas (`stars-bg.png`) y video oscuro: pueden chocar con la nueva paleta clara. Plan: aplicar un **overlay crema/lavanda al 60-70%** sobre el video y stars para integrarlos. Sin reemplazar assets.
-- Los degradados `from-dark to-transparent` seguirán funcionando (ahora fundirán a lavanda en vez de negro), efecto suave automático.
-
-### Ajustes secundarios previstos
-- Botones primarios oscuros (ej. `bg-foreground text-background` del hero): seguirán funcionando porque foreground/background se invierten coherentemente.
-- Cards con `bg-dark-card/50`: ahora serán lavanda translúcido sobre stars — más etéreo.
+**Ajustes menores:**
+- En móvil, dar un poco menos de `pt-24` arriba si se siente apretado, y reducir margen entre subtítulo y la nueva foto para que respire como en la referencia.
+- La imagen móvil ocupará ancho completo con `max-w-sm mx-auto` aprox., para que respete proporciones tipo retrato.
 
 ### Archivos a modificar
-- `src/index.css` — todos los tokens HSL.
-- `index.html` — `theme-color`.
-- (opcional) overlay claro en `HeroSection.tsx` si el video se ve muy oscuro tras el cambio.
+- `src/components/HeroSection.tsx` — único archivo.
 
 ### Lo que NO cambia
-- Tipografías (Cinzel + Outfit).
-- Estructura de componentes.
-- Dorado como color de marca.
-- Layout y spacing.
-
-### Decisiones que necesito de ti
-1. ¿Glow opción 1, 2 o 3?
-2. ¿Apruebas la paleta lavanda/crema/dorado o prefieres más peso del azul (azul-cielo en vez de lavanda)?
+- Layout desktop (`lg:`) sigue siendo 2 columnas con foto a la izquierda.
+- Fondo (imagen celestial / video).
+- Copys ni assets.
+- Estilos de botones.
 
