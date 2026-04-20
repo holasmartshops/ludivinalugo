@@ -24,32 +24,27 @@ const ForWhomSection = () => {
           <hr className="gold-divider w-24 mx-auto mt-6" />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {items.map(({ image, text }, index) => {
-            const isLast = index === items.length - 1;
-            return (
-              <div
-                key={text}
-                className={`group relative bg-card rounded-2xl border border-gold/30 shadow-[var(--shadow-elevated)] p-5 md:p-7 flex items-center gap-4 md:gap-6 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_4px_24px_hsl(295_35%_22%/0.12)] ${
-                  isLast ? "sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto sm:w-full" : ""
-                }`}
-              >
-                <span
-                  className="absolute left-0 top-4 bottom-4 w-[3px] rounded-r-full bg-gold/70"
-                  aria-hidden="true"
-                />
-                <img
-                  src={image}
-                  alt=""
-                  aria-hidden="true"
-                  className="shrink-0 w-12 h-12 md:w-16 md:h-16 object-contain"
-                />
-                <p className="font-display font-medium text-secondary leading-snug md:leading-tight text-base md:text-xl">
-                  {text}
-                </p>
-              </div>
-            );
-          })}
+        <div className="flex flex-col gap-4 max-w-3xl mx-auto">
+          {items.map(({ image, text }) => (
+            <div
+              key={text}
+              className="group relative bg-card rounded-2xl border border-gold/30 shadow-[var(--shadow-elevated)] p-5 md:p-7 flex items-center gap-4 md:gap-6 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_4px_24px_hsl(295_35%_22%/0.12)]"
+            >
+              <span
+                className="absolute left-0 top-4 bottom-4 w-[3px] rounded-r-full bg-gold/70"
+                aria-hidden="true"
+              />
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                className="shrink-0 w-12 h-12 md:w-14 md:h-14 object-contain"
+              />
+              <p className="font-body font-medium text-secondary leading-snug text-[17px] md:text-lg">
+                {text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
