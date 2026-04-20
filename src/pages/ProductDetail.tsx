@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { products, intentions } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
-import amuletoImg from "@/assets/amuleto-placeholder.png";
+
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -45,9 +45,9 @@ const ProductDetail = () => {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-5xl mx-auto">
             <div className="overflow-hidden">
               <img
-                src={amuletoImg}
+                src={product.image}
                 alt={product.name}
-                className="w-full aspect-[3/4] object-cover"
+                className="w-full aspect-[3/4] object-contain"
               />
             </div>
 

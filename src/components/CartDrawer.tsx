@@ -7,7 +7,7 @@ import {
 import { useCart } from "@/contexts/CartContext";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import amuletoImg from "@/assets/amuleto-placeholder.png";
+
 
 interface CartDrawerProps {
   open: boolean;
@@ -44,9 +44,9 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                   className="flex gap-4 border-b border-border pb-4 last:border-0"
                 >
                   <img
-                    src={amuletoImg}
+                    src={product.image}
                     alt={product.name}
-                    className="w-16 h-20 object-cover flex-shrink-0"
+                    className="w-16 h-20 object-contain flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
                     <h3 className="font-cinzel text-xs tracking-wider text-foreground truncate">
