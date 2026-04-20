@@ -1,27 +1,25 @@
 
-## Plan: Foto de Ludivina en sección "Conoce a Ludivina" con fade de opacidad
+## Plan: Fade inferior en imagen de "Recibe tu Mensaje Angelical"
 
-Reemplazar la foto actual de la sección About por la nueva imagen de Ludivina con manos en oración, aplicando el mismo fade inferior (`mask-fade-bottom`) que usa el Hero, sin el card blanco con sombra para que el fade se funda con el fondo crema.
+Aplicar el mismo efecto `mask-fade-bottom` a la imagen de la sección Lead Magnet, eliminando el padding/wrapper que corta visualmente el fade para que se funda limpiamente con el fondo de la card.
 
-### 1. Asset
-- Copiar `user-uploads://freepik_background_81154.png` → `src/assets/ludivina-about-prayer.png`
+### Cambios en `src/components/LeadMagnetSection.tsx`
 
-### 2. `src/components/AboutSection.tsx`
-**Reemplazar el bloque actual de la foto** (el `<div>` con `card-elevated p-3 bg-white` que envuelve la imagen):
+En el bloque de la imagen (columna derecha):
+- La imagen ya tiene `mask-fade-bottom` aplicado, pero está envuelta con `p-6` que reduce el área visible y el fade no llega al borde de la card.
+- Quitar el `p-6` del `<img>` para que el fade se extienda hasta el final del contenedor, igual que en AboutSection.
+- Mantener `object-contain`, `w-full h-full` y el wrapper `aspect-[3/4]`.
 
-- Quitar el card blanco (`card-elevated`, `p-3`, `bg-white`, `rounded-xl`) — el fade necesita fundirse directo con el background crema, sin marco que lo corte.
-- Cambiar el import de `ludivinaAbout` por el nuevo asset `ludivinaAboutPrayer`.
-- Aplicar a la nueva imagen:
-  - `className="w-full h-auto object-contain mask-fade-bottom"`
-  - Mantener el wrapper responsive: `w-64 sm:w-80 lg:w-[28rem]` (ya existente, OK para móvil).
-- Conservar el `alt` descriptivo y el layout del grid (foto a la izquierda en desktop, arriba en mobile gracias a los `order-*`).
+```tsx
+<img
+  src={ludivinaCards}
+  alt="Mensaje angelical"
+  className="relative z-10 w-full h-full object-contain mask-fade-bottom"
+/>
+```
 
 ### Resultado esperado
-- La nueva foto de Ludivina con manos en oración aparece en la columna izquierda de la sección "Conoce a Ludivina".
-- El fondo blanco del PNG se desvanece suavemente hacia abajo gracias a `mask-fade-bottom`, fundiéndose con el `bg-background` crema de la sección — mismo efecto que la foto del Hero.
-- Sin marco/card blanco alrededor para que el fade funcione visualmente limpio.
-- Layout responsive intacto: mobile mantiene el orden foto-arriba/texto-abajo, desktop foto-izquierda/texto-derecha.
+La imagen de las cartas/mensaje angelical se desvanece suavemente hacia abajo, fundiéndose con el fondo crema de la card — mismo efecto visual que la foto de Ludivina en "Conoce a Ludivina" y en el Hero.
 
 ### Archivos
-- Crear: `src/assets/ludivina-about-prayer.png`
-- Modificar: `src/components/AboutSection.tsx`
+- Modificar: `src/components/LeadMagnetSection.tsx`
