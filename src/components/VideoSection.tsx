@@ -20,12 +20,15 @@ const VideoSection = () => {
           <div className="relative">
             <div className="aspect-video rounded-2xl overflow-hidden card-elevated border border-gold/30">
               <iframe
-                className="w-full h-full"
-                src="https://youtu.be/C4-H_j6igN0"
-                title="Ludivina Lugo - Guía Espiritual"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/C4-H_j6igN0?si=Zfj8WhLNJvyRvMiY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
