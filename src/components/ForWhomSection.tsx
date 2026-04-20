@@ -1,4 +1,3 @@
-import angelFrame from "@/assets/angel-frame.png";
 import iconClaridad from "@/assets/for-whom/claridad.png";
 import iconProteccion from "@/assets/for-whom/proteccion.png";
 import iconAngeles from "@/assets/for-whom/angeles.png";
@@ -31,27 +30,23 @@ const ForWhomSection = () => {
             return (
               <div
                 key={text}
-                className={`relative aspect-[4/1.4] ${
+                className={`group relative bg-card rounded-2xl border border-gold/30 shadow-[var(--shadow-elevated)] p-5 md:p-7 flex items-center gap-4 md:gap-6 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_4px_24px_hsl(295_35%_22%/0.12)] ${
                   isLast ? "sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto sm:w-full" : ""
                 }`}
               >
+                <span
+                  className="absolute left-0 top-4 bottom-4 w-[3px] rounded-r-full bg-gold/70"
+                  aria-hidden="true"
+                />
                 <img
-                  src={angelFrame}
+                  src={image}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+                  className="shrink-0 w-12 h-12 md:w-16 md:h-16 object-contain"
                 />
-                <div className="relative z-10 flex items-center justify-start gap-3 md:gap-5 h-full pl-14 pr-6 py-4 md:pl-20 md:pr-10 md:py-6 text-left">
-                  <img
-                    src={image}
-                    alt=""
-                    aria-hidden="true"
-                    className="shrink-0 w-11 h-11 md:w-16 md:h-16 object-contain"
-                  />
-                  <p className="font-display font-medium text-secondary leading-snug md:leading-tight text-sm md:text-xl">
-                    {text}
-                  </p>
-                </div>
+                <p className="font-display font-medium text-secondary leading-snug md:leading-tight text-base md:text-xl">
+                  {text}
+                </p>
               </div>
             );
           })}
