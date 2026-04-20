@@ -8,7 +8,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
     <section
       ref={ref}
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20"
+      className="relative overflow-hidden bg-background pt-24 pb-12 lg:pt-20 lg:pb-0 lg:min-h-screen lg:flex lg:items-center"
     >
       <img
         src={heroClouds}
