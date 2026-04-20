@@ -23,8 +23,8 @@ const LeadMagnetSection = () => {
               Recibe tu Mensaje Angelical Semanal
             </h2>
             <p className="font-body text-muted-foreground text-lg leading-relaxed mb-8">
-              Cada domingo, una guía angelical directa a tu correo: meditaciones,
-              afirmaciones y mensajes canalizados para iluminar tu semana.
+              Cada domingo, una guía angelical directa a tu correo: meditaciones, afirmaciones y mensajes canalizados
+              para iluminar tu semana.
             </p>
 
             <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -40,19 +40,11 @@ const LeadMagnetSection = () => {
                 Recibir mensaje
               </button>
             </form>
-            <p className="font-body text-xs text-muted-foreground mt-4">
-              Sin spam. Cancela cuando quieras.
-            </p>
+            <p className="font-body text-xs text-muted-foreground mt-4">Sin spam. Cancela cuando quieras.</p>
           </div>
 
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-sm aspect-[3/4]">
-              <img
-                src={angelFrame}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-fill pointer-events-none"
-              />
               <img
                 src={ludivinaAbout}
                 alt="Mensaje angelical"
