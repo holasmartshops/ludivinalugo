@@ -21,7 +21,7 @@ const VideoSection = () => {
             <div className="aspect-video rounded-2xl overflow-hidden card-elevated border border-gold/30">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/watch?v=C4-H_j6igN0&list=PLEnVHm_vGsU1EeMffmwKCNYvO3nHTQlz_&index=1"
+                src="https://youtu.be/C4-H_j6igN0"
                 title="Ludivina Lugo - Guía Espiritual"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
