@@ -46,21 +46,21 @@ const Header = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-transform duration-300 bg-white border-b border-border shadow-sm"
+        className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-transform duration-300 bg-background/95 backdrop-blur border-b border-gold/40"
         style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8 relative">
+        <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
           <Link to="/" onClick={() => handleNav("/")} className="flex items-center shrink-0">
             <img src={ludivinaLogo} alt="Ludivina Lugo" className="h-10 w-auto" />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNav(link.href)}
-                className="font-cinzel text-xs tracking-[0.25em] uppercase text-foreground hover:text-gold transition-colors"
+                className="font-body text-xs tracking-[0.2em] uppercase text-foreground hover:text-gold transition-colors"
               >
                 {link.label}
               </Link>
@@ -68,6 +68,9 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-4">
+            <a href="/#servicios" className="hidden md:inline-flex btn-primary !py-2.5 !px-6 !text-xs !tracking-[0.15em] uppercase">
+              Reserva
+            </a>
             <button
               aria-label="Carrito"
               className="relative text-foreground hover:text-gold transition-colors"
@@ -75,7 +78,7 @@ const Header = () => {
             >
               <ShoppingBag className="w-5 h-5" />
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-gold text-background text-[10px] font-outfit font-semibold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 bg-gold text-secondary text-[10px] font-body font-semibold w-4 h-4 rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -91,17 +94,20 @@ const Header = () => {
         </div>
 
         {menuOpen && (
-          <nav className="md:hidden bg-white border-t border-border px-4 pb-6 pt-2">
+          <nav className="md:hidden bg-background border-t border-gold/30 px-4 pb-6 pt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNav(link.href)}
-                className="block py-3 font-cinzel text-xs tracking-[0.25em] uppercase text-foreground hover:text-gold transition-colors"
+                className="block py-3 font-body text-xs tracking-[0.2em] uppercase text-foreground hover:text-gold transition-colors"
               >
                 {link.label}
               </Link>
             ))}
+            <a href="/#servicios" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-4">
+              Reserva tu Lectura
+            </a>
           </nav>
         )}
       </header>

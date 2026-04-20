@@ -18,6 +18,8 @@ export default {
         cinzelDecorative: ["Cinzel Decorative", "serif"],
         cormorant: ["Cormorant Garamond", "serif"],
         outfit: ["Outfit", "sans-serif"],
+        display: ["Cormorant Garamond", "serif"],
+        body: ["DM Sans", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

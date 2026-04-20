@@ -1,135 +1,44 @@
-import React, { useRef, useEffect, forwardRef } from "react";
-import { Sparkles } from "lucide-react";
-import heroBg from "@/assets/hero-bg-mobile.png";
-import heroBgVideo from "@/assets/hero-bg-video.webm";
+import { forwardRef } from "react";
 import ludivinaImg from "@/assets/ludivina.png";
-import ludivinaLogo from "@/assets/ludivina-logo.png";
-import ludivinaAbout from "@/assets/ludivina-about.png";
+import ZodiacWatermark from "@/components/ZodiacWatermark";
 
 const HeroSection = forwardRef<HTMLElement>((props, ref) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    // Force play programmatically
-    videoElement.play().catch((err) => console.error("Video autoplay failed:", err));
-
-    // Fade-out near end of loop, fade-in on restart
-    const handleTimeUpdate = () => {
-      if (!videoElement.duration) return;
-
-      // Si estamos en el último segundo del video, fade-out
-      if (videoElement.currentTime >= videoElement.duration - 0.5) {
-        videoElement.style.opacity = "0";
-      }
-      // Si estamos en cualquier otro momento (incluyendo cuando vuelve a 0), fade-in
-      else {
-        videoElement.style.opacity = "1";
-      }
-    };
-
-    const handlePlaying = () => {
-      videoElement.style.opacity = "1";
-    };
-
-    videoElement.addEventListener("timeupdate", handleTimeUpdate);
-    videoElement.addEventListener("playing", handlePlaying);
-
-    return () => {
-      videoElement.removeEventListener("timeupdate", handleTimeUpdate);
-      videoElement.removeEventListener("playing", handlePlaying);
-    };
-  }, []);
-
   return (
     <section
       ref={ref}
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20"
     >
-      {/* Background image (mobile/tablet) */}
-      <div
-        className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      <ZodiacWatermark />
 
-      {/* Background video (desktop only) */}
-      <video
-        ref={videoRef}
-        className="hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={heroBgVideo} type="video/webm" />
-      </video>
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)]">
+        {/* Left — Text */}
+        <div className="text-center lg:text-left animate-fade-in-up order-2 lg:order-1">
+          <p className="eyebrow mb-6">✦ Guía Espiritual Angelical</p>
 
-      {/* Bottom fade to dark */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-background/0 via-background/70 to-background z-[5]" />
+          <h1 className="font-display font-medium text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-secondary mb-6">
+            Mensajes del cielo<br />
+            para tu alma
+          </h1>
 
-      {/* Two-column layout */}
-      <div className=" container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-screen pt-24 pb-0">
-        {/* Left — Ludivina photo (hidden on mobile/tablet) */}
-        <div className="hidden lg:flex justify-start items-end self-end">
-          <div className="relative w-[32rem]">
-            <img
-              src={ludivinaImg}
-              alt="Ludivina Lugo — Guía Espiritual Angelical"
-              className="w-full h-auto object-contain"
-            />
+          <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10">
+            Descubre los mensajes que tus ángeles tienen para ti. Te acompaño en tu camino
+            hacia la paz interior, la claridad y la protección divina.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#servicios" className="btn-primary">Reserva tu Lectura</a>
+            <a href="#tienda" className="btn-ghost">Ver Amuletos</a>
           </div>
         </div>
 
-        {/* Right — Info (centered vertically) */}
-        <div className=" relative z-10 text-center lg:text-left animate-fade-in-up self-center">
-          <img src={ludivinaLogo} alt="Ludivina Lugo" className="w-full h-auto -mt-20 mb-1 md:mt-0" />
-
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
-            <Sparkles className="w-5 h-5 text-gold" />
-            <span className="font-cinzel font-semibold text-sm md:text-base tracking-[0.3em] uppercase text-foreground/70">
-              Guía Espiritual Angelical · Te acompaño en tu camino
-            </span>
-            <Sparkles className="w-5 h-5 text-gold" />
-          </div>
-
-          <p className="hidden lg:block font-outfit text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-12">
-            Descubre los mensajes que los ángeles tienen para ti. Te guío en tu camino hacia la paz interior, la
-            claridad y la protección divina.
-          </p>
-
-          <div className="-mt-16 mb-1 md:mt-0">
-            <div className="flex justify-center lg:hidden">
-              <div className="relative w-80 -mb-16 z-0">
-                <img
-                  src={ludivinaAbout}
-                  alt="Ludivina Lugo — Guía Espiritual Angelical"
-                  className="w-full h-auto object-contain"
-                  style={{
-                    maskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
-                    WebkitMaskImage: "linear-gradient(to bottom, white 50%, transparent 100%)",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#servicios"
-                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
-              >
-                Descubre tus Mensajes
-              </a>
-              <a
-                href="#tienda"
-                className="inline-block font-cinzel text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full border transition-all duration-300 text-gold border-gold-dark"
-              >
-                Ver Amuletos
-              </a>
-            </div>
-          </div>
+        {/* Right — Photo with bottom fade */}
+        <div className="relative flex justify-center lg:justify-end items-end self-end order-1 lg:order-2 h-[60vh] lg:h-[calc(100vh-5rem)]">
+          <img
+            src={ludivinaImg}
+            alt="Ludivina Lugo — Guía Espiritual Angelical"
+            className="h-full w-auto object-contain object-bottom mask-fade-bottom"
+          />
         </div>
       </div>
     </section>
