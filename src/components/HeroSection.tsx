@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import ludivinaImg from "@/assets/ludivina.png";
+import heroClouds from "@/assets/hero-clouds.jpg";
 import ZodiacWatermark from "@/components/ZodiacWatermark";
 
 const HeroSection = forwardRef<HTMLElement>((props, ref) => {
@@ -9,6 +10,12 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       id="inicio"
       className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20"
     >
+      <img
+        src={heroClouds}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover opacity-40 mask-fade-bottom pointer-events-none"
+      />
       <ZodiacWatermark />
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)]">
