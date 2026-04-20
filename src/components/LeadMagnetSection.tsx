@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import angelFrame from "@/assets/angel-frame.png";
-import ludivinaAbout from "@/assets/ludivina-about.png";
+import ludivinaCards from "@/assets/ludivina-cards.png";
 
 const LeadMagnetSection = () => {
   const [email, setEmail] = useState("");
@@ -46,7 +45,7 @@ const LeadMagnetSection = () => {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-sm aspect-[3/4]">
               <img
-                src={ludivinaAbout}
+                src={ludivinaCards}
                 alt="Mensaje angelical"
                 className="relative z-10 w-full h-full object-contain p-6"
               />
