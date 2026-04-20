@@ -7,7 +7,6 @@ import amuletoImg from "@/assets/amuleto-placeholder.png";
 const ProductCarousel = () => {
   const [active, setActive] = useState(0);
   const total = products.length;
-
   const touchStartX = useRef<number>(0);
 
   const prev = () => setActive((i) => (i - 1 + total) % total);
@@ -32,15 +31,14 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="bg-background py-24 overflow-hidden">
+    <section className="bg-muted/40 py-24 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="font-cinzel text-xs tracking-[0.3em] uppercase text-gold mb-4">
-            Colección
-          </p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
-            Amuletos Sagrados
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <p className="eyebrow mb-4">✦ Colección sagrada</p>
+          <h2 className="font-display text-4xl md:text-5xl text-secondary mb-4">
+            Amuletos bendecidos
           </h2>
+          <hr className="gold-divider w-24 mx-auto mt-6" />
         </div>
 
         <div
@@ -53,7 +51,6 @@ const ProductCarousel = () => {
             const offset = getOffset(i);
             const isActive = offset === 0;
             const visible = Math.abs(offset) <= 2;
-
             if (!visible) return null;
 
             return (
@@ -67,35 +64,17 @@ const ProductCarousel = () => {
                 }}
                 onClick={() => setActive(i)}
               >
-                <div
-                  className={`text-center mb-3 transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <h3 className="font-cinzel text-lg tracking-wider text-gold">
-                    {product.name}
-                  </h3>
+                <div className={`text-center mb-3 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
+                  <h3 className="font-display text-2xl text-secondary">{product.name}</h3>
                 </div>
 
-                <div className="relative w-48 h-64 md:w-56 md:h-72 overflow-hidden">
-                  <img
-                    src={amuletoImg}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {!isActive && (
-                    <div className="absolute inset-0 bg-background/60 transition-opacity duration-500" />
-                  )}
+                <div className={`relative w-48 h-64 md:w-56 md:h-72 overflow-hidden rounded-xl ${isActive ? "ring-1 ring-gold/60 shadow-[0_8px_32px_hsl(var(--secondary)/0.15)]" : ""}`}>
+                  <img src={amuletoImg} alt={product.name} className="w-full h-full object-cover" />
+                  {!isActive && <div className="absolute inset-0 bg-background/60" />}
                 </div>
 
-                <div
-                  className={`text-center mt-3 transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <p className="font-outfit text-muted-foreground text-sm">
-                    {product.price}
-                  </p>
+                <div className={`text-center mt-3 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
+                  <p className="font-body text-gold-dark font-medium">{product.price}</p>
                 </div>
               </div>
             );
@@ -103,21 +82,16 @@ const ProductCarousel = () => {
         </div>
 
         <div className="flex items-center justify-center gap-12 mt-6">
-          <button onClick={prev} className="text-gold/60 hover:text-gold transition-colors">
+          <button onClick={prev} className="text-secondary/60 hover:text-gold transition-colors">
             <ChevronLeft className="w-6 h-6" strokeWidth={1.5} />
           </button>
-          <button onClick={next} className="text-gold/60 hover:text-gold transition-colors">
+          <button onClick={next} className="text-secondary/60 hover:text-gold transition-colors">
             <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
           </button>
         </div>
 
         <div className="text-center mt-12">
-          <Link
-            to="/tienda"
-            className="inline-block font-cinzel text-sm tracking-[0.2em] uppercase text-gold px-10 py-3 hover:text-gold-light transition-colors"
-          >
-            Ver Catálogo
-          </Link>
+          <Link to="/tienda" className="btn-primary">Ver Catálogo</Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-import starsBg from "@/assets/hero-bg-mobile.png";
 import angelFrame from "@/assets/angel-frame.png";
 import iconClaridad from "@/assets/for-whom/claridad.png";
 import iconProteccion from "@/assets/for-whom/proteccion.png";
@@ -16,20 +15,14 @@ const items = [
 
 const ForWhomSection = () => {
   return (
-    <section className="relative py-24">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${starsBg})` }}
-      />
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-background to-transparent z-[1]" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-[1]" />
-
-      <div className="relative z-[2] container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="font-cinzel font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4">¿Es para ti?</p>
-          <h2 className="font-cinzel text-3xl md:text-4xl tracking-wider text-foreground mb-4">
+    <section className="relative bg-background py-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <p className="eyebrow mb-4">✦ ¿Es para ti?</p>
+          <h2 className="font-display text-4xl md:text-5xl text-secondary mb-4">
             Esto es para ti si…
           </h2>
+          <hr className="gold-divider w-24 mx-auto mt-6" />
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -55,7 +48,7 @@ const ForWhomSection = () => {
                     aria-hidden="true"
                     className="shrink-0 w-11 h-11 md:w-16 md:h-16 object-contain"
                   />
-                  <p className="font-cinzel font-medium text-foreground tracking-wide leading-snug md:leading-relaxed text-xs md:text-lg">
+                  <p className="font-display font-medium text-secondary leading-snug md:leading-tight text-sm md:text-xl">
                     {text}
                   </p>
                 </div>
