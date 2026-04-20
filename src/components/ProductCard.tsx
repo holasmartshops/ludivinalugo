@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Product } from "@/data/products";
-import amuletoImg from "@/assets/amuleto-placeholder.png";
+
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -10,9 +10,9 @@ const ProductCard = ({ product }: { product: Product }) => {
     >
       <div className="relative overflow-hidden mb-4">
         <img
-          src={amuletoImg}
+          src={product.image}
           alt={product.name}
-          className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full aspect-[3/4] object-contain transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
       </div>

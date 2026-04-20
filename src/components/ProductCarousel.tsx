@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
 import { useIsMobile } from "@/hooks/use-mobile";
-import amuletoImg from "@/assets/amuleto-placeholder.png";
+
 
 const ProductCarousel = () => {
   const [active, setActive] = useState(0);
@@ -73,7 +73,7 @@ const ProductCarousel = () => {
                 </div>
 
                 <div className={`relative w-40 h-56 md:w-56 md:h-72 overflow-hidden rounded-xl ${isActive ? "ring-1 ring-gold/60 shadow-[0_8px_32px_hsl(var(--secondary)/0.15)]" : ""}`}>
-                  <img src={amuletoImg} alt={product.name} className="w-full h-full object-cover" />
+                  <img src={product.image} alt={product.name} className="w-full h-full object-contain bg-card" />
                   {!isActive && <div className="absolute inset-0 bg-background/60" />}
                 </div>
 

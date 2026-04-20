@@ -1,3 +1,11 @@
+import alaAzul from "@/assets/products/ala-azul.png";
+import alaVerde from "@/assets/products/ala-verde.jpeg";
+import alaBlanco from "@/assets/products/ala-blanco.png";
+import alaAmarillo from "@/assets/products/ala-amarillo.png";
+import alaNaranja from "@/assets/products/ala-naranja.png";
+import alaRosa from "@/assets/products/ala-rosa.png";
+import alaMorado from "@/assets/products/ala-morado.png";
+
 export type Intention = "paz" | "claridad" | "proteccion" | "abundancia";
 
 export interface Product {
@@ -6,6 +14,7 @@ export interface Product {
   price: string;
   intention: Intention;
   description: string;
+  image: string;
 }
 
 export const intentions: { value: Intention; label: string }[] = [
@@ -17,59 +26,66 @@ export const intentions: { value: Intention; label: string }[] = [
 
 export const products: Product[] = [
   {
-    name: "Ala de Ángel",
-    slug: "ala-de-angel",
+    name: "Dije Piedra Azul",
+    slug: "dije-piedra-azul",
+    price: "$45.00",
+    intention: "proteccion",
+    description:
+      "Representa al Divino Arcángel Miguel, conocido como el Príncipe de las Milicias Celestiales. \u201C¿Quién como Dios?\u201D es su nombre, un grito de guerra y lealtad. Es el gran defensor contra las asechanzas y tentaciones del mal, brindando protección y guía en todo momento.",
+    image: alaAzul,
+  },
+  {
+    name: "Dije Piedra Verde",
+    slug: "dije-piedra-verde",
+    price: "$45.00",
+    intention: "proteccion",
+    description:
+      "Representa al Divino Arcángel Rafael, \u201CMedicina de Dios\u201D. Su nombre refleja su misión de sanar tanto males físicos como espirituales. Es protector de los caminos y carreteras, guía de los viajeros, y resguarda hospitales, enfermos, médicos, enfermeras y animales.",
+    image: alaVerde,
+  },
+  {
+    name: "Dije Piedra Blanca",
+    slug: "dije-piedra-blanca",
     price: "$45.00",
     intention: "paz",
     description:
-      "Amuleto tallado a mano que canaliza la serenidad angelical. Diseñado para traer calma interior y conexión espiritual profunda a quien lo lleva.",
+      "Representa al Divino Arcángel Gabriel, fortaleza de Dios y mensajero divino. Protege a los niños, a las mujeres embarazadas, así como a escuelas, maestros, pediatras y guarderías. También nos trae mensajes y noticias que favorecen nuestra vida.",
+    image: alaBlanco,
   },
   {
-    name: "Escudo Celestial",
-    slug: "escudo-celestial",
-    price: "$52.00",
-    intention: "proteccion",
-    description:
-      "Un escudo energético forjado con intención divina. Protege contra energías negativas y fortalece el aura de su portador.",
-  },
-  {
-    name: "Estrella Divina",
-    slug: "estrella-divina",
-    price: "$38.00",
+    name: "Dije Piedra Amarilla",
+    slug: "dije-piedra-amarilla",
+    price: "$45.00",
     intention: "claridad",
     description:
-      "Inspirada en la luz de las estrellas, este amuleto ilumina el camino y aporta claridad mental en momentos de incertidumbre.",
+      "Representa al Divino Arcángel Jofiel, \u201CBelleza de Dios\u201D. Arcángel de la iluminación, otorga conocimiento, sabiduría e inteligencia divina. Es protector de estudiantes, maestros y centros educativos, y nos ayuda a superar pruebas tanto físicas como espirituales.",
+    image: alaAmarillo,
   },
   {
-    name: "Llave del Arcángel",
-    slug: "llave-del-arcangel",
-    price: "$60.00",
+    name: "Dije Piedra Naranja",
+    slug: "dije-piedra-naranja",
+    price: "$45.00",
     intention: "abundancia",
     description:
-      "La llave sagrada que abre las puertas de la prosperidad y las bendiciones. Energizada con la frecuencia de la abundancia divina.",
+      "Representa al Divino Arcángel Uriel, \u201CFuego de Dios\u201D y \u201CLuz de Dios\u201D. Protector de la Madre Tierra, nos resguarda de catástrofes naturales. También nos ayuda a atraer estabilidad material, como un hogar, trabajo y prosperidad, favoreciendo el reconocimiento de nuestros esfuerzos y la superación de crisis económicas.",
+    image: alaNaranja,
   },
   {
-    name: "Cruz Angelical",
-    slug: "cruz-angelical",
-    price: "$42.00",
-    intention: "proteccion",
-    description:
-      "Símbolo ancestral de fe y protección celestial. Cada cruz está bendecida para ser un faro de luz en la oscuridad.",
-  },
-  {
-    name: "Pluma Sagrada",
-    slug: "pluma-sagrada",
-    price: "$35.00",
+    name: "Dije Piedra Rosa",
+    slug: "dije-piedra-rosa",
+    price: "$45.00",
     intention: "paz",
     description:
-      "Delicada como una pluma de ángel, este amuleto susurra paz al alma. Ideal para meditación y conexión con los reinos superiores.",
+      "Representa al Divino Arcángel Chamuel, \u201CEl que ve a Dios\u201D. Arcángel del amor, protector de los matrimonios y las relaciones. Nos ayuda a encontrar el amor verdadero y a mantener la armonía, la lealtad y el orden, incluso en asuntos legales y documentos importantes como contratos y acuerdos.",
+    image: alaRosa,
   },
   {
-    name: "Ojo Protector",
-    slug: "ojo-protector",
-    price: "$48.00",
-    intention: "claridad",
+    name: "Dije Piedra Morado",
+    slug: "dije-piedra-morado",
+    price: "$45.00",
+    intention: "paz",
     description:
-      "El ojo que todo lo ve, diseñado para otorgar visión espiritual y protección contra el mal de ojo. Un guardián silencioso.",
+      "Representa al Divino Arcángel Zadquiel, \u201CJusticia de Dios\u201D. Arcángel de la transmutación y el perdón. Brinda paz a la mente, el corazón y las emociones, liberándonos de cargas físicas, mentales y espirituales. Nos guía hacia la comprensión de la verdad y transforma lo negativo en positivo.",
+    image: alaMorado,
   },
 ];
