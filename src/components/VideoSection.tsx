@@ -20,8 +20,7 @@ const VideoSection = () => {
           <div className="relative">
             <div className="aspect-video rounded-2xl overflow-hidden card-elevated border border-gold/30">
               <iframe
-                width="560"
-                height="315"
+                className="w-full h-full"
                 src="https://www.youtube.com/embed/C4-H_j6igN0?si=Zfj8WhLNJvyRvMiY"
                 title="YouTube video player"
                 frameBorder="0"
