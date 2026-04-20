@@ -15,7 +15,7 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left — Photo */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-            <div className="relative w-80 lg:w-[28rem] card-elevated p-3 bg-white">
+            <div className="relative w-64 sm:w-80 lg:w-[28rem] card-elevated p-3 bg-white">
               <img
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"

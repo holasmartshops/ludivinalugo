@@ -2,12 +2,16 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
+import { useIsMobile } from "@/hooks/use-mobile";
 import amuletoImg from "@/assets/amuleto-placeholder.png";
 
 const ProductCarousel = () => {
   const [active, setActive] = useState(0);
   const total = products.length;
   const touchStartX = useRef<number>(0);
+  const isMobile = useIsMobile();
+  const offsetX = isMobile ? 130 : 220;
+  const activeScale = isMobile ? 1.05 : 1.15;
 
   const prev = () => setActive((i) => (i - 1 + total) % total);
   const next = () => setActive((i) => (i + 1) % total);
@@ -58,7 +62,7 @@ const ProductCarousel = () => {
                 key={product.slug}
                 className="absolute transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  transform: `translateX(${offset * 220}px) scale(${isActive ? 1.15 : 0.7})`,
+                  transform: `translateX(${offset * offsetX}px) scale(${isActive ? activeScale : 0.7})`,
                   zIndex: isActive ? 10 : 5 - Math.abs(offset),
                   opacity: isActive ? 1 : Math.abs(offset) === 1 ? 0.4 : 0.15,
                 }}
@@ -68,7 +72,7 @@ const ProductCarousel = () => {
                   <h3 className="font-display text-2xl text-secondary">{product.name}</h3>
                 </div>
 
-                <div className={`relative w-48 h-64 md:w-56 md:h-72 overflow-hidden rounded-xl ${isActive ? "ring-1 ring-gold/60 shadow-[0_8px_32px_hsl(var(--secondary)/0.15)]" : ""}`}>
+                <div className={`relative w-40 h-56 md:w-56 md:h-72 overflow-hidden rounded-xl ${isActive ? "ring-1 ring-gold/60 shadow-[0_8px_32px_hsl(var(--secondary)/0.15)]" : ""}`}>
                   <img src={amuletoImg} alt={product.name} className="w-full h-full object-cover" />
                   {!isActive && <div className="absolute inset-0 bg-background/60" />}
                 </div>

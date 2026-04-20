@@ -15,7 +15,7 @@ const LeadMagnetSection = () => {
   return (
     <section className="bg-background py-24">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto card-elevated p-8 md:p-14">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto card-elevated p-6 md:p-14">
           <div>
             <p className="eyebrow mb-4">✦ Regalo gratuito</p>
             <h2 className="font-display text-4xl md:text-5xl text-secondary leading-tight mb-6">
