@@ -18,34 +18,34 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       />
       <ZodiacWatermark />
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)]">
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 grid gap-8 lg:grid-cols-2 lg:gap-12 items-center lg:min-h-[calc(100vh-6rem)]">
         {/* Left — Text */}
         <div className="text-center lg:text-left animate-fade-in-up order-2 lg:order-1">
           <p className="eyebrow mb-6">✦ Guía Espiritual Angelical</p>
 
-          <h1 className="font-display font-medium text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-secondary mb-6">
+          <h1 className="font-display font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-secondary mb-6">
             Mensajes del cielo
             <br />
             para tu alma
           </h1>
 
-          <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10">
+          <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 mb-6 lg:mb-10">
             Descubre los mensajes que tus ángeles tienen para ti. Te acompaño en tu camino hacia la paz interior, la
             claridad y la protección divina.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#servicios" className="btn-primary">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <a href="#servicios" className="btn-primary w-full sm:w-auto">
               Reserva tu Lectura
             </a>
-            <a href="#tienda" className="btn-ghost">
+            <a href="#tienda" className="btn-ghost w-full sm:w-auto">
               Ver Amuletos
             </a>
           </div>
         </div>
 
         {/* Right — Photo with bottom fade */}
-        <div className="relative flex justify-center lg:justify-end items-end self-end order-1 lg:order-2 h-[60vh] lg:h-[calc(100vh-6rem)]">
+        <div className="relative flex justify-center items-end order-1 lg:order-2 h-[42vh] max-h-[420px] w-full lg:h-[calc(100vh-6rem)] lg:max-h-none lg:justify-end lg:self-end">
           <img
             src={ludivinaImg}
             alt="Ludivina Lugo — Guía Espiritual Angelical"
