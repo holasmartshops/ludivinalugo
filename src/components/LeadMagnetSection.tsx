@@ -47,7 +47,7 @@ const LeadMagnetSection = () => {
               <img
                 src={ludivinaCards}
                 alt="Mensaje angelical"
-                className="relative z-10 w-full h-full object-contain p-6"
+                className="relative z-10 w-full h-full object-contain p-6 mask-fade-bottom"
               />
             </div>
           </div>
