@@ -9,17 +9,19 @@ const VideoSection = () => {
               Conoce mi mensaje en mis propias palabras
             </h2>
             <p className="font-body text-muted-foreground text-lg leading-relaxed mb-8">
-              Mira mi presentación y descubre cómo trabajo con la energía angelical para guiarte
-              en tu despertar espiritual.
+              Mira mi presentación y descubre cómo trabajo con la energía angelical para guiarte en tu despertar
+              espiritual.
             </p>
-            <a href="#servicios" className="btn-primary">Reserva tu lectura</a>
+            <a href="#servicios" className="btn-primary">
+              Reserva tu lectura
+            </a>
           </div>
 
           <div className="relative">
             <div className="aspect-video rounded-2xl overflow-hidden card-elevated border border-gold/30">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/watch?v=C4-H_j6igN0&list=PLEnVHm_vGsU1EeMffmwKCNYvO3nHTQlz_&index=1"
                 title="Ludivina Lugo - Guía Espiritual"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
