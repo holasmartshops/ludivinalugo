@@ -1,5 +1,5 @@
 import { Feather, HandHeart, Sun } from "lucide-react";
-import ludivinaAbout from "@/assets/ludivina-about.png";
+import ludivinaAbout from "@/assets/ludivina-about-prayer.png";
 
 const pillars = [
   { icon: Feather, label: "Devoción" },
@@ -15,11 +15,11 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Left — Photo */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-            <div className="relative w-64 sm:w-80 lg:w-[28rem] card-elevated p-3 bg-white">
+            <div className="relative w-64 sm:w-80 lg:w-[28rem]">
               <img
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
-                className="w-full h-auto object-contain rounded-xl"
+                className="w-full h-auto object-contain mask-fade-bottom"
               />
             </div>
           </div>
