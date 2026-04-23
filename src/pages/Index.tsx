@@ -5,7 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import StatsBar from "@/components/StatsBar";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import VideoSection from "@/components/VideoSection";
-import ProductCarousel from "@/components/ProductCarousel";
+// import ProductCarousel from "@/components/ProductCarousel"; // Carrusel desactivado temporalmente
+import NeedFinder from "@/components/NeedFinder";
 import ShopIntentions from "@/components/ShopIntentions";
 import Footer from "@/components/Footer";
 
@@ -19,7 +20,8 @@ const Index = () => {
       <StatsBar />
       <LeadMagnetSection />
       <VideoSection />
-      <ProductCarousel />
+      {/* <ProductCarousel /> Carrusel desactivado temporalmente */}
+      <NeedFinder />
       <ShopIntentions />
       <Footer />
     </div>
