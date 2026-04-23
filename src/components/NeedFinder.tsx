@@ -58,42 +58,59 @@ const NeedFinder = () => {
           })}
         </div>
 
-        {/* Result panel */}
-        {activeNeed && activeProducts.length > 0 ? (
-          <div
-            key={activeNeed.slug}
-            className={`max-w-3xl mx-auto grid gap-6 animate-in fade-in duration-300 ${
-              activeProducts.length > 1 ? "sm:grid-cols-2" : "sm:grid-cols-1 max-w-sm"
-            }`}
-          >
-            {activeProducts.map((product) => {
-              const archangel = archangelByProductSlug[product.slug];
-              return (
-                <Link
-                  key={product.slug}
-                  to={`/tienda/${product.slug}`}
-                  className="card-elevated border border-gold/30 p-6 rounded-2xl bg-card hover:border-gold/60 transition-all duration-300 text-center block"
-                >
-                  <div className="bg-card rounded-xl border border-gold/20 p-4 flex items-center justify-center mb-4">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full max-w-[220px] aspect-square object-contain"
-                    />
-                  </div>
-                  <h3 className="font-display text-2xl text-secondary mb-1">
-                    {product.name}
-                  </h3>
-                  {archangel && (
-                    <p className="font-body italic text-gold-dark">
-                      {archangel}
-                    </p>
-                  )}
-                </Link>
-              );
-            })}
+        {/* Result panel — soft expanding table */}
+        <div
+          className={`grid transition-all duration-500 ease-out ${
+            activeNeed && activeProducts.length > 0
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
+          }`}
+          aria-hidden={!activeNeed}
+        >
+          <div className="overflow-hidden">
+            {activeNeed && activeProducts.length > 0 && (
+              <div
+                key={activeNeed.slug}
+                className="max-w-4xl mx-auto bg-card/60 border border-gold/30 rounded-3xl p-8 md:p-12 shadow-[var(--shadow-elevated)] animate-in fade-in duration-500"
+              >
+                <p className="text-center font-display italic text-xl md:text-2xl text-secondary mb-8">
+                  Amuletos para {activeNeed.label.toLowerCase()}
+                </p>
+
+                <div className="flex flex-wrap items-stretch justify-center gap-6">
+                  {activeProducts.map((product) => {
+                    const archangel = archangelByProductSlug[product.slug];
+                    return (
+                      <Link
+                        key={product.slug}
+                        to={`/tienda/${product.slug}`}
+                        className="w-full sm:w-[260px] card-elevated border border-gold/30 p-6 rounded-2xl bg-card hover:border-gold/60 transition-all duration-300 text-center block"
+                      >
+                        <div className="bg-card rounded-xl border border-gold/20 p-4 flex items-center justify-center mb-4">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full max-w-[220px] aspect-square object-contain"
+                          />
+                        </div>
+                        <h3 className="font-display text-2xl text-secondary mb-1">
+                          {product.name}
+                        </h3>
+                        {archangel && (
+                          <p className="font-body italic text-gold-dark">
+                            {archangel}
+                          </p>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
-        ) : (
+        </div>
+
+        {!activeNeed && (
           <p className="text-center font-body text-sm text-muted-foreground italic">
             ↑ Toca una necesidad para descubrir tu amuleto
           </p>
