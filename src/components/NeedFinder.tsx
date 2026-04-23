@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { needs, archangelByProductSlug, type NeedSlug } from "@/data/needs";
 import { products } from "@/data/products";
 
 const NeedFinder = () => {
   const [active, setActive] = useState<NeedSlug | null>(null);
+  // Keep the last selected need so the panel content remains visible during the collapse animation
+  const [displayed, setDisplayed] = useState<NeedSlug | null>(null);
 
-  const activeNeed = active ? needs.find((n) => n.slug === active) : null;
-  const activeProducts = activeNeed
-    ? activeNeed.productSlugs
+  useEffect(() => {
+    if (active) {
+      setDisplayed(active);
+    }
+  }, [active]);
+
+  const displayedNeed = displayed ? needs.find((n) => n.slug === displayed) : null;
+  const displayedProducts = displayedNeed
+    ? displayedNeed.productSlugs
         .map((slug) => products.find((p) => p.slug === slug))
         .filter((p): p is NonNullable<typeof p> => Boolean(p))
     : [];
+
+  const isOpen = Boolean(active) && displayedProducts.length > 0;
 
   const toggle = (slug: NeedSlug) => {
     setActive((prev) => (prev === slug ? null : slug));
@@ -58,27 +68,30 @@ const NeedFinder = () => {
           })}
         </div>
 
-        {/* Result panel — soft expanding table */}
+        {/* Result panel — soft expanding table (stays mounted; cards crossfade on need change) */}
         <div
           className={`grid transition-all duration-500 ease-out ${
-            activeNeed && activeProducts.length > 0
+            isOpen
               ? "grid-rows-[1fr] opacity-100"
               : "grid-rows-[0fr] opacity-0"
           }`}
-          aria-hidden={!activeNeed}
+          aria-hidden={!isOpen}
         >
           <div className="overflow-hidden">
-            {activeNeed && activeProducts.length > 0 && (
-              <div
-                key={activeNeed.slug}
-                className="max-w-4xl mx-auto bg-card/60 border border-gold/30 rounded-3xl p-8 md:p-12 shadow-[var(--shadow-elevated)] animate-in fade-in duration-500"
-              >
-                <p className="text-center font-display italic text-xl md:text-2xl text-secondary mb-8">
-                  Amuletos para {activeNeed.label.toLowerCase()}
+            {displayedNeed && displayedProducts.length > 0 && (
+              <div className="max-w-4xl mx-auto bg-card/60 border border-gold/30 rounded-3xl p-8 md:p-12 shadow-[var(--shadow-elevated)]">
+                <p
+                  key={`title-${displayedNeed.slug}`}
+                  className="text-center font-display italic text-xl md:text-2xl text-secondary mb-8 animate-fade-in"
+                >
+                  Amuletos para {displayedNeed.label.toLowerCase()}
                 </p>
 
-                <div className="flex flex-wrap items-stretch justify-center gap-6">
-                  {activeProducts.map((product) => {
+                <div
+                  key={`cards-${displayedNeed.slug}`}
+                  className="flex flex-wrap items-stretch justify-center gap-6 animate-fade-in"
+                >
+                  {displayedProducts.map((product) => {
                     const archangel = archangelByProductSlug[product.slug];
                     return (
                       <Link
@@ -110,7 +123,7 @@ const NeedFinder = () => {
           </div>
         </div>
 
-        {!activeNeed && (
+        {!active && (
           <p className="text-center font-body text-sm text-muted-foreground italic">
             ↑ Toca una necesidad para descubrir tu amuleto
           </p>
