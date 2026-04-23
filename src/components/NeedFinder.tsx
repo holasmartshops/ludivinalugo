@@ -7,10 +7,11 @@ const NeedFinder = () => {
   const [active, setActive] = useState<NeedSlug | null>(null);
 
   const activeNeed = active ? needs.find((n) => n.slug === active) : null;
-  const activeProduct = activeNeed
-    ? products.find((p) => p.slug === activeNeed.productSlug)
-    : null;
-  const archangel = activeProduct ? archangelByProductSlug[activeProduct.slug] : null;
+  const activeProducts = activeNeed
+    ? activeNeed.productSlugs
+        .map((slug) => products.find((p) => p.slug === slug))
+        .filter((p): p is NonNullable<typeof p> => Boolean(p))
+    : [];
 
   const toggle = (slug: NeedSlug) => {
     setActive((prev) => (prev === slug ? null : slug));
@@ -30,8 +31,8 @@ const NeedFinder = () => {
           <hr className="gold-divider w-24 mx-auto mt-6" />
         </div>
 
-        {/* Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto mb-12">
+        {/* Chips grid 3x3 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12">
           {needs.map((need) => {
             const isActive = active === need.slug;
             return (
@@ -40,7 +41,7 @@ const NeedFinder = () => {
                 type="button"
                 onClick={() => toggle(need.slug)}
                 aria-pressed={isActive}
-                className={`group inline-flex items-center gap-2 rounded-full border px-5 py-2.5 transition-all duration-300 ${
+                className={`group inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 transition-all duration-300 ${
                   isActive
                     ? "border-gold bg-secondary/5 ring-1 ring-gold/40 text-secondary shadow-[var(--shadow-elevated)]"
                     : "border-gold/30 bg-card text-secondary/80 hover:border-gold/60 hover:text-secondary"
@@ -49,7 +50,7 @@ const NeedFinder = () => {
                 <span className="text-lg leading-none" aria-hidden="true">
                   {need.emoji}
                 </span>
-                <span className="font-body italic text-sm md:text-base">
+                <span className="font-body italic text-sm md:text-base text-center">
                   {need.label}
                 </span>
               </button>
@@ -58,44 +59,39 @@ const NeedFinder = () => {
         </div>
 
         {/* Result panel */}
-        {activeNeed && activeProduct ? (
+        {activeNeed && activeProducts.length > 0 ? (
           <div
             key={activeNeed.slug}
-            className="max-w-3xl mx-auto card-elevated border border-gold/30 p-6 md:p-10 animate-in fade-in duration-300"
+            className={`max-w-3xl mx-auto grid gap-6 animate-in fade-in duration-300 ${
+              activeProducts.length > 1 ? "sm:grid-cols-2" : "sm:grid-cols-1 max-w-sm"
+            }`}
           >
-            <p className="text-center font-display italic text-xl md:text-2xl text-secondary mb-8">
-              Amuleto para {activeNeed.label.toLowerCase()}
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-8 items-center">
-              <div className="bg-card rounded-xl border border-gold/20 p-4 flex items-center justify-center">
-                <img
-                  src={activeProduct.image}
-                  alt={activeProduct.name}
-                  className="w-full max-w-[260px] aspect-square object-contain"
-                />
-              </div>
-
-              <div className="text-center sm:text-left">
-                {archangel && (
-                  <p className="font-body italic text-gold-dark mb-2">
-                    {archangel}
-                  </p>
-                )}
-                <h3 className="font-display text-3xl text-secondary mb-2">
-                  {activeProduct.name}
-                </h3>
-                <p className="font-body text-lg text-gold-dark font-medium mb-6">
-                  {activeProduct.price}
-                </p>
+            {activeProducts.map((product) => {
+              const archangel = archangelByProductSlug[product.slug];
+              return (
                 <Link
-                  to={`/tienda/${activeProduct.slug}`}
-                  className="btn-primary"
+                  key={product.slug}
+                  to={`/tienda/${product.slug}`}
+                  className="card-elevated border border-gold/30 p-6 rounded-2xl bg-card hover:border-gold/60 transition-all duration-300 text-center block"
                 >
-                  Ver detalle
+                  <div className="bg-card rounded-xl border border-gold/20 p-4 flex items-center justify-center mb-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full max-w-[220px] aspect-square object-contain"
+                    />
+                  </div>
+                  <h3 className="font-display text-2xl text-secondary mb-1">
+                    {product.name}
+                  </h3>
+                  {archangel && (
+                    <p className="font-body italic text-gold-dark">
+                      {archangel}
+                    </p>
+                  )}
                 </Link>
-              </div>
-            </div>
+              );
+            })}
           </div>
         ) : (
           <p className="text-center font-body text-sm text-muted-foreground italic">
