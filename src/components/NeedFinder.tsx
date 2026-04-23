@@ -41,8 +41,8 @@ const NeedFinder = () => {
           <hr className="gold-divider w-24 mx-auto mt-6" />
         </div>
 
-        {/* Chips grid 3x3 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12">
+        {/* Chips grid: 2 cols mobile, 3 cols sm+ */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-3xl mx-auto mb-12">
           {needs.map((need) => {
             const isActive = active === need.slug;
             return (
@@ -51,17 +51,18 @@ const NeedFinder = () => {
                 type="button"
                 onClick={() => toggle(need.slug)}
                 aria-pressed={isActive}
-                className={`group inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 transition-all duration-300 ${
+                className={`group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full border px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-300 ${
                   isActive
                     ? "border-gold bg-secondary/5 ring-1 ring-gold/40 text-secondary shadow-[var(--shadow-elevated)]"
                     : "border-gold/30 bg-card text-secondary/80 hover:border-gold/60 hover:text-secondary"
                 }`}
               >
-                <span className="text-lg leading-none" aria-hidden="true">
+                <span className="text-base sm:text-lg leading-none" aria-hidden="true">
                   {need.emoji}
                 </span>
-                <span className="font-body italic text-sm md:text-base text-center">
-                  {need.label}
+                <span className="font-body italic text-xs sm:text-base text-center">
+                  <span className="sm:hidden">{need.shortLabel}</span>
+                  <span className="hidden sm:inline">{need.label}</span>
                 </span>
               </button>
             );
