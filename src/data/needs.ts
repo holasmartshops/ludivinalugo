@@ -21,7 +21,7 @@ export const needs: Need[] = [
   { slug: "salud", label: "Salud, sanación y enfermedades", emoji: "💚", productSlugs: ["dije-piedra-verde"] },
   { slug: "viajes", label: "Viajes, caminos y animales", emoji: "🧭", productSlugs: ["dije-piedra-verde"] },
   { slug: "familia", label: "Hijos, embarazo y familia", emoji: "👶", productSlugs: ["dije-piedra-blanca"] },
-  { slug: "estudios", label: "Estudios, sabiduría y conocimiento", emoji: "📚", productSlugs: ["dije-piedra-amarilla"] },
+  { slug: "estudios", label: "Estudios, sabiduría y conocimiento", emoji: "📚", productSlugs: ["dije-piedra-amarilla", "dije-piedra-blanca"] },
   { slug: "trabajo", label: "Trabajo, dinero y prosperidad", emoji: "💰", productSlugs: ["dije-piedra-naranja"] },
   { slug: "amor", label: "Amor, pareja y matrimonio", emoji: "🌹", productSlugs: ["dije-piedra-rosa"] },
   { slug: "tramites", label: "Trámites, contratos y documentos", emoji: "📜", productSlugs: ["dije-piedra-rosa"] },
