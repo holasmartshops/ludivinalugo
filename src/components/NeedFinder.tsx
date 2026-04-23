@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { needs, archangelByProductSlug, type NeedSlug } from "@/data/needs";
 import { products } from "@/data/products";
 
 const NeedFinder = () => {
   const [active, setActive] = useState<NeedSlug | null>(null);
+  // Keep the last selected need so the panel content remains visible during the collapse animation
+  const [displayed, setDisplayed] = useState<NeedSlug | null>(null);
 
-  const activeNeed = active ? needs.find((n) => n.slug === active) : null;
-  const activeProducts = activeNeed
-    ? activeNeed.productSlugs
+  useEffect(() => {
+    if (active) {
+      setDisplayed(active);
+    }
+  }, [active]);
+
+  const displayedNeed = displayed ? needs.find((n) => n.slug === displayed) : null;
+  const displayedProducts = displayedNeed
+    ? displayedNeed.productSlugs
         .map((slug) => products.find((p) => p.slug === slug))
         .filter((p): p is NonNullable<typeof p> => Boolean(p))
     : [];
+
+  const isOpen = Boolean(active) && displayedProducts.length > 0;
 
   const toggle = (slug: NeedSlug) => {
     setActive((prev) => (prev === slug ? null : slug));
