@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { needs, archangelByProductSlug, type NeedSlug } from "@/data/needs";
 import { products } from "@/data/products";
