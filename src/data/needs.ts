@@ -25,7 +25,7 @@ export const needs: Need[] = [
   { slug: "trabajo", label: "Trabajo, dinero y prosperidad", emoji: "💰", productSlugs: ["dije-piedra-naranja"] },
   { slug: "amor", label: "Amor, pareja y matrimonio", emoji: "🌹", productSlugs: ["dije-piedra-rosa"] },
   { slug: "tramites", label: "Trámites, contratos y documentos", emoji: "📜", productSlugs: ["dije-piedra-rosa"] },
-  { slug: "paz", label: "Paz mental, perdón y liberación", emoji: "🕊️", productSlugs: ["dije-piedra-morado"] },
+  { slug: "paz", label: "Paz mental, perdón y liberación", emoji: "🕊️", productSlugs: ["dije-piedra-morado", "dije-piedra-azul"] },
 ];
 
 export const archangelByProductSlug: Record<string, string> = {
