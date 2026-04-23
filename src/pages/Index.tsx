@@ -7,7 +7,6 @@ import LeadMagnetSection from "@/components/LeadMagnetSection";
 import VideoSection from "@/components/VideoSection";
 // import ProductCarousel from "@/components/ProductCarousel"; // Carrusel desactivado temporalmente
 import NeedFinder from "@/components/NeedFinder";
-import ShopIntentions from "@/components/ShopIntentions";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -22,7 +21,6 @@ const Index = () => {
       <VideoSection />
       {/* <ProductCarousel /> Carrusel desactivado temporalmente */}
       <NeedFinder />
-      <ShopIntentions />
       <Footer />
     </div>
   );
