@@ -1,8 +1,8 @@
-import iconClaridad from "@/assets/for-whom/claridad.png";
-import iconProteccion from "@/assets/for-whom/proteccion.png";
-import iconAngeles from "@/assets/for-whom/angeles.png";
-import iconTransicion from "@/assets/for-whom/transicion.png";
-import iconAbundancia from "@/assets/for-whom/abundancia.png";
+import iconClaridad from "@/assets/for-whom/claridad.webp";
+import iconProteccion from "@/assets/for-whom/proteccion.webp";
+import iconAngeles from "@/assets/for-whom/angeles.webp";
+import iconTransicion from "@/assets/for-whom/transicion.webp";
+import iconAbundancia from "@/assets/for-whom/abundancia.webp";
 
 const items = [
   { image: iconClaridad, text: "Sientes que necesitas claridad en tu camino" },
@@ -38,6 +38,8 @@ const ForWhomSection = () => {
                 src={image}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
                 className="shrink-0 w-12 h-12 md:w-14 md:h-14 object-contain"
               />
               <p className="font-body font-medium text-secondary leading-snug text-[17px] md:text-lg">

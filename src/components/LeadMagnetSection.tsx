@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import ludivinaCards from "@/assets/ludivina-cards.png";
+import ludivinaCards from "@/assets/ludivina-cards.webp";
 
 const LeadMagnetSection = () => {
   const [email, setEmail] = useState("");
@@ -47,6 +47,8 @@ const LeadMagnetSection = () => {
               <img
                 src={ludivinaCards}
                 alt="Mensaje angelical"
+                loading="lazy"
+                decoding="async"
                 className="relative z-10 w-full h-full object-contain mask-fade-bottom"
               />
             </div>

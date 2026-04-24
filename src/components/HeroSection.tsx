@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import ludivinaImg from "@/assets/ludivina.png";
-import heroClouds from "@/assets/hero-clouds.jpg";
+import ludivinaImg from "@/assets/ludivina.webp";
+import heroClouds from "@/assets/hero-clouds.webp";
 import ZodiacWatermark from "@/components/ZodiacWatermark";
 
 const HeroSection = forwardRef<HTMLElement>((props, ref) => {
@@ -14,6 +14,9 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
         src={heroClouds}
         alt=""
         aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-40 mask-fade-bottom pointer-events-none"
       />
       <ZodiacWatermark />
@@ -49,6 +52,9 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
           <img
             src={ludivinaImg}
             alt="Ludivina Lugo — Guía Espiritual Angelical"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-auto object-contain object-bottom mask-fade-bottom"
           />
         </div>
