@@ -12,7 +12,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         <img
           src={product.image}
           alt={product.name}
-          loading="lazy"
+          loading="eager"
           decoding="async"
           className="w-full aspect-[3/4] object-contain transition-transform duration-500 group-hover:scale-105"
         />

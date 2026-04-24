@@ -47,7 +47,7 @@ const LeadMagnetSection = () => {
               <img
                 src={ludivinaCards}
                 alt="Mensaje angelical"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 className="relative z-10 w-full h-full object-contain mask-fade-bottom"
               />
