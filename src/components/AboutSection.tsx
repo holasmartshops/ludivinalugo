@@ -1,5 +1,5 @@
 import { Feather, HandHeart, Sun } from "lucide-react";
-import ludivinaAbout from "@/assets/ludivina-about-prayer.png";
+import ludivinaAbout from "@/assets/ludivina-about-prayer.webp";
 
 const pillars = [
   { icon: Feather, label: "Devoción" },

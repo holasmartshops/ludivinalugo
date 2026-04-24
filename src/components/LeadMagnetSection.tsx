@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import ludivinaCards from "@/assets/ludivina-cards.png";
+import ludivinaCards from "@/assets/ludivina-cards.webp";
 
 const LeadMagnetSection = () => {
   const [email, setEmail] = useState("");

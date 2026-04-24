@@ -1,4 +1,4 @@
-import starsBg from "@/assets/stars-bg.png";
+import starsBg from "@/assets/stars-bg.webp";
 
 const posts = [
   {

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import CartDrawer from "@/components/CartDrawer";
-import ludivinaLogo from "@/assets/navbar-logo.png";
+import ludivinaLogo from "@/assets/navbar-logo.webp";
 
 const leftLinks = [
   { label: "Inicio", href: "/" },

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import ludivinaImg from "@/assets/ludivina.png";
-import heroClouds from "@/assets/hero-clouds.jpg";
+import ludivinaImg from "@/assets/ludivina.webp";
+import heroClouds from "@/assets/hero-clouds.webp";
 import ZodiacWatermark from "@/components/ZodiacWatermark";
 
 const HeroSection = forwardRef<HTMLElement>((props, ref) => {

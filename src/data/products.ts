@@ -1,10 +1,10 @@
-import alaAzul from "@/assets/products/ala-azul.png";
-import alaVerde from "@/assets/products/ala-verde.jpeg";
-import alaBlanco from "@/assets/products/ala-blanco.png";
-import alaAmarillo from "@/assets/products/ala-amarillo.png";
-import alaNaranja from "@/assets/products/ala-naranja.png";
-import alaRosa from "@/assets/products/ala-rosa.png";
-import alaMorado from "@/assets/products/ala-morado.png";
+import alaAzul from "@/assets/products/ala-azul.webp";
+import alaVerde from "@/assets/products/ala-verde.webp";
+import alaBlanco from "@/assets/products/ala-blanco.webp";
+import alaAmarillo from "@/assets/products/ala-amarillo.webp";
+import alaNaranja from "@/assets/products/ala-naranja.webp";
+import alaRosa from "@/assets/products/ala-rosa.webp";
+import alaMorado from "@/assets/products/ala-morado.webp";
 
 export type Intention = "paz" | "claridad" | "proteccion" | "abundancia";
 
