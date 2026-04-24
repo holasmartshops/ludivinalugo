@@ -38,7 +38,7 @@ const ForWhomSection = () => {
                 src={image}
                 alt=""
                 aria-hidden="true"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 className="shrink-0 w-12 h-12 md:w-14 md:h-14 object-contain"
               />
