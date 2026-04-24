@@ -69,7 +69,7 @@ const Header = () => {
 
           <div className="flex justify-center">
             <Link to="/" onClick={() => handleNav("/")} className="flex items-center shrink-0">
-              <img src={ludivinaLogo} alt="Ludivina Lugo" className="h-16 w-auto" />
+              <img src={ludivinaLogo} alt="Ludivina Lugo" loading="eager" fetchPriority="high" decoding="async" className="h-16 w-auto" />
             </Link>
           </div>
 
@@ -104,7 +104,7 @@ const Header = () => {
         {/* Mobile */}
         <div className="container mx-auto md:hidden flex items-center justify-between h-24 px-4">
           <Link to="/" onClick={() => handleNav("/")} className="flex items-center shrink-0">
-            <img src={ludivinaLogo} alt="Ludivina Lugo" className="h-12 w-auto" />
+            <img src={ludivinaLogo} alt="Ludivina Lugo" loading="eager" fetchPriority="high" decoding="async" className="h-12 w-auto" />
           </Link>
 
           <div className="flex items-center gap-4">

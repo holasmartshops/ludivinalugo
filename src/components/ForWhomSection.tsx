@@ -38,6 +38,8 @@ const ForWhomSection = () => {
                 src={image}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
                 className="shrink-0 w-12 h-12 md:w-14 md:h-14 object-contain"
               />
               <p className="font-body font-medium text-secondary leading-snug text-[17px] md:text-lg">

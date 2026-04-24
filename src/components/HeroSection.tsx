@@ -52,6 +52,9 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
           <img
             src={ludivinaImg}
             alt="Ludivina Lugo — Guía Espiritual Angelical"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-auto object-contain object-bottom mask-fade-bottom"
           />
         </div>

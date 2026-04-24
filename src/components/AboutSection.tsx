@@ -19,6 +19,8 @@ const AboutSection = () => {
               <img
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain mask-fade-bottom"
               />
             </div>
