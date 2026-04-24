@@ -14,6 +14,9 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
         src={heroClouds}
         alt=""
         aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-40 mask-fade-bottom pointer-events-none"
       />
       <ZodiacWatermark />
