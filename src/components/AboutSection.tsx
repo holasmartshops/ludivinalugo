@@ -38,7 +38,7 @@ const AboutSection = () => {
 
           {/* Image — mobile second, desktop left col */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1 lg:col-start-1 lg:row-start-1 lg:row-span-4">
-            <div className="relative w-64 sm:w-80 lg:w-[28rem]">
+            <div className="relative w-64 sm:w-80 lg:w-full lg:max-w-[40rem]">
               <img
                 src={ludivinaAbout}
                 alt="Ludivina Lugo — Guía Espiritual Angelical"
