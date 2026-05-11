@@ -1,11 +1,11 @@
 import multimediosLogo from "@/assets/logos/multimedios.svg";
 import milenioLogo from "@/assets/logos/milenio.png";
-import multimediosM from "@/assets/logos/multimedios-m.png";
+import canal6 from "@/assets/logos/canal6.png";
 
 const outlets = [
   { name: "Multimedios", src: multimediosLogo },
   { name: "Milenio", src: milenioLogo },
-  { name: "Multimedios Canal 6", src: multimediosM },
+  { name: "Canal 6", src: canal6 },
 ];
 
 const FeaturedInStrip = () => {
