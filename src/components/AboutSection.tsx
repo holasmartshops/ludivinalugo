@@ -34,20 +34,15 @@ const AboutSection = () => {
             </h2>
 
             <div className="space-y-5 font-body text-muted-foreground text-lg leading-relaxed mb-10">
-              <p>
-                Desde niña, Ludivina escuchó susurros que otros no podían oír. A los doce
-                años tuvo su primer encuentro consciente con un ángel guardián, un instante
-                que marcó para siempre su camino.
-              </p>
-              <p>
-                Con más de quince años de trayectoria en angelología, numerología sagrada y
-                terapias energéticas, ha guiado a miles de personas a través de lecturas,
-                eventos y rituales de bendición de amuletos.
-              </p>
-              <p>
-                Su misión: tender un puente entre el cielo y la tierra, recordándote que
-                nunca caminas sola.
-              </p>
+            <p>
+              Ludivina Lugo es una reconocida angelóloga y consejera espiritual con formación universitaria en Trabajo Social y Maestría en Investigación Social, complementada con profundos conocimientos en astrología, astrología médica, manejo de la energía, esoterismo, angelología y prácticas ancestrales de la cultura maya.
+            </p>
+            <p>
+              A lo largo de su trayectoria se ha consolidado como guía espiritual dedicada a acompañar a las personas en su transformación personal, ayudándoles a descubrir su poder interior, fortalecer su autoestima y reconectar con su esencia divina. Su presencia en medios de comunicación —radio, televisión y plataformas digitales— le ha dado alcance nacional e internacional difundiendo mensajes de bienestar emocional, energético y espiritual.
+            </p>
+            <p>
+              El pilar central de su misión es el conocimiento angelical: para Ludivina, los ángeles son seres de luz que nos guían, protegen y acompañan en cada paso del camino. A través de consultas privadas, conferencias y talleres, miles de personas han encontrado en ella orientación y herramientas concretas para sanar, elevar su energía y vivir en plenitud. Su propósito es claro: ayudar a cada ser humano a conectarse con la energía divina y convertirse en un canal de luz, abundancia y equilibrio.
+            </p>
             </div>
 
             <div className="grid grid-cols-3 gap-4 max-w-md mb-10">
