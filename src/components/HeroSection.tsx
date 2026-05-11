@@ -45,7 +45,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
         </div>
 
         {/* Right — Photo with bottom fade */}
-        <div className="relative flex justify-center items-end order-1 lg:order-2 h-[55vh] max-h-[546px] w-full lg:h-[calc(100vh-3rem)] lg:max-h-none lg:justify-end lg:self-end">
+        <div className="relative flex justify-center items-end order-1 lg:order-2 h-[55vh] max-h-[546px] md:h-[40vh] md:max-h-[380px] w-full lg:h-[calc(100vh-3rem)] lg:max-h-none lg:justify-end lg:self-end">
           <img
             src={ludivinaImg}
             alt="Ludivina Lugo — Guía Espiritual Angelical"
