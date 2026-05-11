@@ -1,7 +1,7 @@
 const stats = [
-  { number: "15+", label: "Años guiando almas" },
-  { number: "2,500+", label: "Personas ayudadas" },
-  { number: "500+", label: "Testimonios de luz" },
+  { number: "32+", label: "Años guiando almas" },
+  { number: "350,000+", label: "Personas ayudadas" },
+  { number: "4,000+", label: "Testimonios de luz" },
 ];
 
 const StatsBar = () => {
@@ -12,9 +12,7 @@ const StatsBar = () => {
           {stats.map((stat) => (
             <div key={stat.label}>
               <p className="font-display text-5xl md:text-6xl text-gold mb-2">{stat.number}</p>
-              <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                {stat.label}
-              </p>
+              <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>
