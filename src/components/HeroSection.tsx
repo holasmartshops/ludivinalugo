@@ -52,7 +52,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="h-full w-auto object-contain object-bottom mask-fade-bottom lg:scale-[1.43] lg:origin-bottom"
+            className="h-full w-auto object-contain object-bottom mask-fade-bottom translate-x-[17px] lg:translate-x-0 lg:scale-[1.43] lg:origin-bottom"
           />
         </div>
       </div>
