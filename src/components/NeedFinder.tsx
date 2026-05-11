@@ -45,6 +45,7 @@ const NeedFinder = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-3xl mx-auto mb-12">
           {needs.map((need) => {
             const isActive = active === need.slug;
+            const Icon = need.icon;
             return (
               <button
                 key={need.slug}
@@ -57,9 +58,7 @@ const NeedFinder = () => {
                     : "border-gold/30 bg-card text-secondary/80 hover:border-gold/60 hover:text-secondary"
                 }`}
               >
-                <span className="text-base sm:text-lg leading-none" aria-hidden="true">
-                  {need.emoji}
-                </span>
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-gold-dark" strokeWidth={1.5} aria-hidden="true" />
                 <span className="font-body italic text-xs sm:text-base text-center">
                   <span className="sm:hidden">{need.shortLabel}</span>
                   <span className="hidden sm:inline">{need.label}</span>

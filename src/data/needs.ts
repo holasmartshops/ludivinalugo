@@ -1,3 +1,5 @@
+import { Shield, HeartPulse, Compass, Baby, BookOpen, Coins, Flower2, ScrollText, Feather, type LucideIcon } from "lucide-react";
+
 export type NeedSlug =
   | "proteccion"
   | "salud"
@@ -13,20 +15,20 @@ export interface Need {
   slug: NeedSlug;
   label: string;
   shortLabel: string;
-  emoji: string;
+  icon: LucideIcon;
   productSlugs: string[];
 }
 
 export const needs: Need[] = [
-  { slug: "proteccion", label: "Protección y defensa espiritual", shortLabel: "Protección", emoji: "🛡️", productSlugs: ["dije-piedra-azul"] },
-  { slug: "salud", label: "Salud, sanación y enfermedades", shortLabel: "Salud", emoji: "💚", productSlugs: ["dije-piedra-verde"] },
-  { slug: "viajes", label: "Viajes, caminos y animales", shortLabel: "Viajes", emoji: "🧭", productSlugs: ["dije-piedra-verde"] },
-  { slug: "familia", label: "Hijos, embarazo y familia", shortLabel: "Familia", emoji: "👶", productSlugs: ["dije-piedra-blanca"] },
-  { slug: "estudios", label: "Estudios, sabiduría y conocimiento", shortLabel: "Estudios", emoji: "📚", productSlugs: ["dije-piedra-amarilla", "dije-piedra-blanca"] },
-  { slug: "trabajo", label: "Trabajo, dinero y prosperidad", shortLabel: "Trabajo", emoji: "💰", productSlugs: ["dije-piedra-naranja"] },
-  { slug: "amor", label: "Amor, pareja y matrimonio", shortLabel: "Amor", emoji: "🌹", productSlugs: ["dije-piedra-rosa"] },
-  { slug: "tramites", label: "Trámites, contratos y documentos", shortLabel: "Trámites", emoji: "📜", productSlugs: ["dije-piedra-rosa"] },
-  { slug: "paz", label: "Paz mental, perdón y liberación", shortLabel: "Paz mental", emoji: "🕊️", productSlugs: ["dije-piedra-morado", "dije-piedra-azul"] },
+  { slug: "proteccion", label: "Protección y defensa espiritual", shortLabel: "Protección", icon: Shield, productSlugs: ["dije-piedra-azul"] },
+  { slug: "salud", label: "Salud, sanación y enfermedades", shortLabel: "Salud", icon: HeartPulse, productSlugs: ["dije-piedra-verde"] },
+  { slug: "viajes", label: "Viajes, caminos y animales", shortLabel: "Viajes", icon: Compass, productSlugs: ["dije-piedra-verde"] },
+  { slug: "familia", label: "Hijos, embarazo y familia", shortLabel: "Familia", icon: Baby, productSlugs: ["dije-piedra-blanca"] },
+  { slug: "estudios", label: "Estudios, sabiduría y conocimiento", shortLabel: "Estudios", icon: BookOpen, productSlugs: ["dije-piedra-amarilla", "dije-piedra-blanca"] },
+  { slug: "trabajo", label: "Trabajo, dinero y prosperidad", shortLabel: "Trabajo", icon: Coins, productSlugs: ["dije-piedra-naranja"] },
+  { slug: "amor", label: "Amor, pareja y matrimonio", shortLabel: "Amor", icon: Flower2, productSlugs: ["dije-piedra-rosa"] },
+  { slug: "tramites", label: "Trámites, contratos y documentos", shortLabel: "Trámites", icon: ScrollText, productSlugs: ["dije-piedra-rosa"] },
+  { slug: "paz", label: "Paz mental, perdón y liberación", shortLabel: "Paz mental", icon: Feather, productSlugs: ["dije-piedra-morado", "dije-piedra-azul"] },
 ];
 
 export const archangelByProductSlug: Record<string, string> = {
