@@ -36,7 +36,7 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-            <a href="#tienda" className="btn-ghost w-full sm:w-auto">
+            <a href="/tienda" className="btn-ghost w-full sm:w-auto">
               Ver Amuletos
             </a>
           </div>

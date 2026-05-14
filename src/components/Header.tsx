@@ -7,7 +7,6 @@ import ludivinaLogo from "@/assets/navbar-logo.webp";
 
 const leftLinks = [
   { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/#servicios" },
   { label: "Tienda", href: "/tienda" },
 ];
 
