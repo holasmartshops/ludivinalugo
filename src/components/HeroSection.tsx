@@ -24,8 +24,6 @@ const HeroSection = forwardRef<HTMLElement>((props, ref) => {
       <div className="relative z-10 container mx-auto px-4 lg:px-8 grid gap-8 lg:grid-cols-2 lg:gap-12 items-center lg:min-h-[calc(100vh-6rem)]">
         {/* Left — Text */}
         <div className="text-center lg:text-left animate-fade-in-up order-2 lg:order-1">
-          <p className="eyebrow mb-6">✦ Guía Espiritual Angelical</p>
-
           <h1 className="font-display font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-secondary mb-6">
             Mensajes del cielo
             <br />
